@@ -22,3 +22,8 @@ can_shoot = false;
 alarm[0] = room_speed*shoot_cooldown;
 scr_shoot_arrow(id);
 }
+//Death
+if (hp<=0)
+{
+obj_scoreboard.visible = 1;
+}

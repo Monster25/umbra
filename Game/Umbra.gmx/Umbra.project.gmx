@@ -14,6 +14,7 @@
     </sprites>
     <sprites name="Solids">
       <sprite>sprites\spr_tree</sprite>
+      <sprite>sprites\spr_wall</sprite>
     </sprites>
     <sprites name="Projectiles">
       <sprite>sprites\spr_arrow</sprite>
@@ -46,10 +47,25 @@
     <scripts name="Mechanics">
       <script>scripts\scr_shoot_arrow.gml</script>
     </scripts>
+    <scripts name="Game Control">
+      <script>scripts\scr_menu.gml</script>
+    </scripts>
+    <scripts name="Functionality">
+      <script>scripts\scr_update_grid.gml</script>
+      <script>scripts\scr_next_level.gml</script>
+    </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_menu</font>
+    <font>fonts\fnt_debug</font>
+  </fonts>
   <objects name="objects">
     <objects name="Game Control">
       <object>objects\obj_debug</object>
+      <object>objects\obj_menu</object>
+      <object>objects\obj_grid</object>
+      <object>objects\obj_game_control</object>
+      <object>objects\obj_scoreboard</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>
@@ -61,13 +77,17 @@
     <objects name="Solids">
       <object>objects\obj_tree</object>
       <object>objects\obj_solid</object>
+      <object>objects\obj_wall</object>
     </objects>
     <objects name="Projectiles">
       <object>objects\obj_arrow</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_menu</room>
     <room>rooms\rm_01</room>
+    <room>rooms\rm_02</room>
+    <room>rooms\rm_scoreboard</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

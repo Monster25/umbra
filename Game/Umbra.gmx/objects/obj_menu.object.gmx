@@ -4,11 +4,11 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="8" enumb="64">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,20 +25,55 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Test states
-with (obj_player)
-draw_set_font(fnt_debug);
-draw_text(100,100,string(obj_player.state_name));
-draw_text(100,120,string(obj_player.hsp));
-draw_text(100,140,string(obj_player.vsp));
-draw_text(100,160,"Number of wall objects: "+string(instance_number(obj_wall)));
-draw_text(100,180,"Number of trees: "+string(obj_game_control.level[obj_game_control.current_level,2]));
-draw_text(100,200,"Actual tree objects: "+string(instance_number(obj_tree)));
-draw_text(100,220,string(obj_player.x))
-draw_text(100,240,string(obj_player.y));
-draw_text(100,260,"Current Level: "+string(obj_game_control.current_level));
-draw_text(100,280,"Player Health: "+string(obj_player.hp));
-draw_text(100,300,"Time (seconds): "+string(obj_game_control.time));
+            <string>///Properties
+menu1[0] = "Start Game";
+menu1[1] = "Quit";
+space = 80;
+mpos = 0;
+pushed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Functionality
+var move = 0;
+move -= max(keyboard_check_pressed(vk_up),0);
+move += max(keyboard_check_pressed(vk_down),0);
+
+if (move != 0)
+{
+    mpos += move;
+    if (mpos &lt; 0)
+    mpos = array_length_1d(menu1) - 1;
+    if (mpos &gt; array_length_1d(menu1) - 1)
+    mpos = 0;
+}
+
+var push;
+push = max(keyboard_check_released(vk_enter),keyboard_check_released(vk_space),0)
+if (push == 1 &amp;&amp; pushed == 0)
+{
+pushed = 1;
+scr_menu();
+}
 </string>
           </argument>
         </arguments>
@@ -61,82 +96,14 @@ draw_text(100,300,"Time (seconds): "+string(obj_game_control.time));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_exists(obj_grid))
-{
-draw_set_alpha(0.2);
-mp_grid_draw(grid);
-draw_set_alpha(1);
-with (obj_grid)
-{
-draw_set_alpha(0.2);
-draw_set_colour(c_blue);
-for (var i = 0; i &lt; room_width; i += cell_width;)
-    {
-    draw_line_width(i, 0, i, room_height, 3);
-    }
-for (var j = 0; j &lt; room_width; j += cell_height;)
-    {
-    draw_line_width(0, j, room_width, j, 3);
-    }
-draw_set_alpha(1);
-}
-}
+            <string>draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+draw_set_font(fnt_menu);
+draw_set_color(c_black);
 
-
-for (var j = 0;j&lt;instance_number(obj_tree);j++)
-{
-tree_debug[j] = instance_find(obj_tree,j);
-draw_text(tree_debug[j].x+32,tree_debug[j].y+32,j)
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="18">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (visible = 1)
-visible = 0;
-else
-visible = 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="16">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>scr_next_level();
+for (var i = 0; i &lt; array_length_1d(menu1);i++)
+draw_text(x,y + i*space,menu1[i]);
+draw_sprite(spr_arrow, 0, x, y + mpos * space)
 </string>
           </argument>
         </arguments>
