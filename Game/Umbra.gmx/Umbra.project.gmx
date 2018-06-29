@@ -18,6 +18,7 @@
     </sprites>
     <sprites name="Projectiles">
       <sprite>sprites\spr_arrow</sprite>
+      <sprite>sprites\spr_arrow_light</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -66,6 +67,7 @@
       <object>objects\obj_grid</object>
       <object>objects\obj_game_control</object>
       <object>objects\obj_scoreboard</object>
+      <object>objects\obj_lighting</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>

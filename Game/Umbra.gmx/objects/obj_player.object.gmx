@@ -60,6 +60,7 @@ movespeed = 10; //Moving speed
 //Combat
 arrow_speed = 6; //arrow speed
 arrow_damage = 1; //arrow damage
+arrow_radius = 10; //arrow radius
 shoot_cooldown = 0.2; //shooting cooldown
 hp = 12; //health
 </string>

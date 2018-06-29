@@ -77,7 +77,7 @@ instance_create(enemy_cell_x*obj_grid.cell_width,enemy_cell_y*obj_grid.cell_heig
 j++;
 }
 }</code>
-  <enableViews>0</enableViews>
+  <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>

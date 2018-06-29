@@ -60,6 +60,8 @@ movespeed = 2;
 hp = 2;
 damage = 1;
 attack_cooldown = 1;
+//Pathfinding
+update_chase_timer = 0.5; //How fast monster should update chasing
 </string>
           </argument>
         </arguments>
@@ -83,6 +85,9 @@ attack_cooldown = 1;
             <string>///Functionality
 dir = 0 //Initial Direction
 can_attack = true; //Can Attack
+path = 0 ; //path
+path = path_add(); //add default path
+update_chase = true;
 </string>
           </argument>
         </arguments>
@@ -107,6 +112,29 @@ can_attack = true; //Can Attack
             <kind>1</kind>
             <string>///Add to score when killed
 obj_scoreboard.killed_enemies++;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>update_chase = true;
 </string>
           </argument>
         </arguments>

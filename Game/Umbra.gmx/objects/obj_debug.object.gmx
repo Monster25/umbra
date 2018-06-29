@@ -119,7 +119,7 @@ visible = 1;
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="16">
+    <event eventtype="9" enumb="17">
       <action>
         <libid>1</libid>
         <id>603</id>
