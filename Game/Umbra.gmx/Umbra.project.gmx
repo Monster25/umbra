@@ -19,6 +19,7 @@
     <sprites name="Projectiles">
       <sprite>sprites\spr_arrow</sprite>
       <sprite>sprites\spr_arrow_light</sprite>
+      <sprite>sprites\spr_arrow_stuck_vertical</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -40,6 +41,8 @@
       <script>scripts\scr_player_input.gml</script>
       <script>scripts\scr_player_movement.gml</script>
       <script>scripts\scr_player_collision.gml</script>
+      <script>scripts\scr_player_draw_idle.gml</script>
+      <script>scripts\scr_player_draw_run.gml</script>
     </scripts>
     <scripts name="Monster">
       <script>scripts\scr_monster_idle.gml</script>
@@ -68,6 +71,7 @@
       <object>objects\obj_game_control</object>
       <object>objects\obj_scoreboard</object>
       <object>objects\obj_lighting</object>
+      <object>objects\obj_room_control</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>
@@ -80,6 +84,9 @@
       <object>objects\obj_tree</object>
       <object>objects\obj_solid</object>
       <object>objects\obj_wall</object>
+    </objects>
+    <objects name="Debris">
+      <object>objects\obj_arrow_stuck</object>
     </objects>
     <objects name="Projectiles">
       <object>objects\obj_arrow</object>

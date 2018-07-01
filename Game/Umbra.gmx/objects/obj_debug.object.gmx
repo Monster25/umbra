@@ -39,6 +39,8 @@ draw_text(100,240,string(obj_player.y));
 draw_text(100,260,"Current Level: "+string(obj_game_control.current_level));
 draw_text(100,280,"Player Health: "+string(obj_player.hp));
 draw_text(100,300,"Time (seconds): "+string(obj_game_control.time));
+draw_text(100,320,"Draw Range: "+string(obj_player.arrow_range));
+draw_text(100,340,"Draw speed: "+string(obj_player.arrow_speed));
 </string>
           </argument>
         </arguments>
@@ -64,7 +66,7 @@ draw_text(100,300,"Time (seconds): "+string(obj_game_control.time));
             <string>if (instance_exists(obj_grid))
 {
 draw_set_alpha(0.2);
-mp_grid_draw(grid);
+//mp_grid_draw(grid);
 draw_set_alpha(1);
 with (obj_grid)
 {

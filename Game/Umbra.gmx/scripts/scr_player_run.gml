@@ -18,9 +18,10 @@ scr_player_collision();
 //Shoot
 if (lclick && can_shoot)
 {
-can_shoot = false;
-alarm[0] = room_speed*shoot_cooldown;
-scr_shoot_arrow(id);
+state_switch("draw_run");
+//can_shoot = false;
+//alarm[0] = room_speed*shoot_cooldown;
+//scr_shoot_arrow(id);
 }
 //Death
 if (hp<=0)

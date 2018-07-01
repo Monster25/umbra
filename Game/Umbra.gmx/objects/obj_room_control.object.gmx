@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
-  <persistent>-1</persistent>
+  <depth>0</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,15 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Inits
-globalvar surf;
-surf = -1;
+            <string>//Get number of waves and time between each wave
+waves = obj_game_control.level[obj_game_control.current_level,6];
+time = obj_game_control.level[obj_game_control.current_level,7];
+//Start timer to spawn waves
+alarm[0] = time*room_speed;
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,41 +53,53 @@ surf = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Lighting
-//Dark Room and surface creation
-if (!surface_exists(surf)) {
-    surf = surface_create(view_wview[0], view_hview[0]);
-}
-surface_set_target(surf);
-draw_clear(c_black);
-
-//Arrow Lighting
-with (obj_arrow)
+            <string>//Spawn Enemies
+//Generate random number
+var enemies = irandom_range(obj_game_control.level[obj_game_control.current_level,3],obj_game_control.level[obj_game_control.current_level,4]);
+//Set actual number of enemies in the array
+obj_game_control.level[obj_game_control.current_level, 5] = enemies;
+var j = 0;
+while (j&lt;enemies)
 {
-draw_set_blend_mode(bm_src_color);
-draw_set_blend_mode(bm_add);
-draw_circle_colour(x - view_xview[0],y - view_yview[0],light_size,c_white,c_white,0);
-draw_set_blend_mode(bm_normal);
-draw_set_alpha(1);
-}
-//Stuck Arrow Lighting
-with (obj_arrow_stuck)
+var enemy_cell_x = irandom_range(0,obj_grid.hcells);
+var enemy_cell_y = irandom_range(0,obj_grid.vcells);
+if (mp_grid_get_cell(grid,enemy_cell_x,enemy_cell_y)==0 &amp;&amp; !collision_point(enemy_cell_x*obj_grid.cell_width,enemy_cell_y*obj_grid.cell_height,obj_player,0,1))
 {
-draw_set_blend_mode(bm_src_color);
-draw_set_blend_mode(bm_add);
-draw_circle_colour(x - view_xview[0],y - view_yview[0],light_size,c_white,c_white,0);
-draw_set_blend_mode(bm_normal);
-draw_set_alpha(1);
+instance_create(enemy_cell_x*obj_grid.cell_width,enemy_cell_y*obj_grid.cell_height,obj_monster_01)
+j++;
 }
-
-//Reset and surf specs
-surface_reset_target();
-
-draw_set_blend_mode_ext(bm_dest_color, bm_inv_src_alpha);
-draw_surface_ext(surf, view_xview[0], view_yview[0], 1, 1, 0, c_white, 0.90);
-draw_set_blend_mode(bm_normal);
-
-
+}
+//Decrease waves
+waves--;
+//Repeat until waves are done.
+if (waves&gt;0)
+alarm[0] = time*room_speed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Victory Condition
+//If no more waves left, move to next level
+if (waves &lt;= 0 &amp;&amp; instance_number(obj_monster_01)&lt;=0)
+scr_next_level();
 </string>
           </argument>
         </arguments>

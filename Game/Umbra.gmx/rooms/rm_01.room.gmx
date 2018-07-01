@@ -61,22 +61,8 @@ obj_player.y = player_cell_y*obj_grid.cell_height+sprite_get_height(object_get_s
 player_spawned = true;
 }
 }
-//Spawn Enemies
-//Generate random number
-var enemies = irandom_range(obj_game_control.level[obj_game_control.current_level,3],obj_game_control.level[obj_game_control.current_level,4]);
-//Set actual number of enemies in the array
-obj_game_control.level[obj_game_control.current_level, 5] = enemies;
-var j = 0;
-while (j&lt;enemies)
-{
-var enemy_cell_x = irandom_range(0,obj_grid.hcells);
-var enemy_cell_y = irandom_range(0,obj_grid.vcells);
-if (mp_grid_get_cell(grid,enemy_cell_x,enemy_cell_y)==0 &amp;&amp; !collision_point(enemy_cell_x*obj_grid.cell_width,enemy_cell_y*obj_grid.cell_height,obj_player,0,1))
-{
-instance_create(enemy_cell_x*obj_grid.cell_width,enemy_cell_y*obj_grid.cell_height,obj_monster_01)
-j++;
-}
-}</code>
+//Spawn room control - controls waves and stuff like that
+instance_create(0,0,obj_room_control);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

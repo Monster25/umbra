@@ -66,6 +66,8 @@ high_enemy = 10 //for random gen
 //Column 3 - Minimum Number of Enemies
 //Column 4 - Maximum Number of Enemies
 //Column 5 - Actual number of Enemies
+//Column 6 - Waves of enemies
+//Column 7 - Time (Seconds) between each wave
 //Level 1
 level[0, 0] = 10;
 level[0, 1] = 20;
@@ -73,28 +75,8 @@ level[0, 2] = 0;
 level[0, 3] = 3;
 level[0, 4] = 5;
 level[0, 5] = 0;
-//Level 2
-level[1, 0] = 5;
-level[1, 1] = 7;
-level[1, 2] = 0;
-level[1, 3] = 2;
-level[1, 4] = 4;
-level[1, 5] = 0;
-//Level 3
-level[2, 0] = 12;
-level[2, 1] = 15;
-level[2, 2] = 0;
-level[2, 3] = 4;
-level[2, 4] = 6;
-level[2, 5] = 0;
-//Level 4
-level[3, 0] = 20;
-level[3, 1] = 25;
-level[3, 2] = 0;
-level[3, 3] = 3;
-level[3, 4] = 5;
-level[3, 5] = 0;
-//Continue when neccesary. 
+level[0, 6] = 1;
+level[0, 7] = 5; 
 </string>
           </argument>
         </arguments>
@@ -121,12 +103,14 @@ level[3, 5] = 0;
 //if you run out of custom levels, generate new ones
 if (current_level+1 == array_height_2d(obj_game_control.level))
 {
-level[current_level+1, 0] = irandom_range(base_tree,low_tree);
-level[current_level+1, 1] = irandom_range(low_tree,high_tree); 
-level[current_level+1, 2] = 0;
-level[current_level+1, 3] = irandom_range(base_enemy,low_enemy);
-level[current_level+1, 4] = irandom_range(low_enemy,high_enemy);
-level[current_level+1, 5] = 0;
+level[current_level+1, 0] = irandom_range(base_tree,low_tree);//min trees
+level[current_level+1, 1] = irandom_range(low_tree,high_tree); //max trees
+level[current_level+1, 2] = 0; //actual trees
+level[current_level+1, 3] = irandom_range(base_enemy,low_enemy);// min enemies
+level[current_level+1, 4] = irandom_range(low_enemy,high_enemy); //max enemies
+level[current_level+1, 5] = 0; //actual enemies
+level[current_level+1, 6] = irandom_range(1,3); //enemy waves
+level[current_level+1, 7] = irandom_range(1,10); //time (seconds) between waves
 }
 </string>
           </argument>
@@ -151,30 +135,6 @@ level[current_level+1, 5] = 0;
             <string>///Time Moving
 if (room!=3 &amp;&amp; room!=0)
 time+=1/room_speed;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Victory Condition
-//If no monsters left, next level
-if (instance_number(obj_monster_01)== 0 &amp;&amp; room!=0 &amp;&amp; room!=3)
-scr_next_level();
 </string>
           </argument>
         </arguments>

@@ -29,6 +29,33 @@
 dir = 0; //Initial Direction
 spd = 0; //Initial Speed
 damage = 0; //Initial Damage
+range = 0; //Initial Range
+initial_x = x; //Spawn x
+initial_y = y; //Spawn y
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Lighting
+light_size = 64;
+light_strength = 1;
+
 </string>
           </argument>
         </arguments>
@@ -54,10 +81,21 @@ damage = 0; //Initial Damage
             <string>direction = dir;
 speed = spd;
 
+//Flicker Light
+light_size += choose(0.50,-0.50);
+clamp(light_size,63,65);
+
 //Collision
 //With solid
-if (place_meeting(x,y,obj_solid))
-instance_destroy();
+solid_id = instance_place(x,y,obj_solid)
+if (solid_id)
+{
+    speed = 0;
+    arrow_stuck = instance_create(x,y,obj_arrow_stuck);
+    arrow_stuck.dir = dir;
+    instance_destroy();
+}
+
 //With enemy
 enemy_id = instance_place(x,y,obj_enemy);
 if (enemy_id)
@@ -65,6 +103,16 @@ if (enemy_id)
 enemy_id.hp-=damage;
 instance_destroy();
 }
+
+//If range ends
+if (distance_to_point(initial_x,initial_y) &gt; range)
+{
+    arrow_stuck = instance_create(x,y,obj_arrow_stuck);
+    arrow_stuck.dir = dir;
+    arrow_stuck.sprite_index = spr_arrow_stuck_vertical;
+    instance_destroy();
+}
+
 </string>
           </argument>
         </arguments>
