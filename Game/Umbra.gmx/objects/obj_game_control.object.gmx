@@ -68,6 +68,7 @@ high_enemy = 10 //for random gen
 //Column 5 - Actual number of Enemies
 //Column 6 - Waves of enemies
 //Column 7 - Time (Seconds) between each wave
+//Column 8 - Number of Crystals
 //Level 1
 level[0, 0] = 10;
 level[0, 1] = 20;
@@ -77,6 +78,63 @@ level[0, 4] = 5;
 level[0, 5] = 0;
 level[0, 6] = 1;
 level[0, 7] = 5; 
+level[0, 8] = 10;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Arrow Types
+//Column 0 - Arrow Minimum Damage
+//Column 1 - Arrow Maximum Damage
+//Column 2 - Light Colour
+//Column 3 - Light Size
+//Column 4 - Arrow Sprite
+//Column 5 - Crystal Sprite
+//Column 6 - Arrow Stuck Vertical Sprite
+
+//Normal Arrow - 0
+//Fire Arrow - 1
+//Magic Arrow - 2
+
+//Normal Arrow
+arrow[0, 0] = 1;
+arrow[0, 1] = 3;
+arrow[0, 2] = c_white;
+arrow[0, 3] = 0;
+arrow[0, 4] = spr_arrow;
+arrow[0, 6] = spr_arrow_stuck_vertical;
+//Fire Arrow
+arrow[1, 0] = 2;
+arrow[1, 1] = 4;
+arrow[1, 2] = c_orange;
+arrow[1, 3] = 64;
+arrow[1, 4] = spr_arrow_fire;
+arrow[1, 5] = spr_crystal_fire;
+arrow[1, 6] = spr_arrow_stuck_vertical_fire;
+//Magic Arrow
+arrow[2, 0] = 1;
+arrow[2, 1] = 3;
+arrow[2, 2] = c_purple;
+arrow[2, 3] = 128;
+arrow[2, 4] = spr_arrow_magic;
+arrow[2, 5] = spr_crystal_magic;
+arrow[2, 6] = spr_arrow_stuck_vertical_magic;
 </string>
           </argument>
         </arguments>
@@ -111,6 +169,7 @@ level[current_level+1, 4] = irandom_range(low_enemy,high_enemy); //max enemies
 level[current_level+1, 5] = 0; //actual enemies
 level[current_level+1, 6] = irandom_range(1,3); //enemy waves
 level[current_level+1, 7] = irandom_range(1,10); //time (seconds) between waves
+level[current_level+1, 8] = irandom_range(8,18); //nr of crystals;
 }
 </string>
           </argument>

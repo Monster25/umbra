@@ -30,8 +30,10 @@ dir = 0; //Initial Direction
 spd = 0; //Initial Speed
 damage = 0; //Initial Damage
 range = 0; //Initial Range
+type = 0; //Initial Type
 initial_x = x; //Spawn x
 initial_y = y; //Spawn y
+
 </string>
           </argument>
         </arguments>
@@ -53,8 +55,8 @@ initial_y = y; //Spawn y
           <argument>
             <kind>1</kind>
             <string>///Lighting
-light_size = 64;
-light_strength = 1;
+light_size = 0;
+light_color = 0;
 
 </string>
           </argument>
@@ -81,9 +83,12 @@ light_strength = 1;
             <string>direction = dir;
 speed = spd;
 
-//Flicker Light
+//Flicker Light if it has light
+if (light_size!=0)
+{
 light_size += choose(0.50,-0.50);
-clamp(light_size,63,65);
+light_size = clamp(light_size,obj_game_control.arrow[type,3]-1 ,obj_game_control.arrow[type,3]+1);
+}
 
 //Collision
 //With solid
@@ -92,7 +97,11 @@ if (solid_id)
 {
     speed = 0;
     arrow_stuck = instance_create(x,y,obj_arrow_stuck);
+    arrow_stuck.type = type;
     arrow_stuck.dir = dir;
+    arrow_stuck.sprite_index = obj_game_control.arrow[type, 4];
+    arrow_stuck.light_size = obj_game_control.arrow[type, 3];
+    arrow_stuck.light_color = light_color;
     instance_destroy();
 }
 
@@ -108,8 +117,11 @@ instance_destroy();
 if (distance_to_point(initial_x,initial_y) &gt; range)
 {
     arrow_stuck = instance_create(x,y,obj_arrow_stuck);
+    arrow_stuck.type = type;
     arrow_stuck.dir = dir;
-    arrow_stuck.sprite_index = spr_arrow_stuck_vertical;
+    arrow_stuck.sprite_index = obj_game_control.arrow[type, 6];
+    arrow_stuck.light_size = obj_game_control.arrow[type, 3];
+    arrow_stuck.light_color = light_color;
     instance_destroy();
 }
 
@@ -136,7 +148,7 @@ if (distance_to_point(initial_x,initial_y) &gt; range)
           <argument>
             <kind>1</kind>
             <string>//Draw Sprite
-draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),1,1,dir,c_white,1)
+draw_sprite_ext(obj_game_control.arrow[type,4] ,image_index,floor(x),floor(y),1,1,dir,c_white,1)
 
 
 

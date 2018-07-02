@@ -61,6 +61,22 @@ obj_player.y = player_cell_y*obj_grid.cell_height+sprite_get_height(object_get_s
 player_spawned = true;
 }
 }
+//Spawn crystals
+for (var i = 0; i&lt;obj_game_control.level[obj_game_control.current_level,8];i++)
+{
+var crystal_spawned = false;
+while (!crystal_spawned)
+{
+var crystal_cell_x = irandom_range(0,obj_grid.hcells);
+var crystal_cell_y = irandom_range(0,obj_grid.vcells);
+if (mp_grid_get_cell(grid,crystal_cell_x,crystal_cell_y)==0)
+{
+//Hard coded due to not knowing size of crystal sprite before spawning
+instance_create(crystal_cell_x*obj_grid.cell_width+16,crystal_cell_y*obj_grid.cell_height+16,obj_crystal);
+crystal_spawned = true;
+}
+}
+}
 //Spawn room control - controls waves and stuff like that
 instance_create(0,0,obj_room_control);</code>
   <enableViews>-1</enableViews>

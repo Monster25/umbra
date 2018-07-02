@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Lighting
-light_size = 64;
-light_strength = 1;
+light_size = 0;
+light_color = 0;
 
 </string>
           </argument>
@@ -51,6 +51,7 @@ light_strength = 1;
             <kind>1</kind>
             <string>///Inits
 dir = 0;
+type = 0;
 </string>
           </argument>
         </arguments>
@@ -73,10 +74,12 @@ dir = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Flicker Light
+            <string>//Flicker Light if it has light
+if (light_size!=0)
+{
 light_size += choose(0.50,-0.50);
-clamp(light_size,63,65);
-
+light_size = clamp(light_size,obj_game_control.arrow[type,3]-1 ,obj_game_control.arrow[type,3]+1);
+}
 </string>
           </argument>
         </arguments>

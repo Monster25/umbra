@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
-  <persistent>-1</persistent>
+  <depth>0</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,9 +25,37 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Inits
-globalvar surf;
-surf = -1;
+            <string>//Random crystal type and respective sprite
+type = irandom_range(1,array_height_2d(obj_game_control.arrow)-1);
+sprite_index = obj_game_control.arrow[type,5];
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Collision with player, collect crystal
+player = instance_place(x,y,obj_player);
+if (player)
+scr_collect_crystal(player);
 </string>
           </argument>
         </arguments>
@@ -50,41 +78,8 @@ surf = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Lighting
-//Dark Room and surface creation
-if (!surface_exists(surf)) {
-    surf = surface_create(view_wview[0], view_hview[0]);
-}
-surface_set_target(surf);
-draw_clear(c_black);
-
-//Arrow Lighting
-with (obj_arrow)
-{
-draw_set_blend_mode(bm_src_color);
-draw_set_blend_mode(bm_add);
-draw_circle_colour(x - view_xview[0],y - view_yview[0],light_size ,light_color,light_color,0);
-draw_set_blend_mode(bm_normal);
-draw_set_alpha(1);
-}
-//Stuck Arrow Lighting
-with (obj_arrow_stuck)
-{
-draw_set_blend_mode(bm_src_color);
-draw_set_blend_mode(bm_add);
-draw_circle_colour(x - view_xview[0],y - view_yview[0],light_size ,light_color,light_color,0);
-draw_set_blend_mode(bm_normal);
-draw_set_alpha(1);
-}
-
-//Reset and surf specs
-surface_reset_target();
-
-draw_set_blend_mode_ext(bm_dest_color, bm_inv_src_alpha);
-draw_surface_ext(surf, view_xview[0], view_yview[0], 1, 1, 0, c_white, 0.90);
-draw_set_blend_mode(bm_normal);
-
-
+            <string>//Draw sprite
+draw_sprite_ext(sprite_index,image_index,x,y,1,1,0,c_white,1);
 </string>
           </argument>
         </arguments>

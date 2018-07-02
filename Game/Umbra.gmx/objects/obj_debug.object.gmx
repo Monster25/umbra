@@ -41,6 +41,15 @@ draw_text(100,280,"Player Health: "+string(obj_player.hp));
 draw_text(100,300,"Time (seconds): "+string(obj_game_control.time));
 draw_text(100,320,"Draw Range: "+string(obj_player.arrow_range));
 draw_text(100,340,"Draw speed: "+string(obj_player.arrow_speed));
+draw_text(100,360,"Draw Damage: "+string(obj_player.arrow_damage));
+draw_text(100,380,"Arrow Type: "+string(obj_player.arrow_type));
+draw_text(100,400,"Light Radius: "+string(obj_game_control.arrow[obj_player.arrow_type,3]));
+draw_text(100,420,"Number of Crystals in room: "+string(instance_number(obj_crystal)));
+if (instance_exists(obj_arrow))
+{
+draw_text(100,440,"Type of arrow: "+string(obj_arrow.type));
+draw_text(100,460,"Light size of arrow: "+string(obj_arrow.light_size));
+}
 </string>
           </argument>
         </arguments>
