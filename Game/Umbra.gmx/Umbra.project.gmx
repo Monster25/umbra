@@ -11,6 +11,8 @@
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_monster_01</sprite>
+      <sprite>sprites\spr_monster_02</sprite>
+      <sprite>sprites\spr_monster_03</sprite>
     </sprites>
     <sprites name="Solids">
       <sprite>sprites\spr_tree</sprite>
@@ -55,6 +57,10 @@
     <scripts name="Monster">
       <script>scripts\scr_monster_idle.gml</script>
       <script>scripts\scr_monster_chase.gml</script>
+      <scripts name="Chase">
+        <script>scripts\scr_monster_chase_melee_1.gml</script>
+        <script>scripts\scr_monster_chase_ranged_1.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Mechanics">
       <script>scripts\scr_shoot_arrow.gml</script>
@@ -66,6 +72,35 @@
     <scripts name="Functionality">
       <script>scripts\scr_update_grid.gml</script>
       <script>scripts\scr_next_level.gml</script>
+    </scripts>
+    <scripts name="Light Engine">
+      <script>scripts\lightmap_init.gml</script>
+      <script>scripts\caster_draw_debug.gml</script>
+      <script>scripts\lightmap_move_with_view.gml</script>
+      <script>scripts\lightmap_update.gml</script>
+      <script>scripts\lightmap_resize.gml</script>
+      <script>scripts\lightmap_set_ambient.gml</script>
+      <script>scripts\lightmap_set_light_parent_object.gml</script>
+      <script>scripts\lightmap_set_caster_parent_object.gml</script>
+      <script>scripts\lightmap_set_shadows_enabled.gml</script>
+      <script>scripts\caster_init_rectangle.gml</script>
+      <script>scripts\light_set_color.gml</script>
+      <script>scripts\caster_set_height.gml</script>
+      <script>scripts\caster_init_sprite.gml</script>
+      <script>scripts\light_init_sprite.gml</script>
+      <script>scripts\light_set_height.gml</script>
+      <script>scripts\light_init_point.gml</script>
+      <script>scripts\light_set_rotation.gml</script>
+      <script>scripts\light_set_radius.gml</script>
+      <script>scripts\light_set_sprite.gml</script>
+      <script>scripts\light_set_type.gml</script>
+      <script>scripts\light_set_sprite_index.gml</script>
+      <script>scripts\lightmap_draw.gml</script>
+      <script>scripts\caster_init_polygon.gml</script>
+      <script>scripts\lightmap_set_shadow_size.gml</script>
+      <script>scripts\lightmap_draw_shadow.gml</script>
+      <script>scripts\caster_add_point.gml</script>
+      <script>scripts\caster_init_circle.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -86,7 +121,7 @@
       <object>objects\obj_player</object>
     </objects>
     <objects name="Enemy">
-      <object>objects\obj_monster_01</object>
+      <object>objects\obj_monster</object>
       <object>objects\obj_enemy</object>
     </objects>
     <objects name="Solids">

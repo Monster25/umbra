@@ -28,6 +28,7 @@
             <string>///Inits
 globalvar surf;
 surf = -1;
+surf = surface_create(view_wview[0], view_hview[0]);
 </string>
           </argument>
         </arguments>
@@ -62,11 +63,13 @@ draw_clear(c_black);
 with (obj_arrow)
 {
 draw_set_blend_mode(bm_src_color);
+//draw_set_blend_mode(bm_one);
 draw_set_blend_mode(bm_add);
 draw_circle_colour(x - view_xview[0],y - view_yview[0],light_size ,light_color,light_color,0);
 draw_set_blend_mode(bm_normal);
 draw_set_alpha(1);
 }
+
 //Stuck Arrow Lighting
 with (obj_arrow_stuck)
 {
