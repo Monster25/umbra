@@ -48,7 +48,7 @@ mp_grid_add_cell(grid,tree_cell_x,tree_cell_y);
 i++;
 }
 }
-//Spawn(Move) Player at Random Cell
+//Spawn(Move) Player at Random Cell + modify view
 var player_spawned = false;
 while (!player_spawned)
 {
@@ -59,6 +59,8 @@ if (mp_grid_get_cell(grid,player_cell_x,player_cell_y)==0)
 obj_player.x = player_cell_x*obj_grid.cell_width+sprite_get_width(object_get_sprite(obj_player))/2;
 obj_player.y = player_cell_y*obj_grid.cell_height+sprite_get_height(object_get_sprite(obj_player))/2;
 player_spawned = true;
+view_yview[0] = obj_player.y-view_hview[0]/2;
+view_xview[0] = obj_player.x-view_wview[0]/2;
 }
 }
 //Spawn crystals
@@ -79,7 +81,7 @@ crystal_spawned = true;
 }
 //Spawn room control - controls waves and stuff like that
 instance_create(0,0,obj_room_control);</code>
-  <enableViews>0</enableViews>
+  <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>

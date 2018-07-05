@@ -140,7 +140,7 @@ arrow_speed_min = noone;
 arrow_damage_min = noone;
 break;
 case 2:
-arrow_type = 0;
+arrow_type = 1;
 arrow_speed = 10;
 arrow_damage = damage;
 arrow_range = range;
