@@ -1,30 +1,18 @@
-if (state_new)
+//Different chase script for different types
+switch(type)
 {
-
+//Monster 1
+case 0:
+scr_monster_chase_melee_1();
+break;
+//Monster 2
+case 1:
+scr_monster_chase_melee_1();
+break;
+//Monster 3
+case 2:
+scr_monster_chase_ranged_1();
+break;
+default:
+break;
 }
- //face player
-dir = point_direction(x,y,obj_player.x,obj_player.y);
-//Go to player
-if (update_chase)
-{
-path_end();
-update_chase = false;
-alarm[1] = update_chase_timer*room_speed;
-player_x = obj_player.x;
-player_y = obj_player.y;
-if (mp_grid_path(grid,path,x,y,player_x,player_y,1))
-path_start(path,movespeed,path_action_stop,0)
-}
-//move_towards_point(obj_player.x,obj_player.y,movespeed); 
-
-//deal damage to player
-if (distance_to_object(obj_player)<10 && can_attack)
-{
-can_attack = false;
-obj_player.hp-=damage;
-alarm[0] = room_speed*attack_cooldown;
-}
-
-//Death
-if (hp <= 0)
-instance_destroy();

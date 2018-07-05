@@ -24,7 +24,8 @@ state_switch("draw_run");
 //scr_shoot_arrow(id);
 }
 //Death
-if (hp<=0)
+if (hp<=0 && !dead)
 {
-obj_scoreboard.visible = 1;
+dead = true;
+room_goto(3); //go to scoreboard room
 }

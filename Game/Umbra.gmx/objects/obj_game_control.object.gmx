@@ -69,6 +69,7 @@ high_enemy = 10 //for random gen
 //Column 6 - Waves of enemies
 //Column 7 - Time (Seconds) between each wave
 //Column 8 - Number of Crystals
+//Column 9 - Types of enemies
 //Level 1
 level[0, 0] = 10;
 level[0, 1] = 20;
@@ -79,6 +80,7 @@ level[0, 5] = 0;
 level[0, 6] = 1;
 level[0, 7] = 5; 
 level[0, 8] = 10;
+//level[0, 9] = 3;
 </string>
           </argument>
         </arguments>
@@ -139,6 +141,68 @@ arrow[2, 6] = spr_arrow_stuck_vertical_magic;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Monster Types
+//Column 0 - Movement Speed
+//Column 1 - Health
+//Column 2 - Damage
+//Column 3 - Attack Cooldown
+//Column 4 - Range
+//Column 5 - Pathfinding Updater
+//Column 6 - Sprite
+//Column 7 - Custom Chase Script
+
+//Melee Monster 1 - 0
+//Melee Monster 2 - 1
+//Ranged Monster - 2
+
+//Melee Monster 1
+monster[0, 0] = 2;
+monster[0, 1] = 3;
+monster[0, 2] = 1;
+monster[0, 3] = 1;
+monster[0, 4] = 32;
+monster[0, 5] = 0.5; //How fast the onster mshould update chasing
+monster[0, 6] = spr_monster_01;
+
+//Melee Monster 2
+monster[1, 0] = 4;
+monster[1, 1] = 1;
+monster[1, 2] = 3;
+monster[1, 3] = 1;
+monster[1, 4] = 32;
+monster[1, 5] = 0.5;
+monster[1, 6] = spr_monster_02;
+
+//Ranged Monster
+monster[2, 0] = 2;
+monster[2, 1] = 2;
+monster[2, 2] = 2;
+monster[2, 3] = 2;
+monster[2, 4] = 670;
+monster[2, 5] = 0.5;
+monster[2, 6] = spr_monster_03;
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -170,6 +234,8 @@ level[current_level+1, 5] = 0; //actual enemies
 level[current_level+1, 6] = irandom_range(1,3); //enemy waves
 level[current_level+1, 7] = irandom_range(1,10); //time (seconds) between waves
 level[current_level+1, 8] = irandom_range(8,18); //nr of crystals;
+//level[current_level+1, 9] = irandom_range(1,obj_game_control.array_height_2d(monster)); //How many diff types of enemies in the room
+
 }
 </string>
           </argument>

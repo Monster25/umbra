@@ -1,6 +1,7 @@
 arrow = instance_create(argument[0].x,argument[0].y,obj_arrow);
 with (arrow)
 {
+creator = argument[0].id;
 type = argument[0].arrow_type;
 dir = argument[0].dir;
 spd = argument[0].arrow_speed;

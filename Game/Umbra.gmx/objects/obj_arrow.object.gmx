@@ -33,6 +33,7 @@ range = 0; //Initial Range
 type = 0; //Initial Type
 initial_x = x; //Spawn x
 initial_y = y; //Spawn y
+creator = 0; //creator id of arrow
 
 </string>
           </argument>
@@ -105,9 +106,17 @@ if (solid_id)
     instance_destroy();
 }
 
+//With Player
+player_id = instance_place(x,y,obj_player);
+if (player_id &amp;&amp; player_id!=creator)
+{
+player_id.hp-=damage;
+instance_destroy();
+}
+
 //With enemy
 enemy_id = instance_place(x,y,obj_enemy);
-if (enemy_id)
+if (enemy_id &amp;&amp; enemy_id!=creator)
 {
 enemy_id.hp-=damage;
 instance_destroy();
@@ -149,6 +158,8 @@ if (distance_to_point(initial_x,initial_y) &gt; range)
             <kind>1</kind>
             <string>//Draw Sprite
 draw_sprite_ext(obj_game_control.arrow[type,4] ,image_index,floor(x),floor(y),1,1,dir,c_white,1)
+
+
 
 
 

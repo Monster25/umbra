@@ -100,6 +100,7 @@ arrow_range = arrow_range_min; //actual arrow range
             <string>///Functionality
 dir = 0 //Initial Direction
 can_shoot = true; 
+dead = false;
 </string>
           </argument>
         </arguments>
