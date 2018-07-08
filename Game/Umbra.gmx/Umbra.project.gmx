@@ -32,7 +32,9 @@
       <sprite>sprites\spr_crystal_magic</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\ts_grass_01</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="State Machine">
@@ -72,6 +74,8 @@
     <scripts name="Functionality">
       <script>scripts\scr_update_grid.gml</script>
       <script>scripts\scr_next_level.gml</script>
+      <script>scripts\scr_smooth_camera.gml</script>
+      <script>scripts\scr_screen_shake.gml</script>
     </scripts>
     <scripts name="Light Engine">
       <script>scripts\lightmap_init.gml</script>
@@ -102,6 +106,9 @@
       <script>scripts\caster_add_point.gml</script>
       <script>scripts\caster_init_circle.gml</script>
     </scripts>
+    <scripts name="Camera">
+      <script>scripts\scr_approach.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_menu</font>
@@ -116,13 +123,14 @@
       <object>objects\obj_scoreboard</object>
       <object>objects\obj_lighting</object>
       <object>objects\obj_room_control</object>
+      <object>objects\obj_camera</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>
-    </objects>
-    <objects name="Enemy">
-      <object>objects\obj_monster</object>
-      <object>objects\obj_enemy</object>
+      <objects name="Enemy">
+        <object>objects\obj_monster</object>
+        <object>objects\obj_enemy</object>
+      </objects>
     </objects>
     <objects name="Solids">
       <object>objects\obj_tree</object>

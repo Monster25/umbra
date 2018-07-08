@@ -45,10 +45,12 @@ draw_text(100,360,"Draw Damage: "+string(obj_player.arrow_damage));
 draw_text(100,380,"Arrow Type: "+string(obj_player.arrow_type));
 draw_text(100,400,"Light Radius: "+string(obj_game_control.arrow[obj_player.arrow_type,3]));
 draw_text(100,420,"Number of Crystals in room: "+string(instance_number(obj_crystal)));
+draw_text(100,480,"Shake Intensity: "+string(obj_camera.shake_force));
 if (instance_exists(obj_arrow))
 {
 draw_text(100,440,"Type of arrow: "+string(obj_arrow.type));
 draw_text(100,460,"Light size of arrow: "+string(obj_arrow.light_size));
+
 }
 </string>
           </argument>
@@ -99,6 +101,32 @@ for (var j = 0;j&lt;instance_number(obj_tree);j++)
 tree_debug[j] = instance_find(obj_tree,j);
 draw_text(tree_debug[j].x+32,tree_debug[j].y+32,j)
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="90">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (obj_lighting.visible = 1)
+obj_lighting.visible = 0;
+else
+obj_lighting.visible = 1;
 </string>
           </argument>
         </arguments>

@@ -69,6 +69,9 @@ update_chase_timer = obj_game_control.monster[type, 5]; //How fast monster shoul
 //Sprite
 sprite_index = obj_game_control.monster[type, 6];
 
+//Effects
+shake_force = 4;
+
 </string>
           </argument>
         </arguments>

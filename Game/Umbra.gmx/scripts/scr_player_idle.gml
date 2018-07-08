@@ -3,6 +3,7 @@
 scr_player_input();
 //How to move
 scr_player_movement();
+
 //Aim towards mouse position
 dir = point_direction (x,y,mouse_x,mouse_y);
 //Switch to run state if moving

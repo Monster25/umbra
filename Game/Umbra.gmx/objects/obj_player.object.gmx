@@ -60,7 +60,8 @@ state_init("idle");
 //Movement
 movespeed = 10; //Moving speed
 //Combat
-hp = 12; //health
+hp = 999; //health
+max_hp = 999; //max health
 //Bow
 arrow_type = 0; //default arrow type
 arrow_speed_min = 6; //arrow min speed;
@@ -75,6 +76,9 @@ arrow_range_min = 128; //arrow min range
 arrow_range_max = 1200; //arrow max range
 draw_speed = 1; //time to draw to max (seconds)
 arrow_range = arrow_range_min; //actual arrow range
+//Effects
+shake_force = 0;
+shake_force_hit = 0;
 
 
 </string>
@@ -101,6 +105,8 @@ arrow_range = arrow_range_min; //actual arrow range
 dir = 0 //Initial Direction
 can_shoot = true; 
 dead = false;
+full_draw = false;
+full_time = 0;
 </string>
           </argument>
         </arguments>
@@ -172,6 +178,8 @@ state_update();
             <kind>1</kind>
             <string>///State Execute
 state_execute();
+
+
 </string>
           </argument>
         </arguments>

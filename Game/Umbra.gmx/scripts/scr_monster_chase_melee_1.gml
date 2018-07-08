@@ -21,6 +21,7 @@ if (distance_to_object(obj_player)<range && can_attack)
 {
 can_attack = false;
 obj_player.hp-=damage;
+scr_screen_shake();
 alarm[0] = room_speed*attack_cooldown;
 }
 

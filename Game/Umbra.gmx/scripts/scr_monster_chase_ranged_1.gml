@@ -23,6 +23,7 @@ if (distance_to_object(obj_player)<=range && can_attack && !vision)
 path_end();
 can_attack = false;
 //obj_player.hp-=damage;
+
 alarm[0] = room_speed*attack_cooldown;
 scr_shoot_arrow(id);
 }
