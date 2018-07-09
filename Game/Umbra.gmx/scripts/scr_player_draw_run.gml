@@ -1,4 +1,6 @@
 //Draw State
+//Animations
+image_speed = 0.07;
 //Get Input
 scr_player_input();
 

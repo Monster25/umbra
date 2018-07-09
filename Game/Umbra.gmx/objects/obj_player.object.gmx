@@ -74,7 +74,7 @@ arrow_radius = 10; //arrow radius
 shoot_cooldown = 1; //shooting cooldown
 arrow_range_min = 128; //arrow min range
 arrow_range_max = 1200; //arrow max range
-draw_speed = 0.7; //time to draw to max (seconds)
+draw_speed = 0.6; //time to draw to max (seconds)
 arrow_range = arrow_range_min; //actual arrow range
 //Effects
 shake_force = 0;

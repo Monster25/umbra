@@ -1,4 +1,7 @@
 //Idle State
+//Animations
+image_speed = 0;
+image_index = 0;
 //Get Input
 scr_player_input();
 //How to move
