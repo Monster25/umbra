@@ -12,5 +12,8 @@ light_color = obj_game_control.arrow[type, 2];
 argument[0].arrow_range = argument[0].arrow_range_min; //reset range
 argument[0].arrow_speed = argument[0].arrow_speed_min; //reset speed
 argument[0].arrow_damage = argument[0].arrow_damage_min; //reset damage
+if (creator == obj_player.id)
+argument[0].draw = 0;
+
 }
 

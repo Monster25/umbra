@@ -74,8 +74,8 @@ high_enemy = 10 //for random gen
 level[0, 0] = 10;
 level[0, 1] = 20;
 level[0, 2] = 0;
-level[0, 3] = 3;
-level[0, 4] = 5;
+level[0, 3] = 1;
+level[0, 4] = 1;
 level[0, 5] = 0;
 level[0, 6] = 1;
 level[0, 7] = 5; 
@@ -109,6 +109,9 @@ level[0, 8] = 10;
 //Column 4 - Arrow Sprite
 //Column 5 - Crystal Sprite
 //Column 6 - Arrow Stuck Vertical Sprite
+//Column 7 - Arrow Shoot sound
+//Column 8 - Arrow Hit Sound
+//Column 9 - Arrow Name
 
 //Normal Arrow - 0
 //Fire Arrow - 1
@@ -121,6 +124,9 @@ arrow[0, 2] = c_white;
 arrow[0, 3] = 0;
 arrow[0, 4] = spr_arrow;
 arrow[0, 6] = spr_arrow_stuck_vertical;
+arrow[0, 7] = snd_bow_shoot;
+arrow[0, 8] = snd_bow_hit;
+arrow[0, 9] = "Arrow";
 //Fire Arrow
 arrow[1, 0] = 2;
 arrow[1, 1] = 4;
@@ -129,6 +135,9 @@ arrow[1, 3] = 64;
 arrow[1, 4] = spr_arrow_fire;
 arrow[1, 5] = spr_crystal_fire;
 arrow[1, 6] = spr_arrow_stuck_vertical_fire;
+arrow[1, 7] = snd_bow_shoot;
+arrow[1, 8] = snd_bow_hit;
+arrow[1, 9] = "Fire Arrow";
 //Magic Arrow
 arrow[2, 0] = 1;
 arrow[2, 1] = 3;
@@ -137,6 +146,9 @@ arrow[2, 3] = 128;
 arrow[2, 4] = spr_arrow_magic;
 arrow[2, 5] = spr_crystal_magic;
 arrow[2, 6] = spr_arrow_stuck_vertical_magic;
+arrow[2, 7] = snd_bow_shoot;
+arrow[2, 8] = snd_bow_hit;
+arrow[2, 9] = "Magic Arrow";
 </string>
           </argument>
         </arguments>
@@ -164,8 +176,11 @@ arrow[2, 6] = spr_arrow_stuck_vertical_magic;
 //Column 3 - Attack Cooldown
 //Column 4 - Range
 //Column 5 - Pathfinding Updater
-//Column 6 - Sprite
-//Column 7 - Custom Chase Script
+//Column 6 - Walking Sprite
+//Column 7 - Windup Sprite
+//Column 8 - Windown Sprite
+//Column 9 - Windup Time
+//Column 10 - Windown Time
 
 //Melee Monster 1 - 0
 //Melee Monster 2 - 1
@@ -179,6 +194,10 @@ monster[0, 3] = 1;
 monster[0, 4] = 32;
 monster[0, 5] = 0.5; //How fast the onster mshould update chasing
 monster[0, 6] = spr_monster_01;
+monster[0, 7] = spr_monster_01;
+monster[0, 8] = spr_monster_01;
+monster[0, 9] = 3.0;
+monster[0, 10] = 3.0;
 
 //Melee Monster 2
 monster[1, 0] = 4;
@@ -188,6 +207,10 @@ monster[1, 3] = 1;
 monster[1, 4] = 32;
 monster[1, 5] = 0.5;
 monster[1, 6] = spr_monster_02;
+monster[1, 7] = spr_monster_02;
+monster[1, 8] = spr_monster_02;
+monster[1, 9] = 3.0;
+monster[1, 10] = 3.0;
 
 //Ranged Monster
 monster[2, 0] = 2;
@@ -197,6 +220,10 @@ monster[2, 3] = 2;
 monster[2, 4] = 670;
 monster[2, 5] = 0.5;
 monster[2, 6] = spr_monster_03;
+monster[2, 7] = spr_monster_03;
+monster[2, 8] = spr_monster_03;
+monster[2, 9] = 3.0;
+monster[2, 10] = 3.0;
 
 
 </string>

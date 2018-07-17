@@ -17,12 +17,10 @@ path_start(path,movespeed,path_action_stop,0)
 }
 
 //deal damage to player
-if (distance_to_object(obj_player)<range && can_attack)
+if (distance_to_object(obj_player)<range)
 {
-can_attack = false;
-obj_player.hp-=damage;
-scr_screen_shake();
-alarm[0] = room_speed*attack_cooldown;
+//Start windup
+state_switch("windup");
 }
 
 //Death

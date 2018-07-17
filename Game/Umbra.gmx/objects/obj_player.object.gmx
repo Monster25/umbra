@@ -60,8 +60,8 @@ state_init("idle");
 //Movement
 movespeed = 10; //Moving speed
 //Combat
-hp = 999; //health
-max_hp = 999; //max health
+hp = 30; //health
+max_hp = hp; //max health
 //Bow
 arrow_type = 0; //default arrow type
 arrow_speed_min = 6; //arrow min speed;
@@ -107,6 +107,9 @@ can_shoot = true;
 dead = false;
 full_draw = false;
 full_time = 0;
+draw = 0;
+
+audio_listener_orientation(0,-1,0,0,0,-1)
 </string>
           </argument>
         </arguments>
@@ -178,6 +181,8 @@ state_update();
             <kind>1</kind>
             <string>///State Execute
 state_execute();
+//Update Listener
+audio_listener_position(x,y,0);
 
 
 </string>

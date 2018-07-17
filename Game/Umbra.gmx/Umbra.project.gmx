@@ -4,7 +4,15 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="Ambience">
+      <sound>sound\snd_forest_01</sound>
+    </sounds>
+    <sounds name="Bow">
+      <sound>sound\snd_bow_shoot</sound>
+      <sound>sound\snd_bow_hit</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Player">
       <sprite>sprites\spr_player</sprite>
@@ -59,9 +67,19 @@
     <scripts name="Monster">
       <script>scripts\scr_monster_idle.gml</script>
       <script>scripts\scr_monster_chase.gml</script>
+      <script>scripts\scr_monster_windup.gml</script>
+      <script>scripts\scr_monster_windown.gml</script>
       <scripts name="Chase">
         <script>scripts\scr_monster_chase_melee_1.gml</script>
         <script>scripts\scr_monster_chase_ranged_1.gml</script>
+      </scripts>
+      <scripts name="Windup">
+        <script>scripts\scr_monster_windup_melee_1.gml</script>
+        <script>scripts\scr_monster_windup_ranged_1.gml</script>
+      </scripts>
+      <scripts name="Windown">
+        <script>scripts\scr_monster_windown_melee_1.gml</script>
+        <script>scripts\scr_monster_windown_ranged_1.gml</script>
       </scripts>
     </scripts>
     <scripts name="Mechanics">
@@ -124,13 +142,15 @@
       <object>objects\obj_lighting</object>
       <object>objects\obj_room_control</object>
       <object>objects\obj_camera</object>
+      <object>objects\obj_sound</object>
+      <object>objects\obj_gui</object>
+    </objects>
+    <objects name="Enemy">
+      <object>objects\obj_monster</object>
+      <object>objects\obj_enemy</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>
-      <objects name="Enemy">
-        <object>objects\obj_monster</object>
-        <object>objects\obj_enemy</object>
-      </objects>
     </objects>
     <objects name="Solids">
       <object>objects\obj_tree</object>

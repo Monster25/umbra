@@ -30,8 +30,12 @@ arrow_speed = clamp (arrow_speed,arrow_speed_min,arrow_speed_max);
 var amount_damage = (arrow_damage_max-arrow_damage_min)/(draw_speed*room_speed);
 arrow_damage += amount_damage;
 arrow_damage = clamp (arrow_damage,arrow_damage_min,arrow_damage_max);
+//Drawn percentage
+var amount_draw = 1/(draw_speed*room_speed)
+draw = draw + amount_draw
+draw = clamp(draw,0,1)
 //Fully or near fully drawn shot
-if (arrow_damage == arrow_damage_max)
+if (draw == 1)
 full_draw = true;
 else
 full_draw = false;

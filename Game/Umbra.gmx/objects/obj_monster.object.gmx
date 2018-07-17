@@ -31,6 +31,8 @@ state_machine_init();
 //Define States
 state_create("idle",scr_monster_idle);
 state_create("chase",scr_monster_chase);
+state_create("windup",scr_monster_windup);
+state_create("windown",scr_monster_windown);
 //Default State
 state_init("idle");
 </string>
@@ -176,6 +178,54 @@ break;
             <kind>1</kind>
             <string>///Add to score when killed
 obj_scoreboard.killed_enemies++;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///reset
+state_switch("chase");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Windown
+state_switch("windown");
 </string>
           </argument>
         </arguments>

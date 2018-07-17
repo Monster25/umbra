@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -46,10 +46,16 @@ draw_text(100,380,"Arrow Type: "+string(obj_player.arrow_type));
 draw_text(100,400,"Light Radius: "+string(obj_game_control.arrow[obj_player.arrow_type,3]));
 draw_text(100,420,"Number of Crystals in room: "+string(instance_number(obj_crystal)));
 draw_text(100,480,"Shake Intensity: "+string(obj_camera.shake_force));
+draw_text(100,520,"Draw amount: "+string(obj_player.draw));
 if (instance_exists(obj_arrow))
 {
 draw_text(100,440,"Type of arrow: "+string(obj_arrow.type));
 draw_text(100,460,"Light size of arrow: "+string(obj_arrow.light_size));
+
+}
+if (instance_exists(obj_monster))
+{
+draw_text(100,500,"State: "+string(obj_monster.state_name));
 
 }
 </string>
@@ -127,6 +133,32 @@ draw_text(tree_debug[j].x+32,tree_debug[j].y+32,j)
 obj_lighting.visible = 0;
 else
 obj_lighting.visible = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="66">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (obj_gui.visible = 1)
+obj_gui.visible = 0;
+else
+obj_gui.visible = 1;
 </string>
           </argument>
         </arguments>

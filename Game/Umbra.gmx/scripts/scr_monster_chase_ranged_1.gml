@@ -18,14 +18,14 @@ path_start(path,movespeed,path_action_stop,0)
 }
 
 //deal damage to player
-if (distance_to_object(obj_player)<=range && can_attack && !vision)
+if (distance_to_object(obj_player)<=range && !vision)
 {
 path_end();
-can_attack = false;
+//can_attack = false;
 //obj_player.hp-=damage;
-
-alarm[0] = room_speed*attack_cooldown;
-scr_shoot_arrow(id);
+state_switch("windup");
+//alarm[0] = room_speed*attack_cooldown;
+//scr_shoot_arrow(id);
 }
 
 //Death
