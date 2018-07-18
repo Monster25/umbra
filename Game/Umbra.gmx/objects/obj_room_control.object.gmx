@@ -65,7 +65,9 @@ var enemy_cell_x = irandom_range(0,obj_grid.hcells);
 var enemy_cell_y = irandom_range(0,obj_grid.vcells);
 if (mp_grid_get_cell(grid,enemy_cell_x,enemy_cell_y)==0 &amp;&amp; !collision_point(enemy_cell_x*obj_grid.cell_width,enemy_cell_y*obj_grid.cell_height,obj_player,0,1))
 {
-instance_create(enemy_cell_x*obj_grid.cell_width,enemy_cell_y*obj_grid.cell_height,obj_monster)
+var monster = instance_create(0,0,obj_monster);
+monster.x = enemy_cell_x*obj_grid.cell_width+((sprite_get_bbox_right(obj_game_control.monster[monster.type, 6]))/2);
+monster.y = enemy_cell_y*obj_grid.cell_height+((sprite_get_bbox_bottom(obj_game_control.monster[monster.type, 6]))/2);
 j++;
 }
 }

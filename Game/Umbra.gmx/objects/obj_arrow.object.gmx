@@ -80,7 +80,7 @@ light_color = 0;
           <argument>
             <kind>1</kind>
             <string>///Sound
-audio_play_sound_at(obj_game_control.arrow[type, 7],creator.x,creator.y,0,100,1000,1,0,1); //shooting arrow sound
+audio_play_sound_at(obj_game_control.arrow[type, 7],creator.x,creator.y,0,100,600,1,0,1); //shooting arrow sound
 </string>
           </argument>
         </arguments>

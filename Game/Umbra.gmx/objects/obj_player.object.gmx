@@ -183,7 +183,7 @@ state_update();
 state_execute();
 //Update Listener
 audio_listener_position(x,y,0);
-
+audio_listener_orientation(0,0,1000,0,-1,0);
 
 </string>
           </argument>

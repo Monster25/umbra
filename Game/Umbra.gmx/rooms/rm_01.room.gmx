@@ -56,8 +56,8 @@ var player_cell_x = irandom_range(0,obj_grid.hcells);
 var player_cell_y = irandom_range(0,obj_grid.vcells);
 if (mp_grid_get_cell(grid,player_cell_x,player_cell_y)==0)
 {
-obj_player.x = player_cell_x*obj_grid.cell_width+sprite_get_width(object_get_sprite(obj_player))/2;
-obj_player.y = player_cell_y*obj_grid.cell_height+sprite_get_height(object_get_sprite(obj_player))/2;
+obj_player.x = player_cell_x*obj_grid.cell_width+((sprite_get_bbox_right(object_get_sprite(obj_player)))/2);
+obj_player.y = player_cell_y*obj_grid.cell_height+((sprite_get_bbox_bottom(object_get_sprite(obj_player)))/2);
 player_spawned = true;
 view_yview[0] = obj_player.y-view_hview[0]/2;
 view_xview[0] = obj_player.x-view_wview[0]/2;
