@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_bow_hit</sound>
+    <sound>sound\snd_bow_shoot</sound>
+    <sound>sound\snd_forest_01</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Player">
       <sprite>sprites\spr_player</sprite>
@@ -134,6 +138,8 @@
       <object>objects\obj_lighting</object>
       <object>objects\obj_room_control</object>
       <object>objects\obj_camera</object>
+      <object>objects\obj_sound</object>
+      <object>objects\obj_gui</object>
     </objects>
     <objects name="Enemy">
       <object>objects\obj_monster</object>
