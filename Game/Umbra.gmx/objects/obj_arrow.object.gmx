@@ -104,6 +104,7 @@ audio_play_sound_at(obj_game_control.arrow[type, 7],creator.x,creator.y,0,100,60
           <argument>
             <kind>1</kind>
             <string>direction = dir;
+image_angle = dir;
 speed = spd;
 
 //Flicker Light if it has light

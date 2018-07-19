@@ -187,7 +187,7 @@ arrow[2, 9] = "Magic Arrow";
 //Ranged Monster - 2
 
 //Melee Monster 1
-monster[0, 0] = 0;
+monster[0, 0] = 2;
 monster[0, 1] = 3;
 monster[0, 2] = 1;
 monster[0, 3] = 1;
@@ -200,7 +200,7 @@ monster[0, 9] = 3.0;
 monster[0, 10] = 3.0;
 
 //Melee Monster 2
-monster[1, 0] = 0;
+monster[1, 0] = 4;
 monster[1, 1] = 1;
 monster[1, 2] = 3;
 monster[1, 3] = 1;
@@ -213,7 +213,7 @@ monster[1, 9] = 3.0;
 monster[1, 10] = 3.0;
 
 //Ranged Monster
-monster[2, 0] = 0;
+monster[2, 0] = 2;
 monster[2, 1] = 2;
 monster[2, 2] = 2;
 monster[2, 3] = 2;

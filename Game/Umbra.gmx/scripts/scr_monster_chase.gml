@@ -1,4 +1,8 @@
 //Different chase script for different types
+if (state_new)
+{
+image_speed = 0.05;
+}
 switch(type)
 {
 //Monster 1
