@@ -181,13 +181,14 @@ arrow[2, 9] = "Magic Arrow";
 //Column 8 - Windown Sprite
 //Column 9 - Windup Time
 //Column 10 - Windown Time
+//Column 11 - Projectile
 
 //Melee Monster 1 - 0
 //Melee Monster 2 - 1
 //Ranged Monster - 2
 
-//Melee Monster 1
-monster[0, 0] = 2;
+//Spider
+monster[0, 0] = 4;
 monster[0, 1] = 3;
 monster[0, 2] = 1;
 monster[0, 3] = 1;
@@ -196,25 +197,27 @@ monster[0, 5] = 0.5; //How fast the onster mshould update chasing
 monster[0, 6] = spr_monster_01;
 monster[0, 7] = spr_monster_01;
 monster[0, 8] = spr_monster_01;
-monster[0, 9] = 3.0;
-monster[0, 10] = 3.0;
+monster[0, 9] = 0.25;
+monster[0, 10] = 0.45;
+monster[0, 11] = 0;
 
-//Melee Monster 2
+//Snake
 monster[1, 0] = 4;
-monster[1, 1] = 1;
+monster[1, 1] = 3;
 monster[1, 2] = 3;
 monster[1, 3] = 1;
-monster[1, 4] = 32;
+monster[1, 4] = 200;
 monster[1, 5] = 0.5;
 monster[1, 6] = spr_monster_02;
 monster[1, 7] = spr_monster_02;
 monster[1, 8] = spr_monster_02;
-monster[1, 9] = 3.0;
-monster[1, 10] = 3.0;
+monster[1, 9] = 0.10;
+monster[1, 10] = 0.70;
+monster[1, 11] = 1;
 
-//Ranged Monster
-monster[2, 0] = 2;
-monster[2, 1] = 2;
+//Dog
+monster[2, 0] = 3;
+monster[2, 1] = 3;
 monster[2, 2] = 2;
 monster[2, 3] = 2;
 monster[2, 4] = 670;
@@ -222,9 +225,63 @@ monster[2, 5] = 0.5;
 monster[2, 6] = spr_monster_03;
 monster[2, 7] = spr_monster_03;
 monster[2, 8] = spr_monster_03;
-monster[2, 9] = 3.0;
-monster[2, 10] = 3.0;
+monster[2, 9] = 0.45;
+monster[2, 10] = 0.55;
+monster[2, 11] = 0;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Projectiles
+//0 Damage
+//1 Speed
+//2 Sprite Shoot
+//3 Sprite Destroy
+//4 Sound on shoot
+//5 Sound on hit
+//6 Range
+//7 LIght Size
+//8 Light Color
+//9 Name
+projectile[0, 0] = 2;
+projectile[0, 1] = 10;
+projectile[0, 2] = spr_arrow;
+projectile[0, 3] = spr_placeholder;
+projectile[0, 4] = snd_bow_shoot;
+projectile[0, 5] = snd_bow_hit;
+projectile[0, 6] = 1000;
+projectile[0, 7] = 0;
+projectile[0, 8] = 0;
+projectile[0, 9] = "arrow";
+
+//Acid ball
+projectile[1, 0] = 2;
+projectile[1, 1] = 12;
+projectile[1, 2] = spr_acid_ball;
+projectile[1, 3] = spr_placeholder;
+projectile[1, 4] = snd_bow_shoot;
+projectile[1, 5] = snd_bow_hit;
+projectile[1, 6] = 1000;
+projectile[1, 7] = 0;
+projectile[1, 8] = c_white;
+projectile[1, 9] = "acid ball";
 
 </string>
           </argument>

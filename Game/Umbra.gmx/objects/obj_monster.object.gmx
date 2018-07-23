@@ -64,6 +64,7 @@ hp = obj_game_control.monster[type, 1];
 damage = obj_game_control.monster[type, 2];
 attack_cooldown = obj_game_control.monster[type, 3];
 range = obj_game_control.monster[type, 4];
+projectile = obj_game_control.monster[type, 11];
 
 //Pathfinding
 update_chase_timer = obj_game_control.monster[type, 5]; //How fast monster should update chasing
@@ -127,33 +128,38 @@ update_chase = true;
 switch(type)
 {
 case 0:
-arrow_type = noone;
-arrow_speed = noone;
-arrow_damage = noone;
-arrow_range = noone;
-arrow_range_min = noone;
-arrow_speed_min = noone;
-arrow_damage_min = noone;
+
 break;
 case 1:
-arrow_type = noone;
-arrow_speed = noone;
-arrow_damage = noone;
-arrow_range = noone;
-arrow_range_min = noone;
-arrow_speed_min = noone;
-arrow_damage_min = noone;
+
 break;
 case 2:
-arrow_type = 1;
-arrow_speed = 10;
-arrow_damage = damage;
-arrow_range = range;
-arrow_range_min = arrow_range;
-arrow_speed_min = arrow_speed;
-arrow_damage_min = arrow_damage;
+
 break;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Audio Emitter
+emitter = audio_emitter_create();
+
 </string>
           </argument>
         </arguments>
@@ -178,6 +184,16 @@ break;
             <kind>1</kind>
             <string>///Add to score when killed
 obj_scoreboard.killed_enemies++;
+//Free Emitter
+audio_emitter_free(emitter);
+//Remove Stuck Arrows   
+for (var i = 0; i&lt;instance_number(obj_arrow_stuck);i++)
+{
+var damage = instance_find(obj_arrow_stuck,i);
+if (damage.anchor == id)
+with(damage)
+instance_destroy()
+}
 </string>
           </argument>
         </arguments>
@@ -320,6 +336,30 @@ state_update();
             <kind>1</kind>
             <string>///State Execute
 state_execute();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Audio
+//Update Emitter
+audio_emitter_position(emitter,x,y,0);
+
 </string>
           </argument>
         </arguments>

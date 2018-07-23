@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>caster_init_sprite();
+            <string>dir = direction;
 </string>
           </argument>
         </arguments>

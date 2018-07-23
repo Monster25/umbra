@@ -50,6 +50,7 @@ draw_text(100,520,"Draw amount: "+string(obj_player.draw));
 if (instance_exists(obj_arrow))
 {
 draw_text(100,440,"Type of arrow: "+string(obj_arrow.type));
+draw_text(200,440,"Arrow range: "+string(obj_arrow.range));
 draw_text(100,460,"Light size of arrow: "+string(obj_arrow.light_size));
 
 }
