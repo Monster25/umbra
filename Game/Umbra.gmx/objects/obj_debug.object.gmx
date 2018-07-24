@@ -57,8 +57,11 @@ draw_text(100,460,"Light size of arrow: "+string(obj_arrow.light_size));
 if (instance_exists(obj_monster))
 {
 draw_text(100,500,"State: "+string(obj_monster.state_name));
-
+draw_text(200,500,"Projectile: "+string(obj_monster.projectile_type));
 }
+
+if (instance_exists(obj_projectile))
+draw_text(100,550,"type: "+string(obj_projectile.type));
 </string>
           </argument>
         </arguments>

@@ -15,10 +15,18 @@
     </sprites>
     <sprites name="Enemy">
       <sprites name="Snake">
-        <sprite>sprites\spr_monster_02</sprite>
+        <sprite>sprites\spr_snake_run</sprite>
+        <sprite>sprites\spr_snake_idle</sprite>
+        <sprite>sprites\spr_snake_windup</sprite>
+        <sprite>sprites\spr_snake_windown</sprite>
+        <sprite>sprites\spr_snake_death</sprite>
       </sprites>
       <sprites name="Spider">
-        <sprite>sprites\spr_monster_01</sprite>
+        <sprite>sprites\spr_spider_idle</sprite>
+        <sprite>sprites\spr_spider_run</sprite>
+        <sprite>sprites\spr_spider_windup</sprite>
+        <sprite>sprites\spr_spider_windown</sprite>
+        <sprite>sprites\spr_spider_death</sprite>
       </sprites>
       <sprites name="Dog">
         <sprite>sprites\spr_monster_03</sprite>
@@ -29,16 +37,20 @@
       <sprite>sprites\spr_wall</sprite>
     </sprites>
     <sprites name="Projectiles">
-      <sprite>sprites\spr_arrow</sprite>
-      <sprite>sprites\spr_arrow_fire</sprite>
-      <sprite>sprites\spr_arrow_magic</sprite>
-      <sprite>sprites\spr_arrow_light</sprite>
-      <sprite>sprites\spr_arrow_stuck_vertical</sprite>
-      <sprite>sprites\spr_arrow_stuck_vertical_fire</sprite>
-      <sprite>sprites\spr_arrow_stuck_vertical_magic</sprite>
       <sprites name="Monster Projectiles">
         <sprite>sprites\spr_acid_ball</sprite>
         <sprite>sprites\spr_placeholder</sprite>
+      </sprites>
+      <sprites name="Arrows">
+        <sprite>sprites\spr_arrow_fire</sprite>
+        <sprite>sprites\spr_arrow_magic</sprite>
+        <sprite>sprites\spr_arrow</sprite>
+        <sprite>sprites\spr_arrow_light</sprite>
+        <sprites name="Stuck">
+          <sprite>sprites\spr_arrow_stuck_vertical_fire</sprite>
+          <sprite>sprites\spr_arrow_stuck_vertical</sprite>
+          <sprite>sprites\spr_arrow_stuck_vertical_magic</sprite>
+        </sprites>
       </sprites>
     </sprites>
     <sprites name="Pickups">
@@ -75,6 +87,7 @@
       <script>scripts\scr_monster_chase.gml</script>
       <script>scripts\scr_monster_windup.gml</script>
       <script>scripts\scr_monster_windown.gml</script>
+      <script>scripts\scr_monster_death.gml</script>
       <scripts name="Chase">
         <script>scripts\scr_monster_chase_melee.gml</script>
         <script>scripts\scr_monster_chase_ranged.gml</script>

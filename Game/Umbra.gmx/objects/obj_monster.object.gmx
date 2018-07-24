@@ -33,6 +33,7 @@ state_create("idle",scr_monster_idle);
 state_create("chase",scr_monster_chase);
 state_create("windup",scr_monster_windup);
 state_create("windown",scr_monster_windown);
+state_create("death",scr_monster_death);
 //Default State
 state_init("idle");
 </string>
@@ -64,7 +65,9 @@ hp = obj_game_control.monster[type, 1];
 damage = obj_game_control.monster[type, 2];
 attack_cooldown = obj_game_control.monster[type, 3];
 range = obj_game_control.monster[type, 4];
-projectile = obj_game_control.monster[type, 11];
+projectile_type = obj_game_control.monster[type, 11];
+
+
 
 //Pathfinding
 update_chase_timer = obj_game_control.monster[type, 5]; //How fast monster should update chasing
@@ -187,13 +190,13 @@ obj_scoreboard.killed_enemies++;
 //Free Emitter
 audio_emitter_free(emitter);
 //Remove Stuck Arrows   
-for (var i = 0; i&lt;instance_number(obj_arrow_stuck);i++)
-{
-var damage = instance_find(obj_arrow_stuck,i);
-if (damage.anchor == id)
-with(damage)
-instance_destroy()
-}
+//for (var i = 0; i&lt;instance_number(obj_arrow_stuck);i++)
+//{
+//var damage = instance_find(obj_arrow_stuck,i);
+//if (damage.anchor == id)
+//with(damage)
+//instance_destroy()
+//}
 </string>
           </argument>
         </arguments>

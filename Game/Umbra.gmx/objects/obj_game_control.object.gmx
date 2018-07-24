@@ -182,6 +182,8 @@ arrow[2, 9] = "Magic Arrow";
 //Column 9 - Windup Time
 //Column 10 - Windown Time
 //Column 11 - Projectile
+//Column 12 - Idle Sprite
+//Column 13 - Death Sprite
 
 //Melee Monster 1 - 0
 //Melee Monster 2 - 1
@@ -194,12 +196,14 @@ monster[0, 2] = 1;
 monster[0, 3] = 1;
 monster[0, 4] = 32;
 monster[0, 5] = 0.5; //How fast the onster mshould update chasing
-monster[0, 6] = spr_monster_01;
-monster[0, 7] = spr_monster_01;
-monster[0, 8] = spr_monster_01;
+monster[0, 6] = spr_spider_run;
+monster[0, 7] = spr_spider_windup;
+monster[0, 8] = spr_spider_windown;
 monster[0, 9] = 0.25;
 monster[0, 10] = 0.45;
 monster[0, 11] = 0;
+monster[0, 12] = spr_spider_idle;
+monster[0, 13] = spr_spider_death;
 
 //Snake
 monster[1, 0] = 4;
@@ -208,12 +212,14 @@ monster[1, 2] = 3;
 monster[1, 3] = 1;
 monster[1, 4] = 200;
 monster[1, 5] = 0.5;
-monster[1, 6] = spr_monster_02;
-monster[1, 7] = spr_monster_02;
-monster[1, 8] = spr_monster_02;
+monster[1, 6] = spr_snake_run;
+monster[1, 7] = spr_snake_windup;
+monster[1, 8] = spr_snake_windown;
 monster[1, 9] = 0.10;
 monster[1, 10] = 0.70;
 monster[1, 11] = 1;
+monster[1, 12] = spr_snake_idle;
+monster[1, 13] = spr_snake_death;
 
 //Dog
 monster[2, 0] = 3;
@@ -228,6 +234,8 @@ monster[2, 8] = spr_monster_03;
 monster[2, 9] = 0.45;
 monster[2, 10] = 0.55;
 monster[2, 11] = 0;
+monster[2, 12] = spr_monster_03;
+monster[2, 13] = spr_monster_03;
 
 </string>
           </argument>
@@ -273,7 +281,7 @@ projectile[0, 9] = "arrow";
 
 //Acid ball
 projectile[1, 0] = 2;
-projectile[1, 1] = 12;
+projectile[1, 1] = 7;
 projectile[1, 2] = spr_acid_ball;
 projectile[1, 3] = spr_placeholder;
 projectile[1, 4] = snd_bow_shoot;
