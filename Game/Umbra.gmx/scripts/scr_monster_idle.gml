@@ -1,9 +1,9 @@
 if (state_new)
 {
-image_speed = 0;
-image_index = 0;
+sprite_index = obj_game_control.monster[type,12];
+image_speed = 0.2;
 state_switch("chase");
 }
 //Death
 if (hp <= 0)
-instance_destroy();
+state_switch("death");

@@ -3,15 +3,15 @@ switch(type)
 {
 //Monster 1
 case 0:
-scr_monster_windup_melee_1();
+scr_monster_windup_melee();
 break;
 //Monster 2
 case 1:
-scr_monster_windup_melee_1();
+scr_monster_windup_melee();
 break;
 //Monster 3
 case 2:
-scr_monster_windup_ranged_1();
+scr_monster_windup_melee();
 break;
 default:
 break;

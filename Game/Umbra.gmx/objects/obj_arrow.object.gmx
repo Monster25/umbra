@@ -63,28 +63,6 @@ light_color = 0;
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Sound
-audio_play_sound_at(obj_game_control.arrow[type, 7],creator.x,creator.y,0,100,600,1,0,1); //shooting arrow sound
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -121,12 +99,21 @@ if (solid_id)
 {
     speed = 0;
     arrow_stuck = instance_create(x,y,obj_arrow_stuck);
+    arrow_stuck.origin_x = x;
+    arrow_stuck.origin_y = y;
+    arrow_stuck.anchor = solid_id;
     arrow_stuck.type = type;
-    arrow_stuck.dir = dir;
+    arrow_stuck.dir = dir;  
+    arrow_stuck.stuck_dx = arrow_stuck.origin_x-solid_id.x;
+    arrow_stuck.stuck_dy = arrow_stuck.origin_y-solid_id.y;
+    arrow_stuck.dir_diff = solid_id.dir-dir;
+    arrow_stuck.dist_diff = point_distance(solid_id.x,solid_id.y,arrow_stuck.origin_x,arrow_stuck.origin_y);
     arrow_stuck.sprite_index = obj_game_control.arrow[type, 4];
     arrow_stuck.light_size = obj_game_control.arrow[type, 3];
     arrow_stuck.light_color = light_color;
-    audio_play_sound_at(obj_game_control.arrow[type, 8],solid_id.x,solid_id.y,0,100,500,1,0,1); //hit arrow sound
+    audio_play_sound_on(arrow_stuck.emitter,obj_game_control.arrow[type, 8],0,1); //hit arrow sound
+    with (arrow_stuck)
+    alarm[0] = 2*room_speed;
     instance_destroy();
 }
 
@@ -134,9 +121,9 @@ if (solid_id)
 player_id = instance_place(x,y,obj_player);
 if (player_id &amp;&amp; player_id!=creator)
 {
+audio_play_sound_on(player_id.emitter,obj_game_control.arrow[type, 8],0,1); //hit arrow sound
 player_id.hp-=damage;
 scr_screen_shake();
-audio_play_sound_at(obj_game_control.arrow[type, 8],player_id.x,player_id.y,0,100,1000,1,0,1); //shooting arrow sound
 instance_destroy();
 }
 
@@ -144,20 +131,42 @@ instance_destroy();
 enemy_id = instance_place(x,y,obj_enemy);
 if (enemy_id &amp;&amp; enemy_id!=creator)
 {
-enemy_id.hp-=damage;
-audio_play_sound_at(obj_game_control.arrow[type, 8],enemy_id.x,enemy_id.y,0,100,1000,1,0,1); //shooting arrow sound
-instance_destroy();
+    //speed = 0;
+    //arrow_stuck = instance_create(x,y,obj_arrow_stuck);
+    //arrow_stuck.origin_x = x;
+    //arrow_stuck.origin_y = y;
+    //arrow_stuck.anchor = enemy_id;
+    //arrow_stuck.type = type;
+    //arrow_stuck.dir = dir;
+    //arrow_stuck.origin_dir = dir;
+    //arrow_stuck.stuck_dx = arrow_stuck.origin_x-enemy_id.x;
+    //arrow_stuck.stuck_dy = arrow_stuck.origin_y-enemy_id.y;
+    //arrow_stuck.angle = point_direction(0,0,arrow_stuck.stuck_dx,arrow_stuck.stuck_dy);
+   // arrow_stuck.distance = point_distance(enemy_id.x,enemy_id.y,arrow_stuck.stuck_dx,arrow_stuck.stuck_dy);
+    //arrow_stuck.dir_diff = enemy_id.dir-dir;
+    //arrow_stuck.dist_diff = point_distance(enemy_id.x,enemy_id.y,arrow_stuck.origin_x,arrow_stuck.origin_y);
+    //arrow_stuck.sprite_index = obj_game_control.arrow[type, 4];
+    //arrow_stuck.light_size = obj_game_control.arrow[type, 3];
+   // arrow_stuck.light_color = light_color;
+    audio_play_sound_on(enemy_id.emitter,obj_game_control.arrow[type, 8],0,1); //hit arrow sound
+    enemy_id.hp-=damage;
+    instance_destroy();
 }
 
 //If range ends
 if (distance_to_point(initial_x,initial_y) &gt; range)
 {
     arrow_stuck = instance_create(x,y,obj_arrow_stuck);
+    arrow_stuck.origin_x = x;
+    arrow_stuck.origin_y = y;
     arrow_stuck.type = type;
     arrow_stuck.dir = dir;
     arrow_stuck.sprite_index = obj_game_control.arrow[type, 6];
     arrow_stuck.light_size = obj_game_control.arrow[type, 3];
     arrow_stuck.light_color = light_color;
+    audio_play_sound_on(arrow_stuck.emitter,obj_game_control.arrow[type, 8],0,1); //hit arrow sound
+    with (arrow_stuck)
+    alarm[0] = 2*room_speed;
     instance_destroy();
 }
 

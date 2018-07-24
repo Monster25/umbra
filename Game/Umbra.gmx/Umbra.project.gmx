@@ -14,22 +14,44 @@
       <sprite>sprites\spr_player</sprite>
     </sprites>
     <sprites name="Enemy">
-      <sprite>sprites\spr_monster_01</sprite>
-      <sprite>sprites\spr_monster_02</sprite>
-      <sprite>sprites\spr_monster_03</sprite>
+      <sprites name="Snake">
+        <sprite>sprites\spr_snake_run</sprite>
+        <sprite>sprites\spr_snake_idle</sprite>
+        <sprite>sprites\spr_snake_windup</sprite>
+        <sprite>sprites\spr_snake_windown</sprite>
+        <sprite>sprites\spr_snake_death</sprite>
+      </sprites>
+      <sprites name="Spider">
+        <sprite>sprites\spr_spider_idle</sprite>
+        <sprite>sprites\spr_spider_run</sprite>
+        <sprite>sprites\spr_spider_windup</sprite>
+        <sprite>sprites\spr_spider_windown</sprite>
+        <sprite>sprites\spr_spider_death</sprite>
+      </sprites>
+      <sprites name="Dog">
+        <sprite>sprites\spr_monster_03</sprite>
+      </sprites>
     </sprites>
     <sprites name="Solids">
       <sprite>sprites\spr_tree</sprite>
       <sprite>sprites\spr_wall</sprite>
     </sprites>
     <sprites name="Projectiles">
-      <sprite>sprites\spr_arrow</sprite>
-      <sprite>sprites\spr_arrow_fire</sprite>
-      <sprite>sprites\spr_arrow_magic</sprite>
-      <sprite>sprites\spr_arrow_light</sprite>
-      <sprite>sprites\spr_arrow_stuck_vertical</sprite>
-      <sprite>sprites\spr_arrow_stuck_vertical_fire</sprite>
-      <sprite>sprites\spr_arrow_stuck_vertical_magic</sprite>
+      <sprites name="Monster Projectiles">
+        <sprite>sprites\spr_acid_ball</sprite>
+        <sprite>sprites\spr_placeholder</sprite>
+      </sprites>
+      <sprites name="Arrows">
+        <sprite>sprites\spr_arrow_fire</sprite>
+        <sprite>sprites\spr_arrow_magic</sprite>
+        <sprite>sprites\spr_arrow</sprite>
+        <sprite>sprites\spr_arrow_light</sprite>
+        <sprites name="Stuck">
+          <sprite>sprites\spr_arrow_stuck_vertical_fire</sprite>
+          <sprite>sprites\spr_arrow_stuck_vertical</sprite>
+          <sprite>sprites\spr_arrow_stuck_vertical_magic</sprite>
+        </sprites>
+      </sprites>
     </sprites>
     <sprites name="Pickups">
       <sprite>sprites\spr_crystal_fire</sprite>
@@ -65,21 +87,23 @@
       <script>scripts\scr_monster_chase.gml</script>
       <script>scripts\scr_monster_windup.gml</script>
       <script>scripts\scr_monster_windown.gml</script>
+      <script>scripts\scr_monster_death.gml</script>
       <scripts name="Chase">
-        <script>scripts\scr_monster_chase_melee_1.gml</script>
-        <script>scripts\scr_monster_chase_ranged_1.gml</script>
+        <script>scripts\scr_monster_chase_melee.gml</script>
+        <script>scripts\scr_monster_chase_ranged.gml</script>
       </scripts>
       <scripts name="Windup">
-        <script>scripts\scr_monster_windup_ranged_1.gml</script>
-        <script>scripts\scr_monster_windup_melee_1.gml</script>
+        <script>scripts\scr_monster_windup_ranged.gml</script>
+        <script>scripts\scr_monster_windup_melee.gml</script>
       </scripts>
       <scripts name="Windown">
-        <script>scripts\scr_monster_windown_melee_1.gml</script>
-        <script>scripts\scr_monster_windown_ranged_1.gml</script>
+        <script>scripts\scr_monster_windown_ranged.gml</script>
+        <script>scripts\scr_monster_windown_melee.gml</script>
       </scripts>
     </scripts>
     <scripts name="Mechanics">
       <script>scripts\scr_shoot_arrow.gml</script>
+      <script>scripts\scr_shoot_projectile.gml</script>
       <script>scripts\scr_collect_crystal.gml</script>
     </scripts>
     <scripts name="Game Control">
@@ -155,9 +179,11 @@
     </objects>
     <objects name="Debris">
       <object>objects\obj_arrow_stuck</object>
+      <object>objects\obj_projectile_residue</object>
     </objects>
     <objects name="Projectiles">
       <object>objects\obj_arrow</object>
+      <object>objects\obj_projectile</object>
     </objects>
     <objects name="Pickups">
       <object>objects\obj_crystal</object>
