@@ -37,6 +37,10 @@ high_tree = 30; //for random generation
 base_enemy = 4 //for random gen
 low_enemy = 7 //for random gen
 high_enemy = 10 //for random gen
+//Boss Gen
+base_boss = 1;
+low_boss = 1;
+high_boss = 1;
 
 </string>
           </argument>
@@ -226,16 +230,69 @@ monster[2, 0] = 3;
 monster[2, 1] = 3;
 monster[2, 2] = 2;
 monster[2, 3] = 2;
-monster[2, 4] = 670;
+monster[2, 4] = 32;
 monster[2, 5] = 0.5;
-monster[2, 6] = spr_monster_03;
-monster[2, 7] = spr_monster_03;
-monster[2, 8] = spr_monster_03;
+monster[2, 6] = spr_dog_run;
+monster[2, 7] = spr_dog_windup;
+monster[2, 8] = spr_dog_windown;
 monster[2, 9] = 0.45;
 monster[2, 10] = 0.55;
 monster[2, 11] = 0;
-monster[2, 12] = spr_monster_03;
-monster[2, 13] = spr_monster_03;
+monster[2, 12] = spr_dog_idle;
+monster[2, 13] = spr_dog_death;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Boss Types
+//Column 0 - Movement Speed
+//Column 1 - Health
+//Column 2 - Base Damage
+//Column 3 - Range
+//Column 4 - Pathfinding Updater
+//Column 5 - Run Sprite
+//Column 6 - Windup Sprite
+//Column 7 - Windown Sprite
+//Column 8 - Idle Sprite
+//Column 9 - Death Sprite
+//Column 10 - Windup Time
+//Column 11 - Windown Time
+//Column 12 - Projectile
+
+
+//Boss 1 - Shadow
+
+//Shadow
+boss[0, 0] = 9;
+boss[0, 1] = 30;
+boss[0, 2] = 3;
+boss[0, 3] = 550;
+boss[0, 4] = 0.5; //How fast the onster mshould update chasing
+boss[0, 5] = spr_shadow_run; 
+boss[0, 6] = spr_shadow_draw;
+boss[0, 7] = spr_shadow_draw;
+boss[0, 8] = spr_shadow_idle;
+boss[0, 9] = spr_spider_death;
+boss[0, 10] = 0.45;
+boss[0, 11] = 0.35;
+boss[0, 12] = 2;
 
 </string>
           </argument>
@@ -291,6 +348,16 @@ projectile[1, 7] = 0;
 projectile[1, 8] = c_white;
 projectile[1, 9] = "acid ball";
 
+//Shadow Arrow
+projectile[2, 0] = 2;
+projectile[2, 1] = 12;
+projectile[2, 2] = spr_arrow_shadow;
+projectile[2, 3] = spr_placeholder;
+projectile[2, 4] = snd_bow_shoot;
+projectile[2, 5] = snd_bow_hit;
+projectile[2, 6] = 1000;
+projectile[2, 7] = 128;
+projectile[2, 8] = c_white;
 </string>
           </argument>
         </arguments>
@@ -315,7 +382,7 @@ projectile[1, 9] = "acid ball";
             <kind>1</kind>
             <string>///Level Generation
 //if you run out of custom levels, generate new ones
-if (current_level+1 == array_height_2d(obj_game_control.level))
+if (current_level+1 == array_height_2d(obj_game_control.level) &amp;&amp; ((obj_game_control.current_level+1)%5)!=0)
 {
 level[current_level+1, 0] = irandom_range(base_tree,low_tree);//min trees
 level[current_level+1, 1] = irandom_range(low_tree,high_tree); //max trees
@@ -327,7 +394,18 @@ level[current_level+1, 6] = irandom_range(1,3); //enemy waves
 level[current_level+1, 7] = irandom_range(1,10); //time (seconds) between waves
 level[current_level+1, 8] = irandom_range(8,18); //nr of crystals;
 //level[current_level+1, 9] = irandom_range(1,obj_game_control.array_height_2d(monster)); //How many diff types of enemies in the room
-
+}
+else if (current_level+1 == array_height_2d(obj_game_control.level) &amp;&amp; ((obj_game_control.current_level+1)%5)==0)
+{
+level[current_level+1, 0] = irandom_range(base_tree,low_tree);//min trees
+level[current_level+1, 1] = irandom_range(low_tree,high_tree); //max trees
+level[current_level+1, 2] = 0; //actual trees
+level[current_level+1, 3] = irandom_range(base_boss,low_boss);// min enemies
+level[current_level+1, 4] = irandom_range(low_boss,high_boss); //max enemies
+level[current_level+1, 5] = 0; //actual enemies
+level[current_level+1, 6] = irandom_range(1,1); //enemy waves
+level[current_level+1, 7] = irandom_range(1,10); //time (seconds) between waves
+level[current_level+1, 8] = irandom_range(8,18); //nr of crystals;
 }
 </string>
           </argument>

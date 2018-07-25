@@ -27,7 +27,11 @@
             <kind>1</kind>
             <string>//Random crystal type and respective sprite
 type = irandom_range(1,array_height_2d(obj_game_control.arrow)-1);
+//Animation
 sprite_index = obj_game_control.arrow[type,5];
+image_speed = 0.18;
+
+//Light
 light_size = 32;
 light_color = obj_game_control.arrow[type, 2];
 

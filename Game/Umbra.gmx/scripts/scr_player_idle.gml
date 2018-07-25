@@ -1,7 +1,11 @@
 //Idle State
 //Animations
-image_speed = 0;
+if (state_new)
+{
+sprite_index = spr_idle;
 image_index = 0;
+image_speed = 0.09;
+}
 //Get Input
 scr_player_input();
 //How to move
@@ -21,8 +25,7 @@ state_switch("draw_idle");
 //scr_shoot_arrow(id);
 }
 //Death
-if (hp<=0 && !dead)
+if (hp<=0)
 {
-dead = true;
-room_goto(3); //go to scoreboard room
+state_switch("death");
 }

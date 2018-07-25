@@ -11,7 +11,7 @@ scr_monster_windown_ranged();
 break;
 //Monster 3
 case 2:
-scr_monster_windown_ranged();
+scr_monster_windown_melee();
 break;
 default:
 break;

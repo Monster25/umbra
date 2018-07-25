@@ -20,7 +20,7 @@ var wall_height = sprite_get_height(object_get_sprite(obj_wall));
 var wall_width = sprite_get_width(object_get_sprite(obj_wall));
 var wall1 = instance_create(0,0,obj_wall);
 wall1.image_xscale = obj_grid.hcells;
-var wall2 = instance_create(0,room_height-wall_height,obj_wall);
+var wall2 = instance_create(0,room_height-wall_height,obj_wall  );
 wall2.image_xscale = obj_grid.hcells;
 var wall3 = instance_create(0,wall_height,obj_wall);
 wall3.image_yscale = obj_grid.vcells-1;
@@ -48,7 +48,7 @@ mp_grid_add_cell(grid,tree_cell_x,tree_cell_y);
 i++;
 }
 }
-//Spawn(Move) Player at Random Cell
+//Spawn(Move) Player at Random Cell + modify view
 var player_spawned = false;
 while (!player_spawned)
 {
@@ -56,9 +56,11 @@ var player_cell_x = irandom_range(0,obj_grid.hcells);
 var player_cell_y = irandom_range(0,obj_grid.vcells);
 if (mp_grid_get_cell(grid,player_cell_x,player_cell_y)==0)
 {
-obj_player.x = player_cell_x*obj_grid.cell_width+sprite_get_width(object_get_sprite(obj_player))/2;
-obj_player.y = player_cell_y*obj_grid.cell_height+sprite_get_height(object_get_sprite(obj_player))/2;
+obj_player.x = player_cell_x*obj_grid.cell_width+((sprite_get_bbox_right(object_get_sprite(obj_player)))/2);
+obj_player.y = player_cell_y*obj_grid.cell_height+((sprite_get_bbox_bottom(object_get_sprite(obj_player)))/2);
 player_spawned = true;
+view_yview[0] = obj_player.y-view_hview[0]/2;
+view_xview[0] = obj_player.x-view_wview[0]/2;
 }
 }
 //Spawn crystals
@@ -71,11 +73,21 @@ var crystal_cell_x = irandom_range(0,obj_grid.hcells);
 var crystal_cell_y = irandom_range(0,obj_grid.vcells);
 if (mp_grid_get_cell(grid,crystal_cell_x,crystal_cell_y)==0)
 {
-instance_create(crystal_cell_x,crystal_cell_y,obj_crystal);
+//Hard coded due to not knowing size of crystal sprite before spawning
+instance_create(crystal_cell_x*obj_grid.cell_width+16,crystal_cell_y*obj_grid.cell_height+16,obj_crystal);
 crystal_spawned = true;
 }
 }
 }
+//Tiles on the ground
+for(var i = 0;i &lt; room_width/128; i++)
+{
+for (var j = 0; j&lt; room_height/128; j++)
+{
+tile_add(ts_grass_01,128,0,128,128,i*128,j*128,1)
+}
+}
+
 //Spawn room control - controls waves and stuff like that
 instance_create(0,0,obj_room_control);</code>
   <enableViews>-1</enableViews>

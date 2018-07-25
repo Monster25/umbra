@@ -1,7 +1,16 @@
 //Draw State
 //Animations
-image_speed = 0;
+if (state_new)
+{
+sprite_index = spr_draw;
 image_index = 0;
+image_speed = 1/sprite_get_number(sprite_index);
+}
+if (full_draw)
+{
+image_speed = 0;
+image_index = sprite_get_number(sprite_index)-1;
+}
 //Get Input
 scr_player_input();
 
@@ -46,15 +55,17 @@ can_shoot = false;
 alarm[0] = room_speed*shoot_cooldown;
 scr_shoot_arrow(id);
 if (full_draw)
+{
 scr_screen_shake();
+full_draw = false;
+}
 state_switch("idle");
 }
 
 //Death
-if (hp<=0 && !dead)
+if (hp<=0)
 {
-dead = true;
-room_goto(3); //go to scoreboard room
+state_switch("death");
 }
 
 

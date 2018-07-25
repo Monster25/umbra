@@ -11,7 +11,12 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
-      <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\spr_player_run</sprite>
+      <sprite>sprites\spr_player_idle</sprite>
+      <sprite>sprites\spr_player_draw</sprite>
+      <sprite>sprites\spr_player_shoot</sprite>
+      <sprite>sprites\spr_player_draw_run</sprite>
+      <sprite>sprites\spr_player_death</sprite>
     </sprites>
     <sprites name="Enemy">
       <sprites name="Snake">
@@ -29,7 +34,20 @@
         <sprite>sprites\spr_spider_death</sprite>
       </sprites>
       <sprites name="Dog">
-        <sprite>sprites\spr_monster_03</sprite>
+        <sprite>sprites\spr_dog_idle</sprite>
+        <sprite>sprites\spr_dog_windup</sprite>
+        <sprite>sprites\spr_dog_windown</sprite>
+        <sprite>sprites\spr_dog_death</sprite>
+        <sprite>sprites\spr_dog_run</sprite>
+      </sprites>
+    </sprites>
+    <sprites name="Boss">
+      <sprites name="Shadow">
+        <sprite>sprites\spr_shadow_idle</sprite>
+        <sprite>sprites\spr_shadow_run</sprite>
+        <sprite>sprites\spr_shadow_draw_run</sprite>
+        <sprite>sprites\spr_shadow_draw</sprite>
+        <sprite>sprites\spr_shadow_death</sprite>
       </sprites>
     </sprites>
     <sprites name="Solids">
@@ -44,12 +62,14 @@
       <sprites name="Arrows">
         <sprite>sprites\spr_arrow_fire</sprite>
         <sprite>sprites\spr_arrow_magic</sprite>
+        <sprite>sprites\spr_arrow_shadow</sprite>
         <sprite>sprites\spr_arrow</sprite>
         <sprite>sprites\spr_arrow_light</sprite>
         <sprites name="Stuck">
           <sprite>sprites\spr_arrow_stuck_vertical_fire</sprite>
           <sprite>sprites\spr_arrow_stuck_vertical</sprite>
           <sprite>sprites\spr_arrow_stuck_vertical_magic</sprite>
+          <sprite>sprites\spr_arrow_stuck_vertical_shadow</sprite>
         </sprites>
       </sprites>
     </sprites>
@@ -81,6 +101,7 @@
       <script>scripts\scr_player_collision.gml</script>
       <script>scripts\scr_player_draw_idle.gml</script>
       <script>scripts\scr_player_draw_run.gml</script>
+      <script>scripts\scr_player_death.gml</script>
     </scripts>
     <scripts name="Monster">
       <script>scripts\scr_monster_idle.gml</script>
@@ -161,12 +182,14 @@
       <object>objects\obj_scoreboard</object>
       <object>objects\obj_lighting</object>
       <object>objects\obj_room_control</object>
+      <object>objects\obj_boss_control</object>
       <object>objects\obj_camera</object>
       <object>objects\obj_sound</object>
       <object>objects\obj_gui</object>
     </objects>
     <objects name="Enemy">
       <object>objects\obj_monster</object>
+      <object>objects\obj_boss</object>
       <object>objects\obj_enemy</object>
     </objects>
     <objects name="Player">
@@ -193,6 +216,7 @@
     <room>rooms\rm_menu</room>
     <room>rooms\rm_01</room>
     <room>rooms\rm_02</room>
+    <room>rooms\rm_boss</room>
     <room>rooms\rm_scoreboard</room>
   </rooms>
   <help>

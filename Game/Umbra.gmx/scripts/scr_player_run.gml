@@ -1,6 +1,11 @@
 //Run State
 //Animations
+if (state_new)
+{
+sprite_index = spr_run;
+image_index = 0;
 image_speed = 0.07;
+}
 //Get Input
 scr_player_input();
 
@@ -26,8 +31,7 @@ state_switch("draw_run");
 //scr_shoot_arrow(id);
 }
 //Death
-if (hp<=0 && !dead)
+if (hp<=0)
 {
-dead = true;
-room_goto(3); //go to scoreboard room
+state_switch("death");
 }

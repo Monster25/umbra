@@ -62,6 +62,7 @@ type = irandom_range(0,array_height_2d(obj_game_control.monster)-1);
 movespeed = obj_game_control.monster[type, 0];
 //Combat
 hp = obj_game_control.monster[type, 1];
+max_hp = hp;
 damage = obj_game_control.monster[type, 2];
 attack_cooldown = obj_game_control.monster[type, 3];
 range = obj_game_control.monster[type, 4];
@@ -387,6 +388,9 @@ audio_emitter_position(emitter,x,y,0);
             <kind>1</kind>
             <string>//Draw Sprite
 draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),1,1,dir,c_white,1)
+//Healthbars
+pc = (hp / max_hp)*100;
+draw_healthbar(x-30,y-30,x+30,y-25,pc,c_gray,c_red,c_green,0,1,1);
 </string>
           </argument>
         </arguments>
