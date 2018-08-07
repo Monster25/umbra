@@ -28,6 +28,16 @@
             <string>//Get number of waves and time between each wave
 waves = obj_game_control.level[obj_game_control.current_level,6];
 time = obj_game_control.level[obj_game_control.current_level,7];
+//Set available monsters
+available_types[0] = 0;
+var j = 0;
+for (var i=0 ; i&lt;string_length(obj_game_control.level[obj_game_control.current_level,9]);i++)
+{
+    available_types[j] = string_char_at(obj_game_control.level[obj_game_control.current_level,9],i);
+    if (string_char_at(obj_game_control.level[obj_game_control.current_level,9],i+1) == " ")
+    i++;
+    j++;
+}
 //Start timer to spawn waves
 alarm[0] = time*room_speed;
 
@@ -54,7 +64,7 @@ alarm[0] = time*room_speed;
           <argument>
             <kind>1</kind>
             <string>//Spawn Enemies
-//Generate random number
+//Generate random number of enemies between min and max
 var enemies = irandom_range(obj_game_control.level[obj_game_control.current_level,3],obj_game_control.level[obj_game_control.current_level,4]);
 //Set actual number of enemies in the array
 obj_game_control.level[obj_game_control.current_level, 5] = enemies;

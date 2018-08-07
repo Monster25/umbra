@@ -190,7 +190,9 @@
     <objects name="Enemy">
       <object>objects\obj_monster</object>
       <object>objects\obj_boss</object>
-      <object>objects\obj_enemy</object>
+      <objects name="Parents">
+        <object>objects\obj_enemy</object>
+      </objects>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>

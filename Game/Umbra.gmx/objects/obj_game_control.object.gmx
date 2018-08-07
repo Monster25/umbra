@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>///Inits
 current_level = 0;
-max_levels = 10; 
+current_boss_level = 0;
+max_levels = 30; 
 time = 0;
 //Tree gen
 base_tree = 10 //for random generation
@@ -41,6 +42,7 @@ high_enemy = 10 //for random gen
 base_boss = 1;
 low_boss = 1;
 high_boss = 1;
+boss_counter = 3; //every x level a boss spawns
 
 </string>
           </argument>
@@ -73,18 +75,56 @@ high_boss = 1;
 //Column 6 - Waves of enemies
 //Column 7 - Time (Seconds) between each wave
 //Column 8 - Number of Crystals
-//Column 9 - Types of enemies
+//Column 9 - Include Monsters (Ids)
+//Column 10 - Minimum number of crystals
+//Column 11 - Maximum number of crystals
 //Level 1
 level[0, 0] = 10;
 level[0, 1] = 20;
 level[0, 2] = 0;
-level[0, 3] = 1;
-level[0, 4] = 1;
+level[0, 3] = 3;
+level[0, 4] = 7;
 level[0, 5] = 0;
 level[0, 6] = 1;
 level[0, 7] = 5; 
 level[0, 8] = 10;
+level[0, 9] = "2 1 0";
 //level[0, 9] = 3;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Boss Level properties
+
+//Column 0 - Minimum Number of Trees
+//Column 1 - Maximum Number of Trees
+//Column 2 - Actual number of trees generated
+//Column 3 - Number of Crystals
+//Column 4 - Boss id
+//Column 5 - Minimum number of crystals
+//Column 6 - Maximum number of crystals
+boss_level = 0;
+boss_level[0, 0] = 10;
+boss_level[0, 1] = 20;
+boss_level[0, 2] = 0;
+boss_level[0, 3] = 10;
+boss_level[0, 4] = 0;
 </string>
           </argument>
         </arguments>
@@ -382,7 +422,7 @@ projectile[2, 8] = c_white;
             <kind>1</kind>
             <string>///Level Generation
 //if you run out of custom levels, generate new ones
-if (current_level+1 == array_height_2d(obj_game_control.level) &amp;&amp; ((obj_game_control.current_level+1)%5)!=0)
+if (current_level+1 == array_height_2d(obj_game_control.level))
 {
 level[current_level+1, 0] = irandom_range(base_tree,low_tree);//min trees
 level[current_level+1, 1] = irandom_range(low_tree,high_tree); //max trees
@@ -393,19 +433,8 @@ level[current_level+1, 5] = 0; //actual enemies
 level[current_level+1, 6] = irandom_range(1,3); //enemy waves
 level[current_level+1, 7] = irandom_range(1,10); //time (seconds) between waves
 level[current_level+1, 8] = irandom_range(8,18); //nr of crystals;
-//level[current_level+1, 9] = irandom_range(1,obj_game_control.array_height_2d(monster)); //How many diff types of enemies in the room
-}
-else if (current_level+1 == array_height_2d(obj_game_control.level) &amp;&amp; ((obj_game_control.current_level+1)%5)==0)
-{
-level[current_level+1, 0] = irandom_range(base_tree,low_tree);//min trees
-level[current_level+1, 1] = irandom_range(low_tree,high_tree); //max trees
-level[current_level+1, 2] = 0; //actual trees
-level[current_level+1, 3] = irandom_range(base_boss,low_boss);// min enemies
-level[current_level+1, 4] = irandom_range(low_boss,high_boss); //max enemies
-level[current_level+1, 5] = 0; //actual enemies
-level[current_level+1, 6] = irandom_range(1,1); //enemy waves
-level[current_level+1, 7] = irandom_range(1,10); //time (seconds) between waves
-level[current_level+1, 8] = irandom_range(8,18); //nr of crystals;
+//Manually changed, need to think of solution
+level[current_level+1, 9] = "0 1 2"; //How many diff types of enemies in the room
 }
 </string>
           </argument>
@@ -428,7 +457,7 @@ level[current_level+1, 8] = irandom_range(8,18); //nr of crystals;
           <argument>
             <kind>1</kind>
             <string>///Time Moving
-if (room!=3 &amp;&amp; room!=0)
+if (room!=4 &amp;&amp; room!=0)
 time+=1/room_speed;
 </string>
           </argument>

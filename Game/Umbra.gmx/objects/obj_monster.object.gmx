@@ -57,7 +57,11 @@ state_init("idle");
           <argument>
             <kind>1</kind>
             <string>///Properties
-type = irandom_range(0,array_height_2d(obj_game_control.monster)-1);
+
+
+//available_types[0] = 
+type_choice = irandom_range(0,array_length_1d(obj_room_control.available_types)-1);
+type = type_choice;
 //Movement
 movespeed = obj_game_control.monster[type, 0];
 //Combat
