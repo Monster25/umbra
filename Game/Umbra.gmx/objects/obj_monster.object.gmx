@@ -390,7 +390,6 @@ audio_emitter_position(emitter,x,y,0);
             <kind>1</kind>
             <string>//Draw Sprite
 draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),1,1,dir,c_white,1)
-//Healthbars
 pc = (hp / max_hp)*100;
 draw_healthbar(x-30,y-30,x+30,y-25,pc,c_gray,c_red,c_green,0,1,1);
 </string>

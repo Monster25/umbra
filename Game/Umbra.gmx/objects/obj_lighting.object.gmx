@@ -92,10 +92,11 @@ draw_set_alpha(1);
 }
 
 //Reset and surf specs
+//Actual darkness
 surface_reset_target();
 
 draw_set_blend_mode_ext(bm_dest_color, bm_inv_src_alpha);
-draw_surface_ext(surf, view_xview[0], view_yview[0], 1, 1, 0, c_white, 0.90);
+draw_surface_ext(surf, view_xview[0], view_yview[0], 1, 1, 0, c_white, 0.82);
 draw_set_blend_mode(bm_normal);
 
 

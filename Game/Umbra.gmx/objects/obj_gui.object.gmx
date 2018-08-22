@@ -69,8 +69,32 @@ draw_set_valign(fa_middle)
 draw_set_color(c_white)
 draw_set_font(fnt_debug)
 draw_text(drawbar_pos_x,drawbar_pos_y+drawbar_h*4,"Arrow Type: "+string(obj_game_control.arrow[obj_player.arrow_type,9]));
+draw_text(drawbar_pos_x,drawbar_pos_y+drawbar_h*6,"Damage: "+string(obj_player.arrow_damage));
+draw_text(drawbar_pos_x,drawbar_pos_y+drawbar_h*8,"Distance: "+string(obj_player.arrow_range));
 
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>

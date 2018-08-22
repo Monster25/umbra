@@ -187,29 +187,6 @@ light_size = clamp(light_size,obj_game_control.arrow[type,3]-1 ,obj_game_control
             <kind>1</kind>
             <string>///Update Position
 
-if (object_get_parent(anchor.object_index) == obj_enemy)
-{
-    //x = anchor.x + stuck_dx;
-   // y = anchor.y + stuck_dy;
-    //x = anchor.x + lengthdir_x(stuck_dx, anchor.dir + angle);
-    //y = anchor.y + lengthdir_y(stuck_dy, anchor.dir + angle); 
-    //x += lengthdir_x(distance, anchor.dir + angle);
-   //    y += lengthdir_y(distance, anchor.dir + angle);
-}
-//dist_diff = point_distance(x, y, anchor.x, anchor.y);
-//x = anchor.x+lengthdir_x(dist_diff,point_direction(anchor.x,anchor.y,origin_x,origin_y,));
-//y = anchor.y+lengthdir_y(dist_diff,point_direction(anchor.x,anchor.y,origin_x,origin_y,));
-//actual_dir_diff = anchor.dir-dir;
-//if (actual_dir_diff &lt; dir_diff)
-//dir -= dir_diff-actual_dir_diff;
-//else if (actual_dir_diff &gt; dir_diff)
-//dir += actual_dir_diff-dir_diff;
-//}
-else
-{
-
-}
-
 
 
 </string>

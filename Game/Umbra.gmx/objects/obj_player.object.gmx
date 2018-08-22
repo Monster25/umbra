@@ -59,7 +59,7 @@ state_init("idle");
             <string>///Properties
 
 //Movement
-movespeed = 9; //Moving speed
+movespeed = 7; //Moving speed
 //Combat
 hp = 25; //health
 max_hp = hp; //max health

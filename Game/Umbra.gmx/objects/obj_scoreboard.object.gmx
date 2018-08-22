@@ -79,6 +79,9 @@ obj_player.visible = 0;
             <string>draw_set_font(fnt_menu)
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
+if (obj_player.hp&lt;=0)
+draw_text(window_get_width()/2,window_get_height()/2-100*4,"You died.")
+else
 draw_text(window_get_width()/2,window_get_height()/2-100*4,"Game Over")
 draw_text(window_get_width()/2,window_get_height()/2-100*3,"Final Level Reached: "+string(obj_game_control.current_level));
 draw_text(window_get_width()/2,window_get_height()/2-100*2,"Enemies killed: "+string(killed_enemies));

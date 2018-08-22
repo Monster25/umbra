@@ -58,118 +58,118 @@ grid_h = 64;
 //Monster ids are added at the end of the array (awkward but does the job)
 //Level 0
 level[0, 0] = 0; //Column 0 - Normal level or Boss Level  (0 or 1)
-level[0, 1] = 16; //Column 1 - Room Width (multiplied by grid width later)
-level[0, 2] = 16; //Column 2 - Room Height (multiplied by grid width later)
+level[0, 1] = 20; //Column 1 - Room Width (multiplied by grid width later)
+level[0, 2] = 20; //Column 2 - Room Height (multiplied by grid width later)
 //level[0, 3] = 20; //Column 3 - Room Height Min (Multiplied by grid height later)
 //level[0, 4] = 40; //Column 4 - Room Heigh Max (multiplied by grid height later)
 level[0, 5] = 0; //Column 5 - Actual Room Width
 level[0, 6] = 0; //Column 6 - Actual Room Height 
-level[0, 7] = 5;//Column 7 - Minimum Number of Trees 
-level[0, 8] = 10; //Column 8 - Maximum Number of Trees    
+level[0, 7] = 10;//Column 7 - Minimum Number of Trees 
+level[0, 8] = 20; //Column 8 - Maximum Number of Trees    
 level[0, 9] = 0; //Column 9 - Actual Number of trees generated
 level[0, 10] = 1; //Column 10 - Minimum Number of Enemies (per wave)
 level[0, 11] = 2; //Column 11 - Maximum Number of Enemies (per wave)
 level[0, 12] = 0; //Column 12 - Actual Number of Enemies
 //level[0, 13] = "0 1"; //Column 13 - Include Enemies (ids) (Includes bosses)
 level[0, 14] = 1; //Column 14 - Number of Enemy Waves
-level[0, 15] = 3; //Column 15 - Time between waves (seconds)
-level[0, 16] = 4; //Column 16 - Minimum Number of Crystals
-level[0, 17] = 8; //Column 17 - Maximum Number of Crystals
+level[0, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[0, 16] = 13; //Column 16 - Minimum Number of Crystals
+level[0, 17] = 16; //Column 17 - Maximum Number of Crystals
 level[0, 18] = 0; //Column 18 - Actual Number of Crystals
 level[0, 19] = 0; //Column 19 - Id Of Enemy included
 
 //Level 1
 level[1, 0] = 0; //Column 0 - Normal level or Boss Level  (0 or 1)
-level[1, 1] = 17; //Column 1 - Room Width (multiplied by grid width later)
-level[1, 2] = 17; //Column 2 - Room Heigth (multiplied by grid width later)
+level[1, 1] = 22; //Column 1 - Room Width (multiplied by grid width later)
+level[1, 2] = 22; //Column 2 - Room Heigth (multiplied by grid width later)
 //level[1, 3] = 20; //Column 3 - Room Height Min (Multiplied by grid height later)
 //level[1, 4] = 30; //Column 4 - Room Heigh Max (multiplied by grid height later)
 level[1, 5] = 0; //Column 5 - Actual Room Width
 level[1, 6] = 0; //Column 6 - Actual Room Height 
-level[1, 7] = 10;//Column 7 - Minimum Number of Trees 
-level[1, 8] = 12; //Column 8 - Maximum Number of Trees    
+level[1, 7] = 15;//Column 7 - Minimum Number of Trees 
+level[1, 8] = 20; //Column 8 - Maximum Number of Trees    
 level[1, 9] = 0; //Column 9 - Actual Number of trees generated
-level[1, 10] = 1; //Column 10 - Minimum Number of Enemies (per wave)
-level[1, 11] = 2; //Column 11 - Maximum Number of Enemies (per wave)
+level[1, 10] = 2; //Column 10 - Minimum Number of Enemies (per wave)
+level[1, 11] = 3; //Column 11 - Maximum Number of Enemies (per wave)
 level[1, 12] = 0; //Column 12 - Actual Number of Enemies
 level[1, 13] = "1 0"; //Column 13 - Include Enemies (ids) (Includes bosses)
-level[1, 14] = 2; //Column 14 - Number of Enemy Waves
-level[1, 15] = 2; //Column 15 - Time between waves (seconds)
-level[1, 16] = 9; //Column 16 - Minimum Number of Crystals
-level[1, 17] = 15; //Column 17 - Maximum Number of Crystals
+level[1, 14] = 1; //Column 14 - Number of Enemy Waves
+level[1, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[1, 16] = 14; //Column 16 - Minimum Number of Crystals
+level[1, 17] = 17; //Column 17 - Maximum Number of Crystals
 level[1, 18] = 0; //Column 18 - Actual Number of Crystals
 level[1, 19] = 0; //Column 19 - Id Of Enemy included
 //level[1, 20] = 0; //Column 20 - Id of Enemy Included
 
 //Level 2
-level[2, 0] = 1; //Column 0 - Normal level or Boss Level  (0 or 1)
-level[2, 1] = 18; //Column 1 - Room Width (multiplied by grid width later)
-level[2, 2] = 18; //Column 2 - Room Heigth (multiplied by grid width later)
+level[2, 0] = 0; //Column 0 - Normal level or Boss Level  (0 or 1)
+level[2, 1] = 24; //Column 1 - Room Width (multiplied by grid width later)
+level[2, 2] = 24; //Column 2 - Room Heigth (multiplied by grid width later)
 //level[2, 3] = 20; //Column 3 - Room Height Min (Multiplied by grid height later)
 //level[2, 4] = 30; //Column 4 - Room Heigh Max (multiplied by grid height later)
 level[2, 5] = 0; //Column 5 - Actual Room Width
 level[2, 6] = 0; //Column 6 - Actual Room Height 
-level[2, 7] = 18;//Column 7 - Minimum Number of Trees 
-level[2, 8] = 24; //Column 8 - Maximum Number of Trees    
+level[2, 7] = 20;//Column 7 - Minimum Number of Trees 
+level[2, 8] = 30; //Column 8 - Maximum Number of Trees    
 level[2, 9] = 0; //Column 9 - Actual Number of trees generated
 level[2, 10] = 1; //Column 10 - Minimum Number of Enemies (per wave)
-level[2, 11] = 1; //Column 11 - Maximum Number of Enemies (per wave)
+level[2, 11] = 2; //Column 11 - Maximum Number of Enemies (per wave)
 level[2, 12] = 0; //Column 12 - Actual Number of Enemies
 level[2, 13] = "1 0"; //Column 13 - Include Enemies (ids) (Includes bosses)
-level[2, 14] = 1; //Column 14 - Number of Enemy Waves
-level[2, 15] = 2; //Column 15 - Time between waves (seconds)
-level[2, 16] = 10; //Column 16 - Minimum Number of Crystals
-level[2, 17] = 15; //Column 17 - Maximum Number of Crystals
+level[2, 14] = 2; //Column 14 - Number of Enemy Waves
+level[2, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[2, 16] = 15; //Column 16 - Minimum Number of Crystals
+level[2, 17] = 18; //Column 17 - Maximum Number of Crystals
 level[2, 18] = 0; //Column 18 - Actual Number of Crystals
-level[2, 19] = 3; //Column 19 - Id Of Enemy included
+level[2, 19] = 0; //Column 19 - Id Of Enemy included
 //level[2, 20] = 0; //Column 20 - Id of Enemy Included
 
 //Level 3
 level[3, 0] = 0; //Column 0 - Normal level or Boss Level  (0 or 1)
-level[3, 1] = 20; //Column 1 - Room Width (multiplied by grid width later)
-level[3, 2] = 20; //Column 2 - Room Heigth (multiplied by grid width later)
+level[3, 1] = 26; //Column 1 - Room Width (multiplied by grid width later)
+level[3, 2] = 26; //Column 2 - Room Heigth (multiplied by grid width later)
 //level[3, 3] = 20; //Column 3 - Room Height Min (Multiplied by grid height later)
 //level[3, 4] = 30; //Column 4 - Room Heigh Max (multiplied by grid height later)
 level[3, 5] = 0; //Column 5 - Actual Room Width
 level[3, 6] = 0; //Column 6 - Actual Room Height 
-level[3, 7] = 13;//Column 7 - Minimum Number of Trees 
-level[3, 8] = 16; //Column 8 - Maximum Number of Trees    
+level[3, 7] = 25;//Column 7 - Minimum Number of Trees 
+level[3, 8] = 30; //Column 8 - Maximum Number of Trees    
 level[3, 9] = 0; //Column 9 - Actual Number of trees generated
-level[3, 10] = 2; //Column 10 - Minimum Number of Enemies (per wave)
-level[3, 11] = 3; //Column 11 - Maximum Number of Enemies (per wave)
+level[3, 10] = 1; //Column 10 - Minimum Number of Enemies (per wave)
+level[3, 11] = 2; //Column 11 - Maximum Number of Enemies (per wave)
 level[3, 12] = 0; //Column 12 - Actual Number of Enemies
 level[3, 13] = "1 0"; //Column 13 - Include Enemies (ids) (Includes bosses)
-level[3, 14] = 3; //Column 14 - Number of Enemy Waves
-level[3, 15] = 2; //Column 15 - Time between waves (seconds)
-level[3, 16] = 6; //Column 16 - Minimum Number of Crystals
-level[3, 17] = 15; //Column 17 - Maximum Number of Crystals
+level[3, 14] = 1; //Column 14 - Number of Enemy Waves
+level[3, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[3, 16] = 16; //Column 16 - Minimum Number of Crystals
+level[3, 17] = 19; //Column 17 - Maximum Number of Crystals
 level[3, 18] = 0; //Column 18 - Actual Number of Crystals
 level[3, 19] = 1; //Column 19 - Id Of Enemy included
-//level[3, 20] = 0; //Column 20 - Id of Enemy Included
+level[3, 20] = 0; //Column 20 - Id of Enemy Included
 
 //Level 4
 level[4, 0] = 0; //Column 0 - Normal level or Boss Level  (0 or 1)
-level[4, 1] = 24; //Column 1 - Room Width (multiplied by grid width later)
-level[4, 2] = 24; //Column 2 - Room Heigth (multiplied by grid width later)
+level[4, 1] = 28; //Column 1 - Room Width (multiplied by grid width later)
+level[4, 2] = 28; //Column 2 - Room Heigth (multiplied by grid width later)
 //level[4, 3] = 20; //Column 3 - Room Height Min (Multiplied by grid height later)
 //level[4, 4] = 30; //Column 4 - Room Heigh Max (multiplied by grid height later)
 level[4, 5] = 0; //Column 5 - Actual Room Width
 level[4, 6] = 0; //Column 6 - Actual Room Height 
-level[4, 7] = 17;//Column 7 - Minimum Number of Trees 
-level[4, 8] = 19; //Column 8 - Maximum Number of Trees    
+level[4, 7] = 30;//Column 7 - Minimum Number of Trees 
+level[4, 8] = 40; //Column 8 - Maximum Number of Trees    
 level[4, 9] = 0; //Column 9 - Actual Number of trees generated
-level[4, 10] = 3; //Column 10 - Minimum Number of Enemies (per wave)
-level[4, 11] = 4; //Column 11 - Maximum Number of Enemies (per wave)
+level[4, 10] = 2; //Column 10 - Minimum Number of Enemies (per wave)
+level[4, 11] = 3; //Column 11 - Maximum Number of Enemies (per wave)
 level[4, 12] = 0; //Column 12 - Actual Number of Enemies
 level[4, 13] = "1 0"; //Column 13 - Include Enemies (ids) (Includes bosses)
-level[4, 14] = 2; //Column 14 - Number of Enemy Waves
-level[4, 15] = 2; //Column 15 - Time between waves (seconds)
-level[4, 16] = 9; //Column 16 - Minimum Number of Crystals
-level[4, 17] = 15; //Column 17 - Maximum Number of Crystals
+level[4, 14] = 1; //Column 14 - Number of Enemy Waves
+level[4, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[4, 16] = 16; //Column 16 - Minimum Number of Crystals
+level[4, 17] = 19; //Column 17 - Maximum Number of Crystals
 level[4, 18] = 0; //Column 18 - Actual Number of Crystals
 level[4, 19] = 0; //Column 19 - Id Of Enemy included
 level[4, 20] = 1; //Column 20 - Id of Enemy Included
-level[4, 21] = 2; //Column 20 - Id of Enemy Included
+//level[4, 21] = 2; //Column 20 - Id of Enemy Included
 
 //Level 5
 level[5, 0] = 1; //Column 0 - Normal level or Boss Level  (0 or 1)
@@ -179,20 +179,115 @@ level[5, 2] = 30; //Column 2 - Room Heigth (multiplied by grid width later)
 //level[5, 4] = 30; //Column 4 - Room Heigh Max (multiplied by grid height later)
 level[5, 5] = 0; //Column 5 - Actual Room Width
 level[5, 6] = 0; //Column 6 - Actual Room Height 
-level[5, 7] = 25;//Column 7 - Minimum Number of Trees 
-level[5, 8] = 27; //Column 8 - Maximum Number of Trees    
+level[5, 7] = 35;//Column 7 - Minimum Number of Trees 
+level[5, 8] = 40; //Column 8 - Maximum Number of Trees    
 level[5, 9] = 0; //Column 9 - Actual Number of trees generated
 level[5, 10] = 1; //Column 10 - Minimum Number of Enemies (per wave)
 level[5, 11] = 1; //Column 11 - Maximum Number of Enemies (per wave)
 level[5, 12] = 0; //Column 12 - Actual Number of Enemies
 level[5, 13] = "1 0"; //Column 13 - Include Enemies (ids) (Includes bosses)
 level[5, 14] = 1; //Column 14 - Number of Enemy Waves
-level[5, 15] = 2; //Column 15 - Time between waves (seconds)
-level[5, 16] = 12; //Column 16 - Minimum Number of Crystals
-level[5, 17] = 18; //Column 17 - Maximum Number of Crystals
+level[5, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[5, 16] = 17; //Column 16 - Minimum Number of Crystals
+level[5, 17] = 20; //Column 17 - Maximum Number of Crystals
 level[5, 18] = 0; //Column 18 - Actual Number of Crystals
 level[5, 19] = 3; //Column 19 - Id Of Enemy included
 //level[5, 20] = 0; //Column 20 - Id of Enemy Included
+
+//Level 6
+level[6, 0] = 0; //Column 0 - Normal level or Boss Level  (0 or 1)
+level[6, 1] = 32; //Column 1 - Room Width (multiplied by grid width later)
+level[6, 2] = 32; //Column 2 - Room Heigth (multiplied by grid width later)
+//level[6, 3] = 20; //Column 3 - Room Height Min (Multiplied by grid height later)
+//level[6, 4] = 30; //Column 4 - Room Heigh Max (multiplied by grid height later)
+level[6, 5] = 0; //Column 5 - Actual Room Width
+level[6, 6] = 0; //Column 6 - Actual Room Height 
+level[6, 7] = 40;//Column 7 - Minimum Number of Trees 
+level[6, 8] = 50; //Column 8 - Maximum Number of Trees    
+level[6, 9] = 0; //Column 9 - Actual Number of trees generated
+level[6, 10] = 2; //Column 10 - Minimum Number of Enemies (per wave)
+level[6, 11] = 3; //Column 11 - Maximum Number of Enemies (per wave)
+level[6, 12] = 0; //Column 12 - Actual Number of Enemies
+level[6, 13] = "1 0"; //Column 13 - Include Enemies (ids) (Includes bosses)
+level[6, 14] = 2; //Column 14 - Number of Enemy Waves
+level[6, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[6, 16] = 18; //Column 16 - Minimum Number of Crystals
+level[6, 17] = 21; //Column 17 - Maximum Number of Crystals
+level[6, 18] = 0; //Column 18 - Actual Number of Crystals
+level[6, 19] = 0; //Column 19 - Id Of Enemy included
+level[6, 20] = 1; //Column 20 - Id of Enemy Included
+
+//Level 7
+level[7, 0] = 0; //Column 0 - Normal level or Boss Level  (0 or 1)
+level[7, 1] = 34; //Column 1 - Room Width (multiplied by grid width later)
+level[7, 2] = 34; //Column 2 - Room Heigth (multiplied by grid width later)
+//level[7, 3] = 20; //Column 3 - Room Height Min (Multiplied by grid height later)
+//level[7, 4] = 30; //Column 4 - Room Heigh Max (multiplied by grid height later)
+level[7, 5] = 0; //Column 5 - Actual Room Width
+level[7, 6] = 0; //Column 6 - Actual Room Height 
+level[7, 7] = 45;//Column 7 - Minimum Number of Trees 
+level[7, 8] = 50; //Column 8 - Maximum Number of Trees    
+level[7, 9] = 0; //Column 9 - Actual Number of trees generated
+level[7, 10] = 2; //Column 10 - Minimum Number of Enemies (per wave)
+level[7, 11] = 3; //Column 11 - Maximum Number of Enemies (per wave)
+level[7, 12] = 0; //Column 12 - Actual Number of Enemies
+level[7, 13] = "1 0"; //Column 13 - Include Enemies (ids) (Includes bosses)
+level[7, 14] = 2; //Column 14 - Number of Enemy Waves
+level[7, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[7, 16] = 19; //Column 16 - Minimum Number of Crystals
+level[7, 17] = 22; //Column 17 - Maximum Number of Crystals
+level[7, 18] = 0; //Column 18 - Actual Number of Crystals
+level[7, 19] = 2; //Column 19 - Id Of Enemy included
+level[7, 20] = 0; //Column 20 - Id of Enemy Included
+level[7, 21] = 1; //Column 21 - Id of Enemy Included
+
+//Level 8
+level[8, 0] = 0; //Column 0 - Normal level or Boss Level  (0 or 1)
+level[8, 1] = 36; //Column 1 - Room Width (multiplied by grid width later)
+level[8, 2] = 36; //Column 2 - Room Heigth (multiplied by grid width later)
+//level[8, 3] = 20; //Column 3 - Room Height Min (Multiplied by grid height later)
+//level[8, 4] = 30; //Column 4 - Room Heigh Max (multiplied by grid height later)
+level[8, 5] = 0; //Column 5 - Actual Room Width
+level[8, 6] = 0; //Column 6 - Actual Room Height 
+level[8, 7] = 55;//Column 7 - Minimum Number of Trees 
+level[8, 8] = 60; //Column 8 - Maximum Number of Trees    
+level[8, 9] = 0; //Column 9 - Actual Number of trees generated
+level[8, 10] = 2; //Column 10 - Minimum Number of Enemies (per wave)
+level[8, 11] = 3; //Column 11 - Maximum Number of Enemies (per wave)
+level[8, 12] = 0; //Column 12 - Actual Number of Enemies
+level[8, 13] = "1 0"; //Column 13 - Include Enemies (ids) (Includes bosses)
+level[8, 14] = 3; //Column 14 - Number of Enemy Waves
+level[8, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[8, 16] = 21; //Column 16 - Minimum Number of Crystals
+level[8, 17] = 24; //Column 17 - Maximum Number of Crystals
+level[8, 18] = 0; //Column 18 - Actual Number of Crystals
+level[8, 19] = 2; //Column 19 - Id Of Enemy included
+level[8, 20] = 0; //Column 20 - Id of Enemy Included
+level[8, 20] = 1; //Column 20 - Id of Enemy Included
+
+//Level 9
+level[9, 0] = 1; //Column 0 - Normal level or Boss Level  (0 or 1)
+level[9, 1] = 40; //Column 1 - Room Width (multiplied by grid width later)
+level[9, 2] = 40; //Column 2 - Room Heigth (multiplied by grid width later)
+//level[9, 3] = 20; //Column 3 - Room Height Min (Multiplied by grid height later)
+//level[9, 4] = 30; //Column 4 - Room Heigh Max (multiplied by grid height later)
+level[9, 5] = 0; //Column 5 - Actual Room Width
+level[9, 6] = 0; //Column 6 - Actual Room Height 
+level[9, 7] = 55;//Column 7 - Minimum Number of Trees 
+level[9, 8] = 60; //Column 8 - Maximum Number of Trees    
+level[9, 9] = 0; //Column 9 - Actual Number of trees generated
+level[9, 10] = 1; //Column 10 - Minimum Number of Enemies (per wave)
+level[9, 11] = 1; //Column 11 - Maximum Number of Enemies (per wave)
+level[9, 12] = 0; //Column 12 - Actual Number of Enemies
+level[9, 13] = "1 0"; //Column 13 - Include Enemies (ids) (Includes bosses)
+level[9, 14] = 1; //Column 14 - Number of Enemy Waves
+level[9, 15] = 3.5; //Column 15 - Time between waves (seconds)
+level[9, 16] = 22; //Column 16 - Minimum Number of Crystals
+level[9, 17] = 25; //Column 17 - Maximum Number of Crystals
+level[9, 18] = 0; //Column 18 - Actual Number of Crystals
+level[9, 19] = 3; //Column 19 - Id Of Enemy included
+//level[9, 20] = 0; //Column 20 - Id of Enemy Included
+
 </string>
           </argument>
         </arguments>
@@ -319,7 +414,7 @@ arrow[2, 9] = "Magic Arrow";
             <string>///Monster Types
 
 //Spider
-monster[0, 0] = 4; //Column 0 - Movement Speed
+monster[0, 0] = 5; //Column 0 - Movement Speed
 monster[0, 1] = 3; //Column 1 - Health
 monster[0, 2] = 1; //Column 2 - Base Damage 
 monster[0, 3] = 32; //Column 3 - Range
@@ -329,13 +424,13 @@ monster[0, 6] = spr_spider_windup; //Column 6 - Windup Sprite
 monster[0, 7] = spr_spider_windown; //Column 7 - Windown Sprite
 monster[0, 8] = spr_spider_idle; //Column 8 - Idle Sprite
 monster[0, 9] = spr_spider_death; //Column 9 - Death Sprite
-monster[0, 10] = 0.25; //Column 10 - Windup Time (Seconds)
-monster[0, 11] = 0.45; //Column 11 - Windown Time (Seconds)
+monster[0, 10] = 0.15; //Column 10 - Windup Time (Seconds)
+monster[0, 11] = 0.20; //Column 11 - Windown Time (Seconds)
 monster[0, 12] = 0; //Column 12 - Default Projectile
 
 
 //Snake
-monster[1, 0] = 4; //Column 0 - Movement Speed
+monster[1, 0] = 6; //Column 0 - Movement Speed
 monster[1, 1] = 3; //Column 1 - Health
 monster[1, 2] = 3; //Column 2 - Base Damage 
 monster[1, 3] = 200; //Column 3 - Range
@@ -345,12 +440,12 @@ monster[1, 6] = spr_snake_windup; //Column 6 - Windup Sprite
 monster[1, 7] = spr_snake_windown; //Column 7 - Windown Sprite
 monster[1, 8] = spr_snake_idle; //Column 8 - Idle Sprite
 monster[1, 9] = spr_snake_death; //Column 9 - Death Sprite
-monster[1, 10] = 0.25; //Column 10 - Windup Time (Seconds)
-monster[1, 11] = 0.70; //Column 11 - Windown Time (Seconds)
+monster[1, 10] = 0.15; //Column 10 - Windup Time (Seconds)
+monster[1, 11] = 0.25; //Column 11 - Windown Time (Seconds)
 monster[1, 12] = 1; //Column 12 - Default Projectile
 
 //Dog
-monster[2, 0] = 3; //Column 0 - Movement Speed
+monster[2, 0] = 7; //Column 0 - Movement Speed
 monster[2, 1] = 3; //Column 1 - Health
 monster[2, 2] = 2; //Column 2 - Base Damage 
 monster[2, 3] = 32; //Column 3 - Range
@@ -360,21 +455,21 @@ monster[2, 6] = spr_dog_windup; //Column 6 - Windup Sprite
 monster[2, 7] = spr_dog_windown; //Column 7 - Windown Sprite
 monster[2, 8] = spr_dog_idle; //Column 8 - Idle Sprite
 monster[2, 9] = spr_dog_death; //Column 9 - Death Sprite
-monster[2, 10] = 0.45; //Column 10 - Windup Time (Seconds)
-monster[2, 11] = 0.55; //Column 11 - Windown Time (Seconds)
+monster[2, 10] = 0.10; //Column 10 - Windup Time (Seconds)
+monster[2, 11] = 0.15; //Column 11 - Windown Time (Seconds)
 monster[2, 12] = 0; // Column 12 - Default Projectile
 
 //Shadow
 monster[3, 0] = 4.5; //Column 0 - Movement Speed
-monster[3, 1] = 30; //Column 1 - Health
+monster[3, 1] = 45; //Column 1 - Health
 monster[3, 2] = 3; //Column 2 Base Damage
-monster[3, 3] = 250; //Column 3 - Range
+monster[3, 3] = 400; //Column 3 - Range
 monster[3, 4] = 0.5; //Column 4 - Pathfinding Updater (Seconds)
 monster[3, 5] = spr_shadow_run;  //Column 5 - Run Sprite
 monster[3, 6] = spr_shadow_draw; //Column 6 - Windup Sprite
 monster[3, 7] = spr_shadow_idle; //Column 7 - Windown Sprite
 monster[3, 8] = spr_shadow_idle; //Column 8 - Idle Sprite
-monster[3, 9] = spr_spider_death; //Column 9 - Death Sprite
+monster[3, 9] = spr_shadow_death; //Column 9 - Death Sprite
 monster[3, 10] = 0.45; //Column 10 - Windup Time (Seconds)
 monster[3, 11] = 0.35; //Column 11 - Windown Time (Seconds)
 monster[3, 12] = 2; //Column 12 - Default Projectile
@@ -478,7 +573,7 @@ projectile[0, 10] = scr_placeholder_hit; //hit script
 
 //Acid ball
 projectile[1, 0] = 2;
-projectile[1, 1] = 4;
+projectile[1, 1] = 8;
 projectile[1, 2] = spr_acid_ball;
 projectile[1, 3] = spr_placeholder;
 projectile[1, 4] = snd_bow_shoot;
