@@ -57,28 +57,26 @@ state_init("idle");
           <argument>
             <kind>1</kind>
             <string>///Properties
-
-
-//available_types[0] = 
-type_choice = irandom_range(0,array_length_1d(obj_room_control.available_types)-1);
-type = type_choice;
+type = obj_room_control.available_types[irandom(array_length_1d(obj_room_control.available_types)-1)];
+//type = obj_room_control.available_types[type_choice];
+//type = choose(0,1);
 //Movement
 movespeed = obj_game_control.monster[type, 0];
 //Combat
 hp = obj_game_control.monster[type, 1];
 max_hp = hp;
 damage = obj_game_control.monster[type, 2];
-attack_cooldown = obj_game_control.monster[type, 3];
-range = obj_game_control.monster[type, 4];
-projectile_type = obj_game_control.monster[type, 11];
+//attack_cooldown = obj_game_control.monster[type, 3];
+range = obj_game_control.monster[type, 3];
+projectile_type = obj_game_control.monster[type, 12];
 
 
 
 //Pathfinding
-update_chase_timer = obj_game_control.monster[type, 5]; //How fast monster should update chasing
+update_chase_timer = obj_game_control.monster[type, 4]; //How fast monster should update chasing
 
 //Sprite
-sprite_index = obj_game_control.monster[type, 6];
+sprite_index = obj_game_control.monster[type, 8];
 
 //Effects
 shake_force = 4;

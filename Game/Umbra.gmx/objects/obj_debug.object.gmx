@@ -65,6 +65,20 @@ draw_text(100,550,"type: "+string(obj_projectile.type));
 draw_text(100,700,"Boss Levels: "+string(obj_game_control.current_boss_level));
 draw_text(100,720,"Room Name: "+string(room_get_name(room)));
 
+draw_text(100,800,"Room Width: "+string(room_width));
+draw_text(100,820,"Room Height: "+string(room_height));
+
+if (instance_exists(obj_room_control))
+{
+for (var i = 0; i&lt;array_length_1d(obj_room_control.available_types);i++)
+draw_text(100+i*40,840,obj_room_control.available_types[i]);
+
+}
+if (instance_exists(obj_monster))
+{
+draw_text(100,860,"movespeed: "+string(obj_monster.movespeed));
+draw_text(100,880,"type: "+string(obj_monster.type));
+}
 </string>
           </argument>
         </arguments>

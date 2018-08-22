@@ -2,7 +2,8 @@ switch (mpos)
 {
     case 0:
     {
-        room_goto_next()
+        obj_game_control.current_level++;
+        room_goto_next();
         break;
     }
     case 1:

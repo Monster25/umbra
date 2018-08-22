@@ -16,6 +16,10 @@ break;
 case 2:
 scr_monster_chase_melee();
 break;
+//Monster 4 - Boss
+case 3:
+scr_monster_chase_ranged();
+break;
 default:
 break;
 }

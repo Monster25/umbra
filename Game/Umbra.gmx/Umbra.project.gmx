@@ -168,6 +168,10 @@
     <scripts name="Camera">
       <script>scripts\scr_approach.gml</script>
     </scripts>
+    <scripts name="Projectiles">
+      <script>scripts\scr_shadow_arrow_hit.gml</script>
+      <script>scripts\scr_placeholder_hit.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_menu</font>

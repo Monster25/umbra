@@ -1,6 +1,6 @@
 if (state_new)
 {
-sprite_index = obj_game_control.monster[type,12];
+sprite_index = obj_game_control.monster[type,8];
 image_speed = 0.2;
 state_switch("chase");
 }

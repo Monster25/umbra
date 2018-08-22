@@ -11,7 +11,8 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>//Make scoreboard visible
-obj_scoreboard.visible = 1;</code>
+obj_scoreboard.visible = 1;
+obj_player.visible = 0;</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

@@ -32,8 +32,8 @@ cell_height = 0; //Cell height;
 cell_width = 0; //Cell width;
 
 ///New AI Grid when any room starts
-cell_width = 64; //Cell Width of grid
-cell_height = 64; //Cell Height of grid
+cell_width = obj_game_control.grid_w; //Cell Width of grid
+cell_height = obj_game_control.grid_h; //Cell Height of grid
 
 hcells = room_width/cell_width; //Number of horizontalcells
 vcells = room_height/cell_height; //Number of verticalcells
