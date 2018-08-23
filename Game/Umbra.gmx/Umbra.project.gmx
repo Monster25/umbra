@@ -172,6 +172,7 @@
       <script>scripts\scr_shadow_arrow_hit.gml</script>
       <script>scripts\scr_placeholder_hit.gml</script>
     </scripts>
+    <script>scripts\script65ggfgj.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_menu</font>
