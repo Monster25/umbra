@@ -8,14 +8,14 @@
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
-  <colour>12632256</colour>
+  <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>randomize();
 //Set size of first room
 //var rm_w = irandom_range(obj_game_control.level[obj_game_control.current_level+1,1],obj_game_control.level[obj_game_control.current_level+1,2])
 //var rm_h = irandom_range(obj_game_control.level[obj_game_control.current_level+1,3],obj_game_control.level[obj_game_control.current_level+1,4])
-room_set_width(1,obj_game_control.level[obj_game_control.current_level+1,1]*obj_game_control.grid_w);
-room_set_height(1,obj_game_control.level[obj_game_control.current_level+1,2]*obj_game_control.grid_h);
+room_set_width(4,obj_game_control.level[obj_game_control.current_level+1,1]*obj_game_control.grid_w);
+room_set_height(4,obj_game_control.level[obj_game_control.current_level+1,2]*obj_game_control.grid_h);
 obj_game_control.level[obj_game_control.current_level+1,5] = obj_game_control.level[obj_game_control.current_level+1,1]*obj_game_control.grid_w;
 obj_game_control.level[obj_game_control.current_level+1,6] = obj_game_control.level[obj_game_control.current_level+1,1]*obj_game_control.grid_h;
 //obj_game_control.level[obj_game_control.current_level+1,5] = rm_w*obj_game_control.grid_w;
@@ -60,9 +60,10 @@ obj_game_control.level[obj_game_control.current_level+1,6] = obj_game_control.le
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_menu" x="160" y="256" name="inst_D9802BFA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_main" x="160" y="256" name="inst_D9802BFA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_game_control" x="64" y="704" name="inst_953E4F5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_scoreboard" x="224" y="160" name="inst_35A20AA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sound" x="352" y="256" name="inst_D1AEE17B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

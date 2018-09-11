@@ -26,8 +26,21 @@
           <argument>
             <kind>1</kind>
             <string>///Sounds
+//Inits
+music_loaded = 0;
+ambience_loaded = 0;
+soundeffects_loaded = 0;
+ok = 0;
+//Actual Sounds
+
+//Ambience
+
+//Music
+
+//SoundEffects
 shoot = snd_bow_shoot;
-ambience = snd_forest_01;
+forest_ambience = bga_forest_01;
+forest_music = bgm_forest_01;
 </string>
           </argument>
         </arguments>
@@ -48,9 +61,56 @@ ambience = snd_forest_01;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_play_sound(ambience, 1, 1);
-audio_sound_gain (ambience, 0, 0);
-audio_sound_gain (ambience, 1, 3500);   
+            <string>///Load Audio Groups
+/*
+if (!audio_group_is_loaded(music))
+{
+    music_loaded = audio_group_load(music);
+}
+
+if (!audio_group_is_loaded(ambience))
+{
+    ambience_loaded = audio_group_load(ambience);
+}
+
+if (!audio_group_is_loaded(soundeffects))
+{
+    soundeffects_loaded = audio_group_load(soundeffects);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Play sounds
+if (ok == 0 &amp;&amp; room == 4)
+{
+ok = 1;
+audio_play_sound(forest_ambience,0,1);
+audio_sound_gain(forest_ambience,0,0);
+audio_sound_gain(forest_ambience,0.3,3500);
+audio_play_sound(forest_music,0,1);
+audio_sound_gain(forest_music,0,0);
+audio_sound_gain(forest_music,1,3500);
+
+}
 </string>
           </argument>
         </arguments>

@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>//Test states
+/* Old Testing
 with (obj_player)
 draw_set_font(fnt_debug);
 draw_text(100,100,string(obj_player.state_name));
@@ -79,6 +80,12 @@ if (instance_exists(obj_monster))
 draw_text(100,860,"movespeed: "+string(obj_monster.movespeed));
 draw_text(100,880,"type: "+string(obj_monster.type));
 }
+*/
+
+draw_text(100,100,"Audio Loaded: ");
+draw_text(100,120,"Music: "+string(obj_sound.music_loaded));
+draw_text(100,140,"Ambience: "+string(obj_sound.ambience_loaded));
+draw_text(100,160,"Sound Effects: "+string(obj_sound.soundeffects_loaded));
 </string>
           </argument>
         </arguments>

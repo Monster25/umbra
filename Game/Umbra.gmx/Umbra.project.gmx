@@ -5,9 +5,17 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_bow_hit</sound>
-    <sound>sound\snd_bow_shoot</sound>
-    <sound>sound\snd_forest_01</sound>
+    <sounds name="Music">
+      <sound>sound\bgm_forest_01</sound>
+    </sounds>
+    <sounds name="Ambience">
+      <sound>sound\bga_forest_01</sound>
+    </sounds>
+    <sounds name="Sound Effects">
+      <sound>sound\snd_bow_hit</sound>
+      <sound>sound\snd_bow_shoot</sound>
+      <sound>sound\snd_altray_logo</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
@@ -77,6 +85,17 @@
       <sprite>sprites\spr_crystal_fire</sprite>
       <sprite>sprites\spr_crystal_magic</sprite>
     </sprites>
+    <sprites name="Misc">
+      <sprite>sprites\spr_altray_logo</sprite>
+      <sprite>sprites\spr_umbra_logo</sprite>
+      <sprite>sprites\spr_newgame</sprite>
+      <sprite>sprites\spr_options</sprite>
+      <sprite>sprites\spr_quit</sprite>
+      <sprite>sprites\spr_resolution</sprite>
+      <sprite>sprites\spr_back</sprite>
+      <sprite>sprites\spr_arrow_menu</sprite>
+      <sprite>sprites\spr_arrow_menu_left</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\ts_grass_01</background>
@@ -128,7 +147,9 @@
       <script>scripts\scr_collect_crystal.gml</script>
     </scripts>
     <scripts name="Game Control">
-      <script>scripts\scr_menu.gml</script>
+      <script>scripts\scr_menu_main.gml</script>
+      <script>scripts\scr_menu_options.gml</script>
+      <script>scripts\scr_resolution.gml</script>
     </scripts>
     <scripts name="Functionality">
       <script>scripts\scr_update_grid.gml</script>
@@ -176,11 +197,13 @@
   <fonts name="fonts">
     <font>fonts\fnt_menu</font>
     <font>fonts\fnt_debug</font>
+    <font>fonts\fnt_options</font>
   </fonts>
   <objects name="objects">
     <objects name="Game Control">
       <object>objects\obj_debug</object>
-      <object>objects\obj_menu</object>
+      <object>objects\obj_menu_main</object>
+      <object>objects\obj_menu_options</object>
       <object>objects\obj_grid</object>
       <object>objects\obj_game_control</object>
       <object>objects\obj_scoreboard</object>
@@ -190,6 +213,7 @@
       <object>objects\obj_camera</object>
       <object>objects\obj_sound</object>
       <object>objects\obj_gui</object>
+      <object>objects\obj_resolution_control</object>
     </objects>
     <objects name="Enemy">
       <object>objects\obj_monster</object>
@@ -217,17 +241,38 @@
     <objects name="Pickups">
       <object>objects\obj_crystal</object>
     </objects>
+    <objects name="Misc">
+      <object>objects\obj_altray_logo</object>
+      <object>objects\obj_umbra_logo</object>
+      <object>objects\obj_fade_outin</object>
+      <object>objects\obj_audiogrp_load</object>
+      <object>objects\obj_newgame</object>
+      <object>objects\obj_options</object>
+      <object>objects\obj_quit</object>
+      <object>objects\obj_resolution</object>
+      <object>objects\obj_back</object>
+      <object>objects\obj_menu_arrow</object>
+      <object>objects\obj_menu_arrow_left</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_black</room>
+    <room>rooms\rm_splash</room>
+    <room>rooms\rm_splash2</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_01</room>
     <room>rooms\rm_02</room>
-    <room>rooms\rm_boss</room>
     <room>rooms\rm_scoreboard</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
+  <audiogroups name="audiogroups">
+    <audiogroup name="audiogroup_default"/>
+    <audiogroup name="ambience"/>
+    <audiogroup name="music"/>
+    <audiogroup name="soundeffects"/>
+  </audiogroups>
   <TutorialState>
     <IsTutorial>0</IsTutorial>
     <TutorialName></TutorialName>
