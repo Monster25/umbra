@@ -29,39 +29,50 @@
 resolution[0, 0] = global.width;
 resolution[0, 1] = global.height;
 //Res 2
-resolution[1, 0] = 800;
-resolution[1, 1] = 600;
+resolution[1, 0] = 600;
+resolution[1, 1] = 400;
 //Res 3
-resolution[2, 0] = 1024;
-resolution[2, 1] = 768;
+resolution[2, 0] = 800;
+resolution[2, 1] = 600;
 //Res 4
-resolution[3, 0] = 1280;
-resolution[3, 1] = 720;
+resolution[3, 0] = 1024;
+resolution[3, 1] = 768;
 //Res 5
 resolution[4, 0] = 1280;
-resolution[4, 1] = 800;
+resolution[4, 1] = 720;
 //Res 6
 resolution[5, 0] = 1280;
-resolution[5, 1] = 1024;
+resolution[5, 1] = 800;
 //Res 7
-resolution[6, 0] = 1366;
-resolution[6, 1] = 768;
+resolution[6, 0] = 1280;
+resolution[6, 1] = 1024;
 //Res 8
-resolution[7, 0] = 1680;
-resolution[7, 1] = 1050;
+resolution[7, 0] = 1366;
+resolution[7, 1] = 768;
 //Res 9
-resolution[8, 0] = 1920;
-resolution[8, 1] = 1080;
+resolution[8, 0] = 1680;
+resolution[8, 1] = 1050;
 //Res 10
 resolution[9, 0] = 1920;
-resolution[9, 1] = 1200;
+resolution[9, 1] = 1080;
 //Res 11
-resolution[10, 0] = 2560;
-resolution[10, 1] = 1440;
+resolution[10, 0] = 1920;
+resolution[10, 1] = 1200;
+//Res 12
+resolution[11, 0] = 2560;
+resolution[11, 1] = 1440;
 
 ///Properties
 counter = 0;
 pushed = 0;
+var j = 0;
+for (var i = 0; i&lt;array_height_2d(resolution);i++)
+if (resolution[i, 0] &lt;= global.displayWidth)
+{
+res_op[j, 0] = resolution[i, 0];
+res_op[j, 1] = resolution[i, 1];
+j++
+}
 </string>
           </argument>
         </arguments>
@@ -93,8 +104,8 @@ if (move != 0)
 {
     counter += move;
     if (counter &lt; 0)
-    counter = array_height_2d(resolution) - 1;
-    if (counter &gt; array_height_2d(resolution) - 1)
+    counter = array_height_2d(res_op) - 1;
+    if (counter &gt; array_height_2d(res_op) - 1)
     counter = 0;
 }
 
@@ -104,7 +115,7 @@ push = max(keyboard_check_released(vk_enter),0)
 if (push == 1 &amp;&amp; pushed == 0)
 {
 pushed = 1;
-scr_resolution(resolution[counter,0],resolution[counter,1])
+scr_resolution(res_op[counter,0],res_op[counter,1])
 pushed = 0;
 }
 }

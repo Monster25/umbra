@@ -34,9 +34,9 @@ mpos = 0;
 pushed = 0;
 
 //Sprites
-instance_create(room_width/2,room_height/2,obj_newgame);
-instance_create(room_width/2,room_height/2+obj_newgame.sprite_height,obj_options);
-instance_create(room_width/2,room_height/2+obj_newgame.sprite_height*2,obj_quit);
+instance_create(room_width/2,room_height/2-room_height/5,obj_newgame);
+instance_create(room_width/2,room_height/2-room_height/5+obj_newgame.sprite_height,obj_options);
+instance_create(room_width/2,room_height/2-room_height/5+obj_newgame.sprite_height*2,obj_quit);
 </string>
           </argument>
         </arguments>
