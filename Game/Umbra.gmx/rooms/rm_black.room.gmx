@@ -29,7 +29,7 @@ room_set_height(2,global.height);
 room_set_width(3,global.width);
 room_set_height(3,global.height);
 
-instance_create(0,0,obj_fade_outin);
+scr_fade_outin(3/room_speed,"rm_splash");
 
 //room_goto_next();</code>
   <enableViews>0</enableViews>

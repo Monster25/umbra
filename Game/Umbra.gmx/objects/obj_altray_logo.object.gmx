@@ -53,7 +53,7 @@ alarm[0] = 3*room_speed;
           <argument>
             <kind>1</kind>
             <string>//fade 
-instance_create(0,0,obj_fade_outin);
+scr_fade_outin(3/room_speed,"rm_splash2");
 
 </string>
           </argument>
@@ -83,7 +83,7 @@ instance_create(0,0,obj_fade_outin);
     with (obj_fade_outin)
     instance_destroy();
     audio_stop_sound(snd_altray_logo);
-    room_goto_next();
+    room_goto(asset_get_index("rm_splash2"));
     }
 </string>
           </argument>

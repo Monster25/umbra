@@ -95,6 +95,10 @@
       <sprite>sprites\spr_back</sprite>
       <sprite>sprites\spr_arrow_menu</sprite>
       <sprite>sprites\spr_arrow_menu_left</sprite>
+      <sprite>sprites\spr_border</sprite>
+      <sprite>sprites\spr_purple_clouds</sprite>
+      <sprite>sprites\spr_select_bar</sprite>
+      <sprite>sprites\spr_menu_arrow</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -156,6 +160,7 @@
       <script>scripts\scr_next_level.gml</script>
       <script>scripts\scr_smooth_camera.gml</script>
       <script>scripts\scr_screen_shake.gml</script>
+      <script>scripts\scr_fade_outin.gml</script>
     </scripts>
     <scripts name="Light Engine">
       <script>scripts\lightmap_init.gml</script>
@@ -253,6 +258,9 @@
       <object>objects\obj_back</object>
       <object>objects\obj_menu_arrow</object>
       <object>objects\obj_menu_arrow_left</object>
+      <object>objects\obj_border</object>
+      <object>objects\obj_purple_clouds</object>
+      <object>objects\obj_bar_select</object>
     </objects>
   </objects>
   <rooms name="rooms">

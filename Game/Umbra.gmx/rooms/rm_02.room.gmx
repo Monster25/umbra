@@ -98,8 +98,8 @@ if (obj_game_control.current_level&lt;array_height_2d(obj_game_control.level)-1)
 {
 //var rm_w = irandom_range(obj_game_control.level[obj_game_control.current_level+1,1],obj_game_control.level[obj_game_control.current_level+1,2])
 //var rm_h = irandom_range(obj_game_control.level[obj_game_control.current_level+1,3],obj_game_control.level[obj_game_control.current_level+1,4])
-room_set_width(4,obj_game_control.level[obj_game_control.current_level+1,1]*obj_game_control.grid_w);
-room_set_height(4,obj_game_control.level[obj_game_control.current_level+1,2]*obj_game_control.grid_h);
+room_set_width(asset_get_index("rm_01"),obj_game_control.level[obj_game_control.current_level+1,1]*obj_game_control.grid_w);
+room_set_height(asset_get_index("rm_01"),obj_game_control.level[obj_game_control.current_level+1,2]*obj_game_control.grid_h);
 obj_game_control.level[obj_game_control.current_level+1,5] = obj_game_control.level[obj_game_control.current_level+1,1]*obj_game_control.grid_w;
 obj_game_control.level[obj_game_control.current_level+1,6] = obj_game_control.level[obj_game_control.current_level+1,1]*obj_game_control.grid_h;
 //obj_game_control.level[obj_game_control.current_level+1,5] = rm_w*obj_game_control.grid_w;

@@ -37,7 +37,9 @@ draw_text(100,180,"Number of trees: "+string(obj_game_control.level[obj_game_con
 draw_text(100,200,"Actual tree objects: "+string(instance_number(obj_tree)));
 draw_text(100,220,string(obj_player.x))
 draw_text(100,240,string(obj_player.y));
+*/
 draw_text(100,260,"Current Level: "+string(obj_game_control.current_level));
+/*
 draw_text(100,280,"Player Health: "+string(obj_player.hp));
 draw_text(100,300,"Time (seconds): "+string(obj_game_control.time));
 draw_text(100,320,"Draw Range: "+string(obj_player.arrow_range));
@@ -64,11 +66,13 @@ draw_text(200,500,"Projectile: "+string(obj_monster.projectile_type));
 if (instance_exists(obj_projectile))
 draw_text(100,550,"type: "+string(obj_projectile.type));
 draw_text(100,700,"Boss Levels: "+string(obj_game_control.current_boss_level));
+*/
 draw_text(100,720,"Room Name: "+string(room_get_name(room)));
 
 draw_text(100,800,"Room Width: "+string(room_width));
 draw_text(100,820,"Room Height: "+string(room_height));
 
+/*
 if (instance_exists(obj_room_control))
 {
 for (var i = 0; i&lt;array_length_1d(obj_room_control.available_types);i++)
@@ -86,6 +90,8 @@ draw_text(100,100,"Audio Loaded: ");
 draw_text(100,120,"Music: "+string(obj_sound.music_loaded));
 draw_text(100,140,"Ambience: "+string(obj_sound.ambience_loaded));
 draw_text(100,160,"Sound Effects: "+string(obj_sound.soundeffects_loaded));
+
+draw_text(100,180,"Resolution: "+string(global.displayWidth)+" x "+string(global.displayHeight));
 </string>
           </argument>
         </arguments>

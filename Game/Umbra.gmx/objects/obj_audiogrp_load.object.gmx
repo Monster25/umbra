@@ -56,7 +56,11 @@ soundeffects_loaded = audio_group_load(soundeffects);
             <kind>1</kind>
             <string>//if assets finished loading, proceed
 if (music_loaded &amp;&amp; ambience_loaded &amp;&amp; soundeffects_loaded)
-instance_create(0,0,obj_fade_outin);
+{
+//obj_umbra_logo.depth = -10000;
+//obj_umbra_logo.ok = 1;
+scr_fade_outin(3/room_speed,"rm_menu");
+}
 else
 alarm[0] = 1*room_speed;
 </string>
@@ -88,7 +92,7 @@ alarm[0] = 1*room_speed;
     if (instance_exists(obj_fade_outin))
     with (obj_fade_outin)
     instance_destroy();
-    room_goto_next();
+    room_goto(asset_get_index("rm_menu"));
     }
 }
 </string>

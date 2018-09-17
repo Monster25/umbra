@@ -26,8 +26,49 @@
           <argument>
             <kind>1</kind>
             <string>//Scale logo to room size
+//image_alpha = 0;
 image_xscale = room_width/(sprite_width*4)
 image_yscale = room_height/(sprite_height*6)
+scale_x = image_xscale;
+scale_y = image_yscale;
+
+/*
+//Animation
+while(image_alpha&lt;1)
+image_alpha+= 0.005;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (obj_menu_main.mpos == 0)
+{
+image_xscale = scale_x;
+image_yscale = scale_y;
+}
+else
+{
+image_xscale = scale_x - 0.10;
+image_yscale = scale_y - 0.10;
+}
+
 </string>
           </argument>
         </arguments>
