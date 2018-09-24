@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 s
+=======
+sgjgsfffasd
+>>>>>>> 2f5c3ec97c160623d3a1b22eb2edcfa475f364b9
 whatever
