@@ -8,11 +8,21 @@
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
-  <colour>12632256</colour>
+  <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code>//Make scoreboard visible
-obj_scoreboard.visible = 1;
-obj_player.visible = 0;</code>
+  <code>//Delete other persistent objects
+with(obj_player)
+state_switch("victory");
+with(obj_gui)
+instance_destroy();
+with(obj_camera)
+instance_destroy();
+with(obj_lighting)
+instance_destroy();
+with(obj_debug)
+instance_destroy();
+//Make scoreboard visible
+obj_scoreboard.visible = 1;</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

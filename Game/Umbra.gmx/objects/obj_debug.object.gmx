@@ -38,7 +38,7 @@ draw_text(100,200,"Actual tree objects: "+string(instance_number(obj_tree)));
 draw_text(100,220,string(obj_player.x))
 draw_text(100,240,string(obj_player.y));
 */
-draw_text(100,260,"Current Level: "+string(obj_game_control.current_level));
+//draw_text(100,260,"Current Level: "+string(obj_game_control.current_level));
 /*
 draw_text(100,280,"Player Health: "+string(obj_player.hp));
 draw_text(100,300,"Time (seconds): "+string(obj_game_control.time));
@@ -86,12 +86,14 @@ draw_text(100,880,"type: "+string(obj_monster.type));
 }
 */
 
-draw_text(100,100,"Audio Loaded: ");
-draw_text(100,120,"Music: "+string(obj_sound.music_loaded));
-draw_text(100,140,"Ambience: "+string(obj_sound.ambience_loaded));
-draw_text(100,160,"Sound Effects: "+string(obj_sound.soundeffects_loaded));
-
 draw_text(100,180,"Resolution: "+string(global.displayWidth)+" x "+string(global.displayHeight));
+draw_text(100,220,"Available types: ");
+for (var i = 0; i&lt;array_length_1d(obj_room_control.available_types);i++)
+draw_text(100+i*40,240,string(obj_room_control.available_types[i]));
+
+draw_text(100,260,"Available Types string: "+string(obj_game_control.level[obj_game_control.current_level,13]));
+draw_text(100,280,"Str 1: "+obj_room_control.str1);
+draw_text(100,300,"Str 2: "+obj_room_control.str3);
 </string>
           </argument>
         </arguments>

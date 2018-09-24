@@ -28,6 +28,7 @@
             <string>//Anim
 x = random_range(0,room_width);
 y = random_range(0,room_height);
+direction = random_range(0,360);
 image_alpha = 0;
 image = irandom_range(0,sprite_get_number(sprite_index)-1);
 image_blend = make_colour_hsv(irandom_range(1,255),irandom_range(1,255),irandom_range(1,255))

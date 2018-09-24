@@ -28,15 +28,39 @@
             <string>//Get number of waves and time between each wave
 waves = obj_game_control.level[obj_game_control.current_level,14];
 time = obj_game_control.level[obj_game_control.current_level,15];
-//Set available monsters and add them to a ds list
-//available_types[0] = noone;
+//Set available monsters and add them to an array
+//Using strings from level array
+str1 = obj_game_control.level[obj_game_control.current_level,13];
+str3 = "";
+i = 1;
+z = 0;
+j = 1;
+
+//Create new strings and convert them to real values to add to available types array
+while (i&lt;=string_length(str1))
+{
+j = 1;
+str3 = "";
+str2 = "";
+    while (string_char_at(str1,i)!="," &amp;&amp; i&lt;=string_length(str1))
+    {
+    str2 = string_insert(string(string_char_at(str1,i)),str2,j);
+    i++;
+    j++;
+    }
+i++;
+available_types[z] = real(str2);
+z++;
+}
+
+/*
 j = 0;
-for (var i=19 ; i&lt;array_length_2d(obj_game_control.level,obj_game_control.current_level);i++)
+for (var i=0 ; i&lt;array_length_2d(obj_game_control.level,obj_game_control.current_level);i++)
 {
     available_types[j] = obj_game_control.level[obj_game_control.current_level,i];
     j++
 }
-
+*/
 
 //Start timer to spawn waves
 alarm[0] = time*room_speed;

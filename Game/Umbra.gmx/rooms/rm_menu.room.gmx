@@ -62,7 +62,6 @@ obj_game_control.level[obj_game_control.current_level+1,6] = obj_game_control.le
   <instances>
     <instance objName="obj_menu_main" x="160" y="256" name="inst_D9802BFA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_game_control" x="64" y="704" name="inst_953E4F5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_scoreboard" x="224" y="160" name="inst_35A20AA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sound" x="352" y="256" name="inst_D1AEE17B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

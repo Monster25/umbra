@@ -34,6 +34,7 @@ state_create("run",scr_player_run);
 state_create("draw_idle",scr_player_draw_idle);
 state_create("draw_run",scr_player_draw_run);
 state_create("death",scr_player_death);
+state_create("victory",scr_player_victory);
 //Default State
 state_init("idle");
 </string>

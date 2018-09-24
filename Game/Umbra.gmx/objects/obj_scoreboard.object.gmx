@@ -25,9 +25,33 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Score vars
-killed_enemies = 0;
-time = 0;
+            <string>///Scoreboard Trackers
+//Line 0 is full of scoreboard tracker names
+scoreboard[0, 0] = "Killed Enemies"; //Killed Enemies
+scoreboard[0, 1] = "Arrows Shot"; //Arrows Shot
+scoreboard[0, 2] = "Crystals Collected"; //Crystals Collected
+scoreboard[0, 3] = "Killed Bosses"; //Killed Bosses
+scoreboard[0, 4] = "Time Elapsed"; //Time Elapsed
+scoreboard[0, 5] = "Max Level Reached"; //Max Level Reached
+//Line 1 is full of scoreboard trackers
+scoreboard[1, 0] = 0; //Killed Enemies
+scoreboard[1, 1] = 0; //Arrows Shot
+scoreboard[1, 2] = 0; //Crystals Collected
+scoreboard[1, 3] = 0; //Killed Bosses
+scoreboard[1, 4] = 0; //Time Elapsed
+scoreboard[1, 5] = 0; //Max Level Reached
+//Line 2 is full of lose game messages
+scoreboard[2, 0] = "THE NIGHTMARE ENGULFS YOU";
+scoreboard[2, 1] = "THE NIGHTMARE CONSUMES YOU";
+//Random Death Message
+death_message = scoreboard[2,irandom_range(0,array_length_2d(scoreboard,2)-1)];
+//Line 3 is full of win game messages
+scoreboard[3, 0] = "MADNESS ELUDES YOUR MIND";
+scoreboard[3, 1] = "DAY BREAKS AND YOU WAKE UP";
+//Random Win Message
+win_message = scoreboard[3,irandom_range(0,array_length_2d(scoreboard,3)-1)];
+
+
 </string>
           </argument>
         </arguments>
@@ -50,42 +74,13 @@ time = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_exists(obj_player))
-if (obj_player.dead)
-obj_player.visible = 0;
+            <string>///Background Anim
+while (instance_number(obj_purple_clouds)&lt;20 &amp;&amp; room == asset_get_index("rm_scoreboard"))
+instance_create(0,0,obj_purple_clouds);
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_set_font(fnt_menu)
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-if (obj_player.hp&lt;=0)
-draw_text(window_get_width()/2,window_get_height()/2-100*4,"You died.")
-else
-draw_text(window_get_width()/2,window_get_height()/2-100*4,"Game Over")
-draw_text(window_get_width()/2,window_get_height()/2-100*3,"Final Level Reached: "+string(obj_game_control.current_level));
-draw_text(window_get_width()/2,window_get_height()/2-100*2,"Enemies killed: "+string(killed_enemies));
-draw_text(window_get_width()/2,window_get_height()/2-100*1,"Time (Seconds): "+string(obj_game_control.time));
+//Time goes on
+if (visible!=1)
+scoreboard[1,4]+=1/room_speed;
 </string>
           </argument>
         </arguments>
@@ -108,8 +103,35 @@ draw_text(window_get_width()/2,window_get_height()/2-100*1,"Time (Seconds): "+st
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(1);
-draw_clear(c_black);
+            <string>draw_set_color(c_white);
+//Death  Messages
+if (obj_player.state_name == "Death")
+{
+draw_set_font(fnt_scoreboard);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_text(room_width/2,0+string_height(death_message)/2,death_message);
+}
+//Win Messages
+else
+{
+draw_set_font(fnt_scoreboard);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_text(room_width/2,0+string_height(win_message)/2,win_message);
+}
+
+//Actual stats
+draw_set_font(fnt_scoreboard_small);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+for (var i = 0; i&lt; array_length_2d(scoreboard,0); i++)
+draw_text(room_width/2,room_height/2+i*string_height(scoreboard[0,i]),scoreboard[0, i]+": "+string(scoreboard[1, i]));
+
+
+
+
+
 </string>
           </argument>
         </arguments>

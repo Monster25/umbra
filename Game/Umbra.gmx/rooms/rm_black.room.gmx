@@ -20,16 +20,19 @@ global.displayHeight = global.height; //Set the default display Height
 scr_resolution(global.displayWidth, global.displayHeight); //Set Resolution to default;
 
 //Set splash room dimensions
-room_set_width(1,global.width);
-room_set_height(1,global.height);
+room_set_width(asset_get_index("rm_splash"),global.width);
+room_set_height(asset_get_index("rm_splash"),global.height);
 //Set splash room 2 dimensions
-room_set_width(2,global.width);
-room_set_height(2,global.height);
+room_set_width(asset_get_index("rm_splash2"),global.width);
+room_set_height(asset_get_index("rm_splash2"),global.height);
 //Set menu room dimensions
-room_set_width(3,global.width);
-room_set_height(3,global.height);
+room_set_width(asset_get_index("rm_menu"),global.width);
+room_set_height(asset_get_index("rm_menu"),global.height);
+//Set scoreboard room dimensions
+room_set_width(asset_get_index("rm_scoreboard"),global.width);
+room_set_height(asset_get_index("rm_scoreboard"),global.height);
 
-scr_fade_outin(3/room_speed,"rm_splash");
+scr_fade_outin(3,"rm_splash");
 
 //room_goto_next();</code>
   <enableViews>0</enableViews>

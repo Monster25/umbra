@@ -25,41 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///State Machine
-state_machine_init();
-
-//Define States
-state_create("idle",scr_monster_idle);
-state_create("chase",scr_monster_chase);
-state_create("windup",scr_monster_windup);
-state_create("windown",scr_monster_windown);
-state_create("death",scr_monster_death);
-//Default State
-state_init("idle");
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Properties
 type = obj_room_control.available_types[irandom(array_length_1d(obj_room_control.available_types)-1)];
-//type = obj_room_control.available_types[type_choice];
-//type = choose(0,1);
 //Movement
 movespeed = obj_game_control.monster[type, 0];
 //Combat
@@ -81,32 +48,6 @@ sprite_index = obj_game_control.monster[type, 8];
 //Effects
 shake_force = 4;
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Functionality
-dir = 0 //Initial Direction
-can_attack = true; //Can Attack
-path = 0 ; //path
-path = path_add(); //add default path
-update_chase = true;
 </string>
           </argument>
         </arguments>
@@ -170,6 +111,63 @@ emitter = audio_emitter_create();
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///State Machine
+state_machine_init();
+
+//Define States
+state_create("idle",scr_monster_idle);
+state_create("chase",scr_monster_chase);
+state_create("windup",scr_monster_windup);
+state_create("windown",scr_monster_windown);
+state_create("death",scr_monster_death);
+//Default State
+state_init("idle");
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Functionality
+dir = 0 //Initial Direction
+can_attack = true; //Can Attack
+path = 0 ; //path
+path = path_add(); //add default path
+update_chase = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="1" enumb="0">
       <action>
@@ -189,17 +187,9 @@ emitter = audio_emitter_create();
           <argument>
             <kind>1</kind>
             <string>///Add to score when killed
-obj_scoreboard.killed_enemies++;
+scr_scoreboard_killed_enemies();
 //Free Emitter
 audio_emitter_free(emitter);
-//Remove Stuck Arrows   
-//for (var i = 0; i&lt;instance_number(obj_arrow_stuck);i++)
-//{
-//var damage = instance_find(obj_arrow_stuck,i);
-//if (damage.anchor == id)
-//with(damage)
-//instance_destroy()
-//}
 </string>
           </argument>
         </arguments>

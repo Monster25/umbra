@@ -31,6 +31,7 @@ menu1[1] = "Quit";
 space = 80;
 mpos = 0;
 pushed = 0;
+push = snd_main_menu_01;
 //Sprites
 instance_create(0,0,obj_umbra_logo)
 //instance_create(0,0,obj_bar_select);

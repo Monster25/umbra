@@ -53,7 +53,7 @@ alarm[0] = 3*room_speed;
           <argument>
             <kind>1</kind>
             <string>//fade 
-scr_fade_outin(3/room_speed,"rm_splash2");
+scr_fade_outin(3,"rm_splash2");
 
 </string>
           </argument>

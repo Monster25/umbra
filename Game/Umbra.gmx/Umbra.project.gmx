@@ -7,14 +7,17 @@
   <sounds name="sound">
     <sounds name="Music">
       <sound>sound\bgm_forest_01</sound>
+      <sound>sound\bgm_main_menu_01</sound>
     </sounds>
     <sounds name="Ambience">
       <sound>sound\bga_forest_01</sound>
+      <sound>sound\bga_scoreboard_01</sound>
     </sounds>
     <sounds name="Sound Effects">
       <sound>sound\snd_bow_hit</sound>
       <sound>sound\snd_bow_shoot</sound>
       <sound>sound\snd_altray_logo</sound>
+      <sound>sound\snd_main_menu_01</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -88,17 +91,19 @@
     <sprites name="Misc">
       <sprite>sprites\spr_altray_logo</sprite>
       <sprite>sprites\spr_umbra_logo</sprite>
-      <sprite>sprites\spr_newgame</sprite>
-      <sprite>sprites\spr_options</sprite>
-      <sprite>sprites\spr_quit</sprite>
-      <sprite>sprites\spr_resolution</sprite>
-      <sprite>sprites\spr_back</sprite>
-      <sprite>sprites\spr_arrow_menu</sprite>
-      <sprite>sprites\spr_arrow_menu_left</sprite>
-      <sprite>sprites\spr_border</sprite>
-      <sprite>sprites\spr_purple_clouds</sprite>
-      <sprite>sprites\spr_select_bar</sprite>
-      <sprite>sprites\spr_menu_arrow</sprite>
+      <sprites name="Main Menu">
+        <sprite>sprites\spr_select_bar</sprite>
+        <sprite>sprites\spr_border</sprite>
+        <sprite>sprites\spr_quit</sprite>
+        <sprite>sprites\spr_options</sprite>
+        <sprite>sprites\spr_newgame</sprite>
+        <sprite>sprites\spr_arrow_menu</sprite>
+        <sprite>sprites\spr_back</sprite>
+        <sprite>sprites\spr_resolution</sprite>
+        <sprite>sprites\spr_arrow_menu_left</sprite>
+        <sprite>sprites\spr_menu_arrow</sprite>
+        <sprite>sprites\spr_purple_clouds</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -125,6 +130,7 @@
       <script>scripts\scr_player_draw_idle.gml</script>
       <script>scripts\scr_player_draw_run.gml</script>
       <script>scripts\scr_player_death.gml</script>
+      <script>scripts\scr_player_victory.gml</script>
     </scripts>
     <scripts name="Monster">
       <script>scripts\scr_monster_idle.gml</script>
@@ -153,14 +159,27 @@
     <scripts name="Game Control">
       <script>scripts\scr_menu_main.gml</script>
       <script>scripts\scr_menu_options.gml</script>
-      <script>scripts\scr_resolution.gml</script>
     </scripts>
     <scripts name="Functionality">
       <script>scripts\scr_update_grid.gml</script>
+      <script>scripts\scr_resolution.gml</script>
       <script>scripts\scr_next_level.gml</script>
       <script>scripts\scr_smooth_camera.gml</script>
       <script>scripts\scr_screen_shake.gml</script>
       <script>scripts\scr_fade_outin.gml</script>
+      <scripts name="Sound">
+        <script>scripts\scr_play_bgm.gml</script>
+        <script>scripts\scr_play_bga.gml</script>
+        <script>scripts\scr_mute_bgm.gml</script>
+        <script>scripts\scr_play_sound_on.gml</script>
+        <script>scripts\scr_play_sound.gml</script>
+      </scripts>
+      <scripts name="Scoreboard">
+        <script>scripts\scr_scoreboard_arrows_shot.gml</script>
+        <script>scripts\scr_scoreboard_picked_crystals.gml</script>
+        <script>scripts\scr_scoreboard_max_level.gml</script>
+        <script>scripts\scr_scoreboard_killed_enemies.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Light Engine">
       <script>scripts\lightmap_init.gml</script>
@@ -203,6 +222,8 @@
     <font>fonts\fnt_menu</font>
     <font>fonts\fnt_debug</font>
     <font>fonts\fnt_options</font>
+    <font>fonts\fnt_scoreboard</font>
+    <font>fonts\fnt_scoreboard_small</font>
   </fonts>
   <objects name="objects">
     <objects name="Game Control">

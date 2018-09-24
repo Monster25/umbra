@@ -15,6 +15,9 @@ argument[0].arrow_damage = argument[0].arrow_damage_min; //reset damage
 if (creator == obj_player.id)
 argument[0].draw = 0;
 ///Sound
-audio_play_sound_on(creator.emitter,obj_game_control.arrow[type, 7],0,1); //shooting arrow sound
+scr_play_sound_on(creator,obj_game_control.arrow[type, 7]);//Sound
 }
+
+//Scoreboard
+scr_scoreboard_arrows_shot();
 

@@ -59,7 +59,7 @@ if (music_loaded &amp;&amp; ambience_loaded &amp;&amp; soundeffects_loaded)
 {
 //obj_umbra_logo.depth = -10000;
 //obj_umbra_logo.ok = 1;
-scr_fade_outin(3/room_speed,"rm_menu");
+scr_fade_outin(3,"rm_menu");
 }
 else
 alarm[0] = 1*room_speed;
