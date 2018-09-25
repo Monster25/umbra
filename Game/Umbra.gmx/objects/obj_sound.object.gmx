@@ -34,13 +34,16 @@ ok = 0;
 mpos = 0;
 //Actual Sounds
 
+
+//Menu ambience and music is set here
 //Ambience
 scoreboard_ambience = bga_scoreboard_01;
 //Music
 main_menu_music = bgm_main_menu_01;
-//SoundEffects
+//SoundEffects are put here until I find a place for them
 shoot = snd_bow_shoot;
-push = snd_main_menu_01;
+button_push = snd_button_push;
+button_move = snd_button_move;
 
 
 </string>
@@ -65,16 +68,7 @@ push = snd_main_menu_01;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Menu Sounds
-if (instance_exists(obj_menu_main))
-{
-if (mpos != obj_menu_main.mpos)
-{
-mpos = obj_menu_main.mpos;
-scr_play_sound(push);
-}
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

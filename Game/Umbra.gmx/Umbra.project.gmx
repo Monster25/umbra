@@ -14,10 +14,17 @@
       <sound>sound\bga_scoreboard_01</sound>
     </sounds>
     <sounds name="Sound Effects">
-      <sound>sound\snd_bow_hit</sound>
-      <sound>sound\snd_bow_shoot</sound>
-      <sound>sound\snd_altray_logo</sound>
-      <sound>sound\snd_main_menu_01</sound>
+      <sounds name="Menu">
+        <sound>sound\snd_button_push</sound>
+        <sound>sound\snd_button_move</sound>
+      </sounds>
+      <sounds name="Player">
+        <sound>sound\snd_bow_shoot</sound>
+        <sound>sound\snd_bow_hit</sound>
+      </sounds>
+      <sounds name="Misc">
+        <sound>sound\snd_altray_logo</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">

@@ -31,7 +31,6 @@ menu1[1] = "Quit";
 space = 80;
 mpos = 0;
 pushed = 0;
-push = snd_main_menu_01;
 //Sprites
 instance_create(0,0,obj_umbra_logo)
 //instance_create(0,0,obj_bar_select);
@@ -39,6 +38,7 @@ instance_create(0,0,obj_umbra_logo)
 //instance_create(0,0,obj_border);
 instance_create(room_width/2,room_height/2,obj_newgame);
 instance_create(room_width/2,room_height/2+obj_newgame.sprite_height,obj_quit);
+
 </string>
           </argument>
         </arguments>
@@ -68,6 +68,8 @@ move += max(keyboard_check_pressed(vk_down),0);
 
 if (move != 0)
 {
+    //Play sound
+    scr_play_sound(obj_sound.button_move);
     mpos += move;
     if (mpos &lt; 0)
     mpos = array_length_1d(menu1) - 1;
@@ -80,6 +82,8 @@ push = max(keyboard_check_released(vk_enter),0)
 if (push == 1 &amp;&amp; pushed == 0)
 {
 pushed = 1;
+//Play sound
+scr_play_sound(obj_sound.button_push);
 scr_menu_main();
 }
 </string>
