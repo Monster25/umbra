@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dir = direction;
+            <string>
+dir = direction;
 </string>
           </argument>
         </arguments>

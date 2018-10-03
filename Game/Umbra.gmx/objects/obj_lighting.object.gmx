@@ -25,10 +25,65 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Inits
-globalvar surf;
-surf = -1;
-surf = surface_create(view_wview[0], view_hview[0]);
+            <string>wallthatblock = ds_stack_create() // we keep a list of all walls in this
+surfaceblur = surface_create(room_width, room_height); // how the room should look in the shadow
+surfacewhatyoucansee = surface_create(room_width, room_height); // the mask of what the player can see
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// This is where you want the light source to be 
+// you wont need this, this just needs to be x = obj_player.x or something like that 
+
+// damn simple collisions for HTML version
+/*
+if (place_meeting(mouse_x,mouse_y,obj_wall) == false) {
+    // if the mouse is in a free space move light there otherwise use last point
+    x = mouse_x
+    y = mouse_y
+}
+*/
+//x = obj_player.x;
+//y = obj_player.y;
+
+/// find walls to cast shadows  
+
+with(obj_solid) {
+
+    /*
+    but doing some if statments you can 
+    find out if the person is above ot below the wall and then to the left or the right
+    from this you know the two walls the line could be projected onto. 
+    
+    you when just need to work out which of the two walls is the best to project it onto 
+    
+    I think we can optermis this as well, 
+     - do a collision line and dont bother to run this code on walls already behind another wall 
+     - do a simple field of view and dont work out walls massively behind the person 
+     - dont do walls off the screen
+*/
+
+    ds_stack_push(other.wallthatblock,id)
+    
+}
 </string>
           </argument>
         </arguments>
@@ -51,55 +106,112 @@ surf = surface_create(view_wview[0], view_hview[0]);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Lighting
-//Dark Room and surface creation
-if (!surface_exists(surf)) {
-    surf = surface_create(view_wview[0], view_hview[0]);
-}
-surface_set_target(surf);
-draw_clear(c_black);
+            <string>/// MAKE A MASK THAT SHOWS WHERE THE PLAYER CAN SEE
 
-//Arrow Lighting
-with (obj_arrow)
-{
-draw_set_blend_mode(bm_src_color);
-//draw_set_blend_mode(bm_one);
-draw_set_blend_mode(bm_add);
-draw_circle_colour(x - view_xview[0],y - view_yview[0],light_size ,light_color,light_color,0);
-draw_set_blend_mode(bm_normal);
-draw_set_alpha(1);
-}
+// make sure the surface still exists and the graphics card hasnt deleted it 
+if (! surface_exists(surfacewhatyoucansee)) {surfacewhatyoucansee = surface_create(room_width, room_height); }
 
-//Crystal Lighting
-with (obj_crystal)
-{
-draw_set_blend_mode(bm_src_color);
-//draw_set_blend_mode(bm_one);
-draw_set_blend_mode(bm_add);
-draw_circle_colour(x - view_xview[0]+sprite_width/2,y - view_yview[0] + sprite_height/2,light_size ,light_color,light_color,0);
-draw_set_blend_mode(bm_normal);
-draw_set_alpha(1);
-}
+surface_set_target(surfacewhatyoucansee)
 
-//Stuck Arrow Lighting
-with (obj_arrow_stuck)
-{
-draw_set_blend_mode(bm_src_color);
-draw_set_blend_mode(bm_add);
-draw_circle_colour(x - view_xview[0],y - view_yview[0],light_size ,light_color,light_color,0);
-draw_set_blend_mode(bm_normal);
-draw_set_alpha(1);
-}
+// we are currently drawing on the surface so everything drawn here is not drawn onto the screen but onto the surface 
 
-//Reset and surf specs
-//Actual darkness
+draw_clear_alpha(c_black,1) // make the whole surface black 
+
+draw_set_blend_mode(bm_subtract) // remove all the places the player can see
+
+// This is now the standard lighting I have done guides about before 
+var numberoflinesimdrawing = ds_stack_size(wallthatblock)
+var shadowsize = 1100
+
+for (i=0; i&lt;numberoflinesimdrawing; i++) {
+    // draw_shadows
+    draw_set_colour(c_black)
+
+    wall = ds_stack_pop(wallthatblock)
+    
+    //draw_primitive_begin(pr_linestrip);
+    draw_primitive_begin(pr_trianglestrip)
+        draw_vertex(wall.bbox_left, wall.bbox_top);
+        var dir = point_direction(x,y,wall.bbox_left,wall.bbox_top)
+        draw_vertex(wall.x+lengthdir_x(shadowsize,dir), wall.y+lengthdir_y(shadowsize,dir));
+
+        draw_vertex(wall.bbox_left, wall.bbox_bottom);
+        var dir = point_direction(x,y,wall.bbox_left,wall.bbox_bottom)
+        draw_vertex(wall.x+lengthdir_x(shadowsize,dir), wall.y+lengthdir_y(shadowsize,dir));
+
+        draw_vertex(wall.bbox_right, wall.bbox_top);
+        var dir = point_direction(x,y,wall.bbox_right,wall.bbox_top)
+        draw_vertex(wall.x+lengthdir_x(shadowsize,dir), wall.y+lengthdir_y(shadowsize,dir));
+ 
+        draw_vertex(wall.bbox_right, wall.bbox_bottom);
+        var dir = point_direction(x,y,wall.bbox_right,wall.bbox_bottom)
+        draw_vertex(wall.x+lengthdir_x(shadowsize,dir), wall.y+lengthdir_y(shadowsize,dir));
+
+    draw_primitive_end()
+    
+    // normally you draw this under the walls so they dont get blurred out, 
+    // if you do want walls hidden by the shadows add this line:
+    //draw_rectangle(wall.bbox_left,wall.bbox_top,wall.bbox_right,wall.bbox_bottom,false)
+    
+};
+
+// reset everything 
+draw_set_blend_mode(bm_normal)
 surface_reset_target();
 
-draw_set_blend_mode_ext(bm_dest_color, bm_inv_src_alpha);
-draw_surface_ext(surf, view_xview[0], view_yview[0], 1, 1, 0, c_white, 0.82);
-draw_set_blend_mode(bm_normal);
+// - Assert - At this point we have a mask called surfacewhatyoucansee that is black where the player cant see and transparent where they can 
 
 
+/// MAKE A SURFACE OF THE WHOLE ROOM AND MANIPULATE IT TO LOOK LIKE HOW YOU WANT THE SHADOWS TO LOOK LIKE
+// (we will cut out of this image what the player can see so those bits will not be displayed)
+
+if (! surface_exists(surfaceblur)) {surfaceblur = surface_create(room_width, room_height); }
+
+surface_set_target(surfaceblur)
+
+/// ---- These are the edits I want to make: ----
+
+/*
+// blur:
+draw_set_alpha(0.5) // for some reason draw_set_alpha doesnt work on HTML5
+draw_surface_ext(application_surface, 3, 3, 1, 1, 0, c_white, 0.5);
+draw_surface_ext(application_surface, -3, 3, 1, 1, 0, c_white, 0.5);
+draw_surface_ext(application_surface, 3, -3, 1, 1, 0, c_white, 0.5);
+draw_surface_ext(application_surface, -3, -3, 1, 1, 0, c_white, 0.5);
+draw_set_alpha(1)
+*/
+
+
+// darken:
+draw_set_alpha(0.85) // 0.15
+draw_set_colour(c_black)
+draw_rectangle(0,0,room_width,room_height,false)
+draw_set_alpha(1)
+
+/*
+// static:
+draw_set_alpha(0.15) // 0.15
+draw_sprite_tiled(spr_noise,0,irandom(50),irandom(50))
+draw_set_alpha(1)
+*/
+
+/// ---- Now we want to do the masking ----
+
+// we are currently editing the blur surface so anything we draw here is not drawn to the screen but onto the surface
+
+draw_set_blend_mode(bm_subtract)
+
+draw_surface(surfacewhatyoucansee,0,0) // use blend mode subtract to cut the lighting mask out of the surface we blurred up 
+
+draw_set_blend_mode(bm_normal)
+
+surface_reset_target(); // reset everything 
+
+draw_surface(surfaceblur,0,0) // draw all our work onto the screen (above the background but below the walls)
+
+/// draw the location of the light (you dont need this)
+
+//draw_sprite(spr_light,0,x,y)
 </string>
           </argument>
         </arguments>

@@ -240,7 +240,6 @@
       <object>objects\obj_grid</object>
       <object>objects\obj_game_control</object>
       <object>objects\obj_scoreboard</object>
-      <object>objects\obj_lighting</object>
       <object>objects\obj_room_control</object>
       <object>objects\obj_boss_control</object>
       <object>objects\obj_camera</object>
@@ -289,6 +288,16 @@
       <object>objects\obj_border</object>
       <object>objects\obj_purple_clouds</object>
       <object>objects\obj_bar_select</object>
+    </objects>
+    <objects name="Lighting">
+      <object>objects\obj_lighting_old</object>
+      <object>objects\obj_lighting</object>
+      <objects name="TestLighting">
+        <object>objects\obj_light_parent</object>
+        <object>objects\obj_light</object>
+        <object>objects\obj_lightmap</object>
+        <object>objects\obj_caster_parent</object>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">

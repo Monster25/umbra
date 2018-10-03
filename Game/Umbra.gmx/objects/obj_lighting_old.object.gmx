@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-100</depth>
-  <persistent>0</persistent>
+  <depth>-2</depth>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,14 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>lightmap_init(view_wview,view_hview);
-
-lightmap_set_ambient(0.3);
-lightmap_set_light_parent_object(obj_light_parent);
-lightmap_set_caster_parent_object(obj_caster_parent);
-lightmap_move_with_view(true);
-lightmap_set_shadows_enabled(true);
-lightmap_set_shadow_size(256);
+            <string>///Inits
+globalvar surf;
+surf = -1;
+surf = surface_create(view_wview[0], view_hview[0]);
 </string>
           </argument>
         </arguments>
@@ -55,8 +51,53 @@ lightmap_set_shadow_size(256);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>lightmap_update();
-lightmap_draw();
+            <string>///Lighting
+//Dark Room and surface creation
+if (!surface_exists(surf)) {
+    surf = surface_create(view_wview[0], view_hview[0]);
+}
+surface_set_target(surf);
+draw_clear(c_black);
+
+//Arrow Lighting
+with (obj_arrow)
+{
+draw_set_blend_mode(bm_src_color);
+//draw_set_blend_mode(bm_one);
+draw_set_blend_mode(bm_add);
+draw_circle_colour(x - view_xview[0],y - view_yview[0],light_size ,light_color,light_color,0);
+draw_set_blend_mode(bm_normal);
+draw_set_alpha(1);
+}
+
+//Crystal Lighting
+with (obj_crystal)
+{
+draw_set_blend_mode(bm_src_color);
+//draw_set_blend_mode(bm_one);
+draw_set_blend_mode(bm_add);
+draw_circle_colour(x - view_xview[0]+sprite_width/2,y - view_yview[0] + sprite_height/2,light_size ,light_color,light_color,0);
+draw_set_blend_mode(bm_normal);
+draw_set_alpha(1);
+}
+
+//Stuck Arrow Lighting
+with (obj_arrow_stuck)
+{
+draw_set_blend_mode(bm_src_color);
+draw_set_blend_mode(bm_add);
+draw_circle_colour(x - view_xview[0],y - view_yview[0],light_size ,light_color,light_color,0);
+draw_set_blend_mode(bm_normal);
+draw_set_alpha(1);
+}
+
+//Reset and surf specs
+//Actual darkness
+surface_reset_target();
+
+draw_set_blend_mode_ext(bm_dest_color, bm_inv_src_alpha);
+draw_surface_ext(surf, view_xview[0], view_yview[0], 1, 1, 0, c_white, 0.82);
+draw_set_blend_mode(bm_normal);
 </string>
           </argument>
         </arguments>
