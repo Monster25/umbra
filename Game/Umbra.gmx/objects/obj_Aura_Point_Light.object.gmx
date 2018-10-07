@@ -2,10 +2,10 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
-  <depth>0</depth>
+  <visible>0</visible>
+  <depth>-100</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_Aura_Light_Parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,46 +25,45 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Inits
-//Random crystal type and respective sprite
-type = irandom_range(1,array_height_2d(obj_game_control.arrow)-1);
-//Animation
-sprite_index = obj_game_control.arrow[type,5];
-image_speed = 0.18;
+            <string>/// Initialise light
+
+// NOTES: This is an example point light. Lights are INSTANCE based, therefore 
+// it is one light per-instance, and multiple lights cannot be assigned to a single 
+// instance. This may not be the most performance efficient way to do things, but this 
+// engine was designed for a compromise of performance with ease of use.
+//
+// The light will use the assigned sprite_index for drawing and for the best effect 
+// the sprite should be white or grey-scale. You can colour the light and set it's
+// alpha value using the variables assigned in the script below.
+//
+// The light instances should NOT be visible, and in this demo project the 
+// visible flag is set to false in the object properties.
+// 
+// All light instances MUST BE CHILDREN OF obj_Aura_Light_Parent, otherwise they 
+// will not be drawn.
 
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Lighting
-light_size_real = 0.25;
-light_size = light_size_real;
-light_flicker = 10;
-light_color = obj_game_control.arrow[type, 2];
+// Set up light
 
+// First assign the sprite. You can assign the sprite in the object editor if 
+// you wish, but I do it here to make editing the room easier.
+
+sprite_index = spr_Aura_Point_Light;
+
+// Now initialise the light (see the cript for the arguments)
+if room == rm_Aura_Demo var static = true else var static = false;
+Aura_Light_Init(128, make_color_rgb(random(256), random(256), random(256)), 0.8 + random(0.2), static);
+// DEMO ONLY
+
+// Even if a light is static, you can still change it's alpha and colour,
+// so we have a variable to control this in the demo.
+flash = false;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -81,40 +80,24 @@ light_color = obj_game_control.arrow[type, 2];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Collision with player, collect crystal
-player = instance_place(x,y,obj_player);
-if (player)
-scr_collect_crystal(player);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Lighting
-//Flicker Light if it has light
-if (light_size!=0)
-light_size = scr_light_flicker(light_size_real,light_size,light_flicker);
+            <string>/// Flash Alarm
+
+// DEMO ONLY
+
+// Change the light colour. This works no matter whether the light is 
+// static or dynamic.
+
+var c = colour_get_hue(aura_light_colour);
+c++;
+if c &gt; 255 c -= 255;
+aura_light_colour = make_colour_hsv(c, 255, 255);
+alarm[1] = 1;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -131,8 +114,22 @@ light_size = scr_light_flicker(light_size_real,light_size,light_flicker);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Draw sprite
-draw_sprite_ext(sprite_index,image_index,x,y,1,1,0,c_white,1);
+            <string>/// Flash Alarm
+
+// Change thelight alpha. This works no matter whether the light is 
+// static or dynamic.
+
+// DEMO ONLY
+
+if aura_light_alpha &lt; 1
+{
+aura_light_alpha += 0.05;
+}
+else
+{
+aura_light_alpha = 0.2;
+}
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>
@@ -150,5 +147,8 @@ draw_sprite_ext(sprite_index,image_index,x,y,1,1,0,c_white,1);
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>127,127</point>
+    <point>128,128</point>
+  </PhysicsShapePoints>
 </object>

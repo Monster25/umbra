@@ -17,9 +17,7 @@ with(obj_gui)
 instance_destroy();
 with(obj_camera)
 instance_destroy();
-with(obj_lighting_old)
-instance_destroy();
-with(obj_lighting)
+with(obj_light_control)
 instance_destroy();
 with(obj_debug)
 instance_destroy();

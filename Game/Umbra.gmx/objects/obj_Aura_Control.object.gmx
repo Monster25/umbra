@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,46 +25,46 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Inits
-//Random crystal type and respective sprite
-type = irandom_range(1,array_height_2d(obj_game_control.arrow)-1);
-//Animation
-sprite_index = obj_game_control.arrow[type,5];
-image_speed = 0.18;
+            <string>/// Create aura lighting engine
+
+// This is the main light controller object. It will do all the light 
+// drawing and should be set to a depth LOWER than everything that you 
+// want the light to appear over. Note that this engine draws the 
+// lighting surface using an "overlay" effect, rather than an additive
+// effect which gives much better blending and laso means that things 
+// drawn under them will not be to brilliant or saturated.
+
+// Please read the comments in each object, and all the scripts to get 
+// how the engine works, but breifly you add this object to a room, 
+// then add light objects (which MUST have the parent "obj_Aura_Light_Parent")
+// and wall/solid objects (which MUST have the parent "obj_Aura_ShadowCaster_Parent")
+// Light objects should have their visible flag set to false.
+
+// Now initialise the lighting
+
+// You give an alpha value for the ambience colour. This value is from 1 to 0, with 
+// a larger value indicating brighter ambient light. The colour is the "tint" that 
+// you ewant the ambient light to have.
+
+Aura_Init(0.1, c_aqua, true);
+
+// This script creates two further variables which you can use:
+//
+// aura_alpha - sets the brightness for the ambience
+// aura_colour - sets the colour for the ambient light
+//
+// These variables can be used at any time to change the ambience and so you 
+// can use them to create day/night cycles etc... 
 
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Lighting
-light_size_real = 0.25;
-light_size = light_size_real;
-light_flicker = 10;
-light_color = obj_game_control.arrow[type, 2];
+
 
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="7" enumb="5">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -81,34 +81,9 @@ light_color = obj_game_control.arrow[type, 2];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Collision with player, collect crystal
-player = instance_place(x,y,obj_player);
-if (player)
-scr_collect_crystal(player);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Lighting
-//Flicker Light if it has light
-if (light_size!=0)
-light_size = scr_light_flicker(light_size_real,light_size,light_flicker);
+            <string>/// Free memory from lighting
+
+Aura_CleanUp();
 </string>
           </argument>
         </arguments>
@@ -131,8 +106,11 @@ light_size = scr_light_flicker(light_size_real,light_size,light_flicker);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Draw sprite
-draw_sprite_ext(sprite_index,image_index,x,y,1,1,0,c_white,1);
+            <string>/// Update and draw lighting
+
+Aura_Update();
+Aura_Draw();
+
 </string>
           </argument>
         </arguments>
@@ -150,5 +128,8 @@ draw_sprite_ext(sprite_index,image_index,x,y,1,1,0,c_white,1);
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>127,127</point>
+    <point>128,128</point>
+  </PhysicsShapePoints>
 </object>

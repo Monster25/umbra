@@ -25,10 +25,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Lighting
-light_size = 0;
-light_color = 0;
+            <string>///Inits
+dir = 0;
+type = 0;
+origin_x = 0;
+origin_y = 0;
+anchor = 0;
+dir_diff = 0;
+dist_diff = 0;
+origin_dir = 0;
 
+stuck_dx = 0;
+stuck_dy = 0;
+y_offset = 0;
+
+angle = 0;
+distance = 0;
 </string>
           </argument>
         </arguments>
@@ -49,22 +61,12 @@ light_color = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Inits
-dir = 0;
-type = 0;
-origin_x = 0;
-origin_y = 0;
-anchor = 0;
-dir_diff = 0;
-dist_diff = 0;
-origin_dir = 0;
+            <string>///Lighting
+light_size_real = 0;
+light_color = 0;
+light_size = 0;
+light_flicker = 0;
 
-stuck_dx = 0;
-stuck_dy = 0;
-y_offset = 0;
-
-angle = 0;
-distance = 0;
 </string>
           </argument>
         </arguments>
@@ -159,36 +161,10 @@ audio_emitter_position(emitter,x,y,0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Flicker Light if it has light
+            <string>///Lighting
+//Flicker Light if it has light
 if (light_size!=0)
-{
-light_size += choose(0.50,-0.50);
-light_size = clamp(light_size,obj_game_control.arrow[type,3]-1 ,obj_game_control.arrow[type,3]+1);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Update Position
-
-
-
+light_size = scr_light_flicker(light_size_real,light_size,light_flicker);
 </string>
           </argument>
         </arguments>

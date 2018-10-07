@@ -56,8 +56,10 @@ creator = 0; //creator id of arrow
           <argument>
             <kind>1</kind>
             <string>///Lighting
+light_size_real = 0;
 light_size = 0;
 light_color = 0;
+light_flicker = 0;
 
 </string>
           </argument>
@@ -81,16 +83,12 @@ light_color = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction = dir;
+            <string>///Collisions and events
+direction = dir;
 image_angle = dir;
 speed = spd;
 
-//Flicker Light if it has light
-if (light_size!=0)
-{
-light_size += choose(0.50,-0.50);
-light_size = clamp(light_size,obj_game_control.arrow[type,3]-1 ,obj_game_control.arrow[type,3]+1);
-}
+
 
 //Collision
 //With solid
@@ -109,8 +107,10 @@ if (solid_id)
     arrow_stuck.dir_diff = solid_id.dir-dir;
     arrow_stuck.dist_diff = point_distance(solid_id.x,solid_id.y,arrow_stuck.origin_x,arrow_stuck.origin_y);
     arrow_stuck.sprite_index = obj_game_control.arrow[type, 4];
-    arrow_stuck.light_size = obj_game_control.arrow[type, 3];
+    arrow_stuck.light_size_real = obj_game_control.arrow[type, 3];
+    arrow_stuck.light_size = arrow_stuck.light_size_real;
     arrow_stuck.light_color = light_color;
+    arrow_stuck.light_flicker = obj_game_control.arrow[type, 10];
     audio_play_sound_on(arrow_stuck.emitter,obj_game_control.arrow[type, 8],0,1); //hit arrow sound
     with (arrow_stuck)
     alarm[0] = 2*room_speed;
@@ -162,14 +162,40 @@ if (distance_to_point(initial_x,initial_y) &gt; range)
     arrow_stuck.type = type;
     arrow_stuck.dir = dir;
     arrow_stuck.sprite_index = obj_game_control.arrow[type, 6];
-    arrow_stuck.light_size = obj_game_control.arrow[type, 3];
+    arrow_stuck.light_size_real = obj_game_control.arrow[type, 3];
+    arrow_stuck.light_size = arrow_stuck.light_size_real;
     arrow_stuck.light_color = light_color;
+    arrow_stuck.light_flicker = obj_game_control.arrow[type, 10];
     audio_play_sound_on(arrow_stuck.emitter,obj_game_control.arrow[type, 8],0,1); //hit arrow sound
     with (arrow_stuck)
     alarm[0] = 2*room_speed;
     instance_destroy();
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Lighting
+//Flicker Light if it has light
+if (light_size!=0)
+light_size = scr_light_flicker(light_size_real,light_size,light_flicker);
 </string>
           </argument>
         </arguments>

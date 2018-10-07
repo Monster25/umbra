@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
-  <persistent>0</persistent>
+  <depth>-100</depth>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,16 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>light_size_real = 1; //Real Size of Light 0.0 - 1.0 (1.0 = 256 px)
-light_size = light_size_real; //MOdifiable Size of Light
-light_flicker = 10; //Light flicker percentage
-light_color = make_color_rgb(89,35,13);
+            <string>//Surface Creation
+surf = surface_create(view_wview[0],view_hview[0]);
+
+//Properties 
+darkness_amount = 0.95; //0.0 - 1.0
+
+
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -51,7 +55,43 @@ light_color = make_color_rgb(89,35,13);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>light_size = scr_light_flicker(light_size_real,light_size,light_flicker);
+            <string>//Check surface
+if (!surface_exists(surf))
+{
+surf = surface_create(view_wview[0],view_hview[0]);
+}
+
+surface_set_target(surf);
+
+draw_clear(c_black);
+
+
+draw_set_blend_mode(bm_add);
+//draw_set_blend_mode_ext(bm_one,bm_one);
+
+//Object Lighting
+
+//Arrow Lighting
+with(obj_arrow)
+draw_sprite_ext(spr_light,0,x-view_xview[0],y-view_yview[0],light_size,light_size,0,light_color,1);
+//Crystal Lighting
+with (obj_crystal)
+draw_sprite_ext(spr_light,0,x-view_xview[0]+sprite_width/2,y-view_yview[0]+sprite_height/2,light_size,light_size,0,light_color,1);
+//Stuck Arrow Lighting
+with (obj_arrow_stuck)
+draw_sprite_ext(spr_light,0,x-view_xview[0],y-view_yview[0],light_size,light_size,0,light_color,1);
+
+//Light Lighting
+with(obj_light)
+draw_sprite_ext(spr_light,0,x-view_xview[0],y-view_yview[0],light_size,light_size,0,light_color,1);
+
+//Bla bla blend modes
+surface_reset_target();
+
+draw_set_blend_mode_ext(bm_dest_color,bm_inv_src_alpha)
+draw_surface_ext(surf,view_xview[0],view_yview[0],1,1,0,c_white,darkness_amount);
+
+draw_set_blend_mode(bm_normal);
 
 </string>
           </argument>

@@ -112,6 +112,10 @@
         <sprite>sprites\spr_purple_clouds</sprite>
       </sprites>
     </sprites>
+    <sprites name="Lighting">
+      <sprite>sprites\spr_light</sprite>
+      <sprite>sprites\spr_light_color</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\ts_grass_01</background>
@@ -188,41 +192,15 @@
         <script>scripts\scr_scoreboard_killed_enemies.gml</script>
       </scripts>
     </scripts>
-    <scripts name="Light Engine">
-      <script>scripts\lightmap_init.gml</script>
-      <script>scripts\caster_draw_debug.gml</script>
-      <script>scripts\lightmap_move_with_view.gml</script>
-      <script>scripts\lightmap_update.gml</script>
-      <script>scripts\lightmap_resize.gml</script>
-      <script>scripts\lightmap_set_ambient.gml</script>
-      <script>scripts\lightmap_set_light_parent_object.gml</script>
-      <script>scripts\lightmap_set_caster_parent_object.gml</script>
-      <script>scripts\lightmap_set_shadows_enabled.gml</script>
-      <script>scripts\caster_init_rectangle.gml</script>
-      <script>scripts\light_set_color.gml</script>
-      <script>scripts\caster_set_height.gml</script>
-      <script>scripts\caster_init_sprite.gml</script>
-      <script>scripts\light_init_sprite.gml</script>
-      <script>scripts\light_set_height.gml</script>
-      <script>scripts\light_init_point.gml</script>
-      <script>scripts\light_set_rotation.gml</script>
-      <script>scripts\light_set_radius.gml</script>
-      <script>scripts\light_set_sprite.gml</script>
-      <script>scripts\light_set_type.gml</script>
-      <script>scripts\light_set_sprite_index.gml</script>
-      <script>scripts\lightmap_draw.gml</script>
-      <script>scripts\caster_init_polygon.gml</script>
-      <script>scripts\lightmap_set_shadow_size.gml</script>
-      <script>scripts\lightmap_draw_shadow.gml</script>
-      <script>scripts\caster_add_point.gml</script>
-      <script>scripts\caster_init_circle.gml</script>
-    </scripts>
     <scripts name="Camera">
       <script>scripts\scr_approach.gml</script>
     </scripts>
     <scripts name="Projectiles">
       <script>scripts\scr_shadow_arrow_hit.gml</script>
       <script>scripts\scr_placeholder_hit.gml</script>
+    </scripts>
+    <scripts name="Lighting">
+      <script>scripts\scr_light_flicker.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -290,14 +268,8 @@
       <object>objects\obj_bar_select</object>
     </objects>
     <objects name="Lighting">
-      <object>objects\obj_lighting_old</object>
-      <object>objects\obj_lighting</object>
-      <objects name="TestLighting">
-        <object>objects\obj_light_parent</object>
-        <object>objects\obj_light</object>
-        <object>objects\obj_lightmap</object>
-        <object>objects\obj_caster_parent</object>
-      </objects>
+      <object>objects\obj_light</object>
+      <object>objects\obj_light_control</object>
     </objects>
   </objects>
   <rooms name="rooms">
